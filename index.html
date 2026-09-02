@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KRAKEN — Entrenamiento de hipertrofia natural. Planes de entrenamiento, mentoría 1:1 y biblioteca de ejercicios." />
+  <title>KRAKEN — Hipertrofia Natural</title>
+
+  <link rel="icon" type="image/png" href="Kraken icon.png" />
+
+  <!-- Google Fonts: Bebas Neue + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand">
+        <img src="Kraken icon.png" alt="KRAKEN" class="brand-logo" />
+        <span class="brand-name">KRAKEN</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#inicio" class="nav-link">Inicio</a>
+        <a href="#planes" class="nav-link">Planes</a>
+        <a href="#sobre-mi" class="nav-link">Sobre Mí</a>
+        <a href="#ejercicios" class="nav-link">Ejercicios</a>
+        <a href="#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="container hero-inner reveal">
+      <img src="Kraken icon.png" alt="KRAKEN" class="hero-logo" />
+      <h1 class="hero-title">DESATÁ TU<br /><span>POTENCIAL</span></h1>
+      <p class="hero-tagline">Hipertrofia natural. Sin atajos, sin humo. Solo estructura, constancia y fuerza real.</p>
+      <a href="#planes" class="btn btn-primary hero-cta">Ver Planes</a>
+    </div>
+    <a href="#planes" class="scroll-hint" aria-hidden="true">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ================= PLANES ================= -->
+  <section class="section planes" id="planes">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Entrenamiento</p>
+        <h2 class="section-title">Planes</h2>
+        <p class="section-sub">Elegí el nivel que se ajusta a tu momento. Todos incluyen progresión, seguimiento y técnica.</p>
+      </div>
+
+      <div class="plan-grid">
+        <!-- Plan 1 -->
+        <article class="plan-card reveal">
+          <div class="plan-top">
+            <h3 class="plan-name">Hipertrofia Básico</h3>
+            <p class="plan-desc">Para principiantes que quieren ganar músculo con estructura.</p>
+          </div>
+          <p class="plan-price"><span class="currency">$</span>XX.XXX<span class="per">/mes</span></p>
+          <ul class="plan-features">
+            <li>Rutina de fuerza full body / torso-pierna</li>
+            <li>Guía de técnica en video</li>
+            <li>Progresión semana a semana</li>
+            <li>Soporte por email</li>
+          </ul>
+          <a href="#MERCADOPAGO_LINK_BASICO" class="btn btn-outline plan-btn" data-plan="Básico">Comprar plan</a>
+        </article>
+
+        <!-- Plan 2 -->
+        <article class="plan-card plan-card--featured reveal">
+          <span class="plan-badge">Más elegido</span>
+          <div class="plan-top">
+            <h3 class="plan-name">Hipertrofia Intermedio</h3>
+            <p class="plan-desc">Mayor volumen y complejidad para seguir progresando.</p>
+          </div>
+          <p class="plan-price"><span class="currency">$</span>XX.XXX<span class="per">/mes</span></p>
+          <ul class="plan-features">
+            <li>Split de 4–5 días</li>
+            <li>Manejo de volumen e intensidad</li>
+            <li>Ajustes según tu feedback</li>
+            <li>Soporte prioritario</li>
+          </ul>
+          <a href="#MERCADOPAGO_LINK_INTERMEDIO" class="btn btn-primary plan-btn" data-plan="Intermedio">Comprar plan</a>
+        </article>
+
+        <!-- Plan 3 -->
+        <article class="plan-card reveal">
+          <div class="plan-top">
+            <h3 class="plan-name">Hipertrofia Avanzado</h3>
+            <p class="plan-desc">Máxima intensidad para resultados avanzados.</p>
+          </div>
+          <p class="plan-price"><span class="currency">$</span>XX.XXX<span class="per">/mes</span></p>
+          <ul class="plan-features">
+            <li>Periodización avanzada</li>
+            <li>Técnicas de intensidad</li>
+            <li>Gestión de fatiga y deloads</li>
+            <li>Revisión de técnica personalizada</li>
+          </ul>
+          <a href="#MERCADOPAGO_LINK_AVANZADO" class="btn btn-outline plan-btn" data-plan="Avanzado">Comprar plan</a>
+        </article>
+
+        <!-- Mentoría 1:1 -->
+        <article class="plan-card plan-card--mentoria reveal">
+          <div class="plan-top">
+            <h3 class="plan-name">Mentoría 1:1</h3>
+            <p class="plan-desc">Acompañamiento personalizado, seguimiento cercano y ajustes constantes.</p>
+          </div>
+          <p class="plan-price plan-price--custom">A medida</p>
+          <ul class="plan-features">
+            <li>Plan 100% individualizado</li>
+            <li>Videollamadas de seguimiento</li>
+            <li>Contacto directo por WhatsApp</li>
+            <li>Nutrición y descanso incluidos</li>
+          </ul>
+          <a href="https://wa.me/WHATSAPP_NUMERO?text=Hola%20KRAKEN,%20quiero%20info%20de%20la%20Mentor%C3%ADa%201:1" class="btn btn-primary plan-btn" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SOBRE MÍ ================= -->
+  <section class="section about" id="sobre-mi">
+    <div class="container about-inner">
+      <div class="about-media reveal">
+        <img src="Kraken icon.png" alt="Entrenador KRAKEN" class="about-img" />
+      </div>
+      <div class="about-text reveal">
+        <p class="eyebrow">Sobre Mí</p>
+        <h2 class="section-title">El método KRAKEN</h2>
+        <p>Soy entrenador especializado en hipertrofia natural. Llevo años entrenando y ayudando a personas a construir un físico sólido sin recurrir a atajos ni promesas vacías.</p>
+        <p>Mi enfoque es simple: entrenamiento inteligente, progresión medible y hábitos que se sostienen en el tiempo. Cada plan está pensado para que entiendas <em>por qué</em> hacés lo que hacés, no solo para que lo hagas.</p>
+        <p>Si buscás resultados reales y estás dispuesto a ser constante, este es tu lugar.</p>
+        <a href="#planes" class="btn btn-outline">Empezar ahora</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BIBLIOTECA DE EJERCICIOS ================= -->
+  <section class="section library" id="ejercicios">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Biblioteca</p>
+        <h2 class="section-title">Ejercicios</h2>
+        <p class="section-sub">Técnica al detalle. Mirá la ejecución correcta antes de cargar peso.</p>
+      </div>
+
+      <div class="exercise-grid">
+        <!-- Ejercicio 1 -->
+        <article class="exercise-card reveal" data-video="#" data-title="Sentadilla con barra">
+          <div class="exercise-thumb">
+            <img src="Kraken icon.png" alt="Sentadilla con barra" />
+            <span class="play-icon" aria-hidden="true"></span>
+          </div>
+          <div class="exercise-body">
+            <h3 class="exercise-name">Sentadilla con barra</h3>
+            <p class="exercise-muscle">Cuádriceps · Glúteos</p>
+            <button class="btn btn-outline exercise-btn">Ver video</button>
+          </div>
+        </article>
+
+        <!-- Ejercicio 2 -->
+        <article class="exercise-card reveal" data-video="#" data-title="Press de banca">
+          <div class="exercise-thumb">
+            <img src="Kraken icon.png" alt="Press de banca" />
+            <span class="play-icon" aria-hidden="true"></span>
+          </div>
+          <div class="exercise-body">
+            <h3 class="exercise-name">Press de banca</h3>
+            <p class="exercise-muscle">Pectoral · Tríceps</p>
+            <button class="btn btn-outline exercise-btn">Ver video</button>
+          </div>
+        </article>
+
+        <!-- Ejercicio 3 -->
+        <article class="exercise-card reveal" data-video="#" data-title="Peso muerto">
+          <div class="exercise-thumb">
+            <img src="Kraken icon.png" alt="Peso muerto" />
+            <span class="play-icon" aria-hidden="true"></span>
+          </div>
+          <div class="exercise-body">
+            <h3 class="exercise-name">Peso muerto</h3>
+            <p class="exercise-muscle">Espalda · Isquios · Glúteos</p>
+            <button class="btn btn-outline exercise-btn">Ver video</button>
+          </div>
+        </article>
+
+        <!-- Ejercicio 4 -->
+        <article class="exercise-card reveal" data-video="#" data-title="Dominadas">
+          <div class="exercise-thumb">
+            <img src="Kraken icon.png" alt="Dominadas" />
+            <span class="play-icon" aria-hidden="true"></span>
+          </div>
+          <div class="exercise-body">
+            <h3 class="exercise-name">Dominadas</h3>
+            <p class="exercise-muscle">Dorsal · Bíceps</p>
+            <button class="btn btn-outline exercise-btn">Ver video</button>
+          </div>
+        </article>
+
+        <!-- Ejercicio 5 -->
+        <article class="exercise-card reveal" data-video="#" data-title="Press militar">
+          <div class="exercise-thumb">
+            <img src="Kraken icon.png" alt="Press militar" />
+            <span class="play-icon" aria-hidden="true"></span>
+          </div>
+          <div class="exercise-body">
+            <h3 class="exercise-name">Press militar</h3>
+            <p class="exercise-muscle">Hombro · Tríceps</p>
+            <button class="btn btn-outline exercise-btn">Ver video</button>
+          </div>
+        </article>
+
+        <!-- Ejercicio 6 -->
+        <article class="exercise-card reveal" data-video="#" data-title="Remo con barra">
+          <div class="exercise-thumb">
+            <img src="Kraken icon.png" alt="Remo con barra" />
+            <span class="play-icon" aria-hidden="true"></span>
+          </div>
+          <div class="exercise-body">
+            <h3 class="exercise-name">Remo con barra</h3>
+            <p class="exercise-muscle">Espalda media · Bíceps</p>
+            <button class="btn btn-outline exercise-btn">Ver video</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO ================= -->
+  <section class="section contact" id="contacto">
+    <div class="container">
+      <div class="section-head reveal">
+        <p class="eyebrow">Contacto</p>
+        <h2 class="section-title">Hablemos</h2>
+        <p class="section-sub">¿Dudas sobre qué plan te conviene? Escribime por el canal que prefieras.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <a href="https://wa.me/WHATSAPP_NUMERO" class="contact-item" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.83c0 4.55-3.7 8.25-8.26 8.25a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.39c0-4.55 3.7-8.24 8.25-8.24Zm-3.5 4.24c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.64-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.75-1.79-.2-.47-.4-.4-.54-.41-.14-.01-.3-.01-.46-.01Z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <a href="https://instagram.com/INSTAGRAM_USUARIO" class="contact-item" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16Zm0 1.8c-3.14 0-3.51.01-4.75.07-.9.04-1.38.19-1.71.32-.43.17-.74.37-1.06.69-.32.32-.52.63-.69 1.06-.13.33-.28.81-.32 1.71-.06 1.24-.07 1.61-.07 4.75s.01 3.51.07 4.75c.04.9.19 1.38.32 1.71.17.43.37.74.69 1.06.32.32.63.52 1.06.69.33.13.81.28 1.71.32 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c.9-.04 1.38-.19 1.71-.32.43-.17.74-.37 1.06-.69.32-.32.52-.63.69-1.06.13-.33.28-.81.32-1.71.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.04-.9-.19-1.38-.32-1.71a2.86 2.86 0 0 0-.69-1.06 2.86 2.86 0 0 0-1.06-.69c-.33-.13-.81-.28-1.71-.32-1.24-.06-1.61-.07-4.75-.07Zm0 3.06a4.98 4.98 0 1 1 0 9.96 4.98 4.98 0 0 1 0-9.96Zm0 8.21a3.23 3.23 0 1 0 0-6.46 3.23 3.23 0 0 0 0 6.46Zm6.34-8.41a1.16 1.16 0 1 1-2.32 0 1.16 1.16 0 0 1 2.32 0Z"/></svg>
+          <span>Instagram</span>
+        </a>
+
+        <a href="https://facebook.com/FACEBOOK_PAGINA" class="contact-item" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.78-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12Z"/></svg>
+          <span>Facebook</span>
+        </a>
+
+        <a href="https://tiktok.com/@TIKTOK_USUARIO" class="contact-item" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.5 2h-3v13.5a2.5 2.5 0 1 1-2.5-2.5c.17 0 .34.02.5.05V9.5A6 6 0 1 0 16.5 15.5V8.4a7.3 7.3 0 0 0 4.5 1.55V6.9a4.3 4.3 0 0 1-3-1.2 4.3 4.3 0 0 1-1.5-3.7Z"/></svg>
+          <span>TikTok</span>
+        </a>
+
+        <a href="https://youtube.com/@YOUTUBE_CANAL" class="contact-item" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.5a3 3 0 0 0-2.1-2.13C19.5 3.85 12 3.85 12 3.85s-7.5 0-9.4.52A3 3 0 0 0 .5 6.5 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.5 3 3 0 0 0 2.1 2.13c1.9.52 9.4.52 9.4.52s7.5 0 9.4-.52a3 3 0 0 0 2.1-2.13A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.5ZM9.6 15.6V8.4l6.2 3.6-6.2 3.6Z"/></svg>
+          <span>YouTube</span>
+        </a>
+
+        <a href="mailto:ezequiel.arce@outlook.com" class="contact-item" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h18a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1Zm.4 2 8.6 6.3L20.6 6H3.4ZM20 8.1l-7.4 5.4a1 1 0 0 1-1.2 0L4 8.1V18h16V8.1Z"/></svg>
+          <span>Email</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="Kraken icon.png" alt="KRAKEN" class="footer-logo" />
+      <p>&copy; <span id="year"></span> KRAKEN — Hipertrofia Natural. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ================= MODAL DE VIDEO ================= -->
+  <div class="modal" id="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video del ejercicio">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-box">
+      <button class="modal-close" data-close aria-label="Cerrar video">&times;</button>
+      <h3 class="modal-title" id="modal-title"></h3>
+      <div class="modal-video">
+        <iframe id="modal-iframe" src="" title="Video del ejercicio" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
