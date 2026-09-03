@@ -9,8 +9,8 @@ HTML + CSS + JavaScript puro, sin build. Se abre directo en el navegador.
 NUEVO SITIO WEB/
 ├── index.html          # Estructura y contenido
 ├── styles.css          # Estilos (estética oscura / premium)
-├── script.js           # Navegación, animaciones y modal de video
-├── Kraken icon.png      # Logo
+├── script.js           # Navegación y animaciones
+├── Kraken icon.png      # Logo / icono
 ├── img/
 │   ├── hero.jpg         # Foto del Hero (byn)
 │   └── sobre-mi.jpg     # Foto de Sobre Mí (byn)
@@ -20,15 +20,17 @@ NUEVO SITIO WEB/
 
 ## Secciones
 
-1. **Header** — nav fija (Inicio, Planes, Sobre Mí, Ejercicios, Contacto) + menú mobile.
-2. **Hero** — título, tagline, botón "Ver Planes" y foto.
+1. **Header** — nav fija (Inicio, Planes, Sobre Mí, Contacto) + menú mobile.
+2. **Hero** — icono KRAKEN, título, tagline, botón "Ver Planes" y foto.
 3. **Planes**
    - Autoguiados: **KRAKEN Antiflaco** (destacado), **Grasa Cero**, **Híbrido** — US$25 pago único c/u.
    - Con acompañamiento: **Mentoría Basic** (US$39 + US$25/mes) y **Mentoría VIP** (US$149 + US$100/mes).
 4. **Ebooks** — sección oculta, lista para activar (ver abajo).
 5. **Sobre Mí** — foto + descripción.
-6. **Biblioteca de Ejercicios** — grilla; cada tarjeta abre un modal con el video de Google Drive.
-7. **Contacto** — WhatsApp, Instagram, Facebook, TikTok, YouTube, email.
+6. **Contacto** — WhatsApp, Instagram, Facebook, TikTok, YouTube, email.
+
+> La biblioteca de ejercicios no va en el sitio: los videos viven en Google Drive y se
+> enlazan dentro de cada plan / asesoría.
 
 ---
 
@@ -40,7 +42,6 @@ NUEVO SITIO WEB/
 | Fotos | ✅ Cargadas (byn) |
 | Precios de planes | ✅ Cargados |
 | Botones de compra de los planes | ⏳ Van a **WhatsApp** por ahora (venta manual). Falta cambiarlos por links de pago |
-| Videos de ejercicios | ⏳ Placeholder (`data-video="#"`). Falta cargar links de Google Drive |
 | Sección Ebooks | ⏳ Oculta. Falta título/precio/link de cada ebook y activarla |
 
 ### Cambiar los botones de compra por links de pago
@@ -64,12 +65,6 @@ En `index.html`:
 1. Quitá el atributo `hidden` de `<section class="section ebooks" id="ebooks" hidden>`.
 2. Agregá en el `<nav>` del header: `<a href="#ebooks" class="nav-link">Ebooks</a>`.
 3. Reemplazá títulos, textos, precios (`US$XX`) y los `href="#EBOOK_LINK_..."` por los links reales.
-
-### Cargar los videos de ejercicios
-
-Cada tarjeta tiene `data-video="#"`. Reemplazá el `#` por el link de Google Drive
-(`https://drive.google.com/file/d/EL_ID/view?usp=sharing`). El script lo convierte solo
-a la URL de reproducción. Cada video debe estar compartido como **"Cualquier persona con el enlace"**.
 
 ---
 

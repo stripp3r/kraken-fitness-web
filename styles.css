@@ -138,7 +138,7 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   gap: 12px;
 }
-.brand-logo { width: 38px; height: 38px; object-fit: contain; }
+.brand-logo { height: 30px; width: auto; }
 .brand-name {
   font-family: var(--font-display);
   font-size: 1.7rem;
@@ -233,6 +233,13 @@ button { font-family: inherit; cursor: pointer; }
   grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
   gap: 50px;
+}
+.hero-mark {
+  width: 78px;
+  height: auto;
+  margin-bottom: 22px;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.22));
 }
 .hero-title {
   font-family: var(--font-display);
@@ -474,89 +481,6 @@ button { font-family: inherit; cursor: pointer; }
 .about-text em { color: var(--white); font-style: italic; }
 
 /* =========================================================
-   BIBLIOTECA DE EJERCICIOS
-   ========================================================= */
-.exercise-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-}
-.exercise-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  transition: transform 0.3s var(--ease), border-color 0.3s var(--ease);
-}
-.exercise-card:hover {
-  transform: translateY(-6px);
-  border-color: var(--border-strong);
-}
-.exercise-thumb {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  background: #0a0a0a;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-.exercise-thumb img {
-  width: 42%;
-  filter: grayscale(1) opacity(0.5);
-  transition: transform 0.4s var(--ease), filter 0.4s var(--ease);
-}
-.exercise-card:hover .exercise-thumb img {
-  transform: scale(1.06);
-  filter: grayscale(1) opacity(0.7);
-}
-.play-icon {
-  position: absolute;
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1.5px solid var(--white);
-  backdrop-filter: blur(4px);
-  transition: background 0.25s var(--ease), transform 0.25s var(--ease);
-}
-.play-icon::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 54%;
-  transform: translate(-50%, -50%);
-  border-style: solid;
-  border-width: 9px 0 9px 15px;
-  border-color: transparent transparent transparent var(--white);
-}
-.exercise-card:hover .play-icon {
-  background: var(--white);
-  transform: scale(1.08);
-}
-.exercise-card:hover .play-icon::after {
-  border-left-color: var(--black);
-}
-.exercise-body { padding: 22px 22px 26px; }
-.exercise-name {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.5rem;
-  letter-spacing: 0.04em;
-  color: var(--white);
-  text-transform: uppercase;
-  line-height: 1;
-}
-.exercise-muscle {
-  color: var(--gray-500);
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  margin: 10px 0 18px;
-}
-.exercise-btn { width: 100%; }
-
-/* =========================================================
    CONTACTO
    ========================================================= */
 .contact-grid {
@@ -610,78 +534,8 @@ button { font-family: inherit; cursor: pointer; }
   gap: 16px;
   text-align: center;
 }
-.footer-logo { width: 42px; opacity: 0.7; }
+.footer-logo { height: 34px; width: auto; opacity: 0.6; }
 .site-footer p { color: var(--gray-500); font-size: 0.82rem; }
-
-/* =========================================================
-   MODAL DE VIDEO
-   ========================================================= */
-.modal {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s var(--ease);
-}
-.modal.open { opacity: 1; pointer-events: auto; }
-.modal-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(6px);
-}
-.modal-box {
-  position: relative;
-  width: min(900px, 100%);
-  background: var(--bg-elev);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius);
-  padding: 28px;
-  transform: translateY(20px) scale(0.98);
-  transition: transform 0.35s var(--ease);
-}
-.modal.open .modal-box { transform: translateY(0) scale(1); }
-.modal-close {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  background: none;
-  border: none;
-  color: var(--gray-300);
-  font-size: 2rem;
-  line-height: 1;
-  transition: color 0.2s var(--ease);
-}
-.modal-close:hover { color: var(--white); }
-.modal-title {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.7rem;
-  letter-spacing: 0.05em;
-  color: var(--white);
-  text-transform: uppercase;
-  margin-bottom: 18px;
-  padding-right: 30px;
-}
-.modal-video {
-  position: relative;
-  aspect-ratio: 16 / 9;
-  background: var(--black);
-  border-radius: 8px;
-  overflow: hidden;
-}
-.modal-video iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
 
 /* =========================================================
    ANIMACIONES DE SCROLL

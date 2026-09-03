@@ -1,6 +1,6 @@
 /* =========================================================
-   KRAKEN — script.js
-   Navegación, animaciones de scroll y modal de video.
+   KRAKEN FITNESS — script.js
+   Navegación y animaciones de scroll.
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -59,93 +59,4 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     revealAll();
   }
-
-  /* =========================================================
-     MODAL DE VIDEO (Google Drive)
-     ========================================================= */
-  const modal = document.getElementById("video-modal");
-  const iframe = document.getElementById("modal-iframe");
-  const modalTitle = document.getElementById("modal-title");
-  const modalVideoBox = modal.querySelector(".modal-video");
-  let lastFocused = null;
-
-  /**
-   * Convierte un link de Google Drive a su URL de reproducción embebida.
-   * Acepta:
-   *   https://drive.google.com/file/d/FILE_ID/view?usp=sharing
-   *   https://drive.google.com/open?id=FILE_ID
-   *   FILE_ID directo
-   * Devuelve la URL /preview lista para <iframe>, o null si es un placeholder.
-   */
-  function toDrivePreview(url) {
-    if (!url || url === "#" || url.trim() === "") return null;
-
-    let id = null;
-    const byPath = url.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-    const byQuery = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
-
-    if (byPath) id = byPath[1];
-    else if (byQuery) id = byQuery[1];
-    else if (/^[a-zA-Z0-9_-]{20,}$/.test(url.trim())) id = url.trim();
-
-    if (!id) return url; // por si ya es una URL de embed completa
-
-    // /preview permite reproducción embebida. Se intenta autoplay por query.
-    return `https://drive.google.com/file/d/${id}/preview?autoplay=1`;
-  }
-
-  function openModal(title, rawVideo) {
-    const src = toDrivePreview(rawVideo);
-    modalTitle.textContent = title || "Video del ejercicio";
-
-    // Limpia cualquier aviso previo
-    const oldNote = modalVideoBox.querySelector(".modal-note");
-    if (oldNote) oldNote.remove();
-
-    if (src) {
-      iframe.style.display = "";
-      iframe.src = src;
-    } else {
-      // Placeholder: todavía no hay link de Drive cargado
-      iframe.style.display = "none";
-      iframe.src = "";
-      const note = document.createElement("p");
-      note.className = "modal-note";
-      note.textContent = "Video no disponible todavía. Cargá el link de Google Drive en index.html.";
-      note.style.cssText =
-        "position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#7a7a7a;font-size:.9rem;";
-      modalVideoBox.appendChild(note);
-    }
-
-    lastFocused = document.activeElement;
-    modal.classList.add("open");
-    modal.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden";
-    modal.querySelector(".modal-close").focus();
-  }
-
-  function closeModal() {
-    modal.classList.remove("open");
-    modal.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = "";
-    // Detener la reproducción vaciando el src
-    iframe.src = "";
-    if (lastFocused) lastFocused.focus();
-  }
-
-  document.querySelectorAll(".exercise-card").forEach((card) => {
-    const trigger = () =>
-      openModal(card.dataset.title, card.dataset.video);
-
-    card.querySelector(".exercise-btn").addEventListener("click", trigger);
-    card.querySelector(".exercise-thumb").addEventListener("click", trigger);
-  });
-
-  modal.querySelectorAll("[data-close]").forEach((el) => {
-    el.addEventListener("click", closeModal);
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
-  });
 });
