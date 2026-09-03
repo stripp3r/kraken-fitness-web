@@ -554,12 +554,24 @@ button { font-family: inherit; cursor: pointer; }
    ========================================================= */
 @media (max-width: 900px) {
   .hero { min-height: 0; padding: 118px 0 70px; }
-  .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 34px; }
   .hero-text { order: 2; padding-left: 0; }
-  .hero-media { order: 1; aspect-ratio: 16 / 11; max-height: 380px; }
-  .hero-media img { object-position: center 22%; }
-  .about-inner { grid-template-columns: 1fr; gap: 36px; }
-  .about-media { aspect-ratio: 16 / 11; max-height: 360px; }
+  .hero-media {
+    order: 1;
+    aspect-ratio: 3 / 4;
+    max-height: 68vh;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+  .hero-media img { object-position: 50% 12%; }
+  .about-inner { grid-template-columns: 1fr; gap: 34px; }
+  .about-media {
+    aspect-ratio: 3 / 4;
+    max-height: 68vh;
+    max-width: 440px;
+    margin-inline: auto;
+  }
+  .about-img { object-position: 50% 12%; }
   .plan-grid--mentoria { max-width: none; }
 }
 
