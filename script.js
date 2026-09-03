@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- Animaciones al hacer scroll ---------- */
   const revealEls = document.querySelectorAll(".reveal");
+  const revealAll = () => revealEls.forEach((el) => el.classList.add("visible"));
 
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
@@ -50,11 +51,13 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -10% 0px" }
     );
     revealEls.forEach((el) => observer.observe(el));
+    // Red de seguridad: si algo no se reveló por un fallo del observer, mostrarlo igual.
+    setTimeout(revealAll, 2500);
   } else {
-    revealEls.forEach((el) => el.classList.add("visible"));
+    revealAll();
   }
 
   /* =========================================================
