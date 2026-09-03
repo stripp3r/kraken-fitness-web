@@ -144,6 +144,15 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 1.7rem;
   letter-spacing: 0.14em;
   color: var(--white);
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.brand-sub {
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  color: var(--gray-500);
 }
 
 .nav { display: flex; gap: 34px; }
@@ -191,21 +200,18 @@ button { font-family: inherit; cursor: pointer; }
    ========================================================= */
 .hero {
   position: relative;
-  min-height: 100vh;
-  min-height: 100svh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
   overflow: hidden;
-  padding: 120px 0 80px;
+  padding: 120px 0 90px;
 }
 .hero-bg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.09), transparent 55%),
-    radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.05), transparent 60%),
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.08), transparent 55%),
+    radial-gradient(circle at 80% 100%, rgba(255, 255, 255, 0.05), transparent 60%),
     var(--black);
   z-index: 0;
 }
@@ -216,27 +222,22 @@ button { font-family: inherit; cursor: pointer; }
   background-image: linear-gradient(var(--border) 1px, transparent 1px),
     linear-gradient(90deg, var(--border) 1px, transparent 1px);
   background-size: 64px 64px;
-  opacity: 0.25;
-  mask-image: radial-gradient(circle at 50% 40%, black, transparent 75%);
+  opacity: 0.22;
+  mask-image: radial-gradient(circle at 30% 40%, black, transparent 75%);
 }
 
 .hero-inner {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
   align-items: center;
-}
-.hero-logo {
-  width: clamp(90px, 16vw, 140px);
-  height: auto;
-  margin-bottom: 28px;
-  filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.15));
+  gap: 50px;
 }
 .hero-title {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(3.4rem, 13vw, 9rem);
+  font-size: clamp(3.2rem, 9vw, 7rem);
   line-height: 0.88;
   letter-spacing: 0.02em;
   color: var(--white);
@@ -244,12 +245,34 @@ button { font-family: inherit; cursor: pointer; }
 }
 .hero-title span { color: var(--gray-500); }
 .hero-tagline {
-  margin: 26px auto 38px;
-  max-width: 520px;
+  margin: 24px 0 36px;
+  max-width: 480px;
   color: var(--gray-300);
   font-size: 1.05rem;
 }
 .hero-cta { font-size: 0.95rem; padding: 17px 46px; }
+
+.hero-media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: grayscale(1) contrast(1.08) brightness(0.92);
+}
+.hero-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, rgba(5, 5, 5, 0.55) 100%);
+}
 
 .scroll-hint {
   position: absolute;
@@ -292,11 +315,27 @@ button { font-family: inherit; cursor: pointer; }
 /* =========================================================
    PLANES
    ========================================================= */
+.plan-group-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin: 0 0 22px;
+}
+.plan-grid + .plan-group-title { margin-top: 56px; }
+
 .plan-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
+.plan-grid--auto { grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+.plan-grid--mentoria {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: 760px;
+}
+
 .plan-card {
   position: relative;
   background: var(--bg-card);
@@ -317,6 +356,7 @@ button { font-family: inherit; cursor: pointer; }
   border-color: var(--white);
   background: #161616;
 }
+.plan-card--vip { border-color: var(--border-strong); background: #131313; }
 .plan-badge {
   position: absolute;
   top: -12px;
@@ -333,35 +373,46 @@ button { font-family: inherit; cursor: pointer; }
 .plan-name {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: 1.9rem;
+  font-size: 1.8rem;
   letter-spacing: 0.04em;
   color: var(--white);
   text-transform: uppercase;
   line-height: 1;
 }
+.plan-pain {
+  color: var(--white);
+  font-style: italic;
+  font-size: 0.95rem;
+  margin-top: 12px;
+}
 .plan-desc {
   color: var(--gray-300);
   font-size: 0.92rem;
   margin-top: 12px;
-  min-height: 46px;
 }
 .plan-price {
   font-family: var(--font-display);
   font-size: 2.6rem;
   color: var(--white);
   letter-spacing: 0.02em;
-  margin: 24px 0 4px;
+  margin: 24px 0 0;
   line-height: 1;
 }
-.plan-price .currency { font-size: 1.4rem; vertical-align: super; margin-right: 2px; }
+.plan-price .currency { font-size: 1.3rem; vertical-align: super; margin-right: 2px; }
 .plan-price .per {
   font-family: var(--font-body);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--gray-500);
   letter-spacing: 0.04em;
   margin-left: 6px;
+  text-transform: uppercase;
 }
-.plan-price--custom { font-size: 2rem; }
+.plan-price-sub {
+  color: var(--gray-300);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 6px;
+}
 
 .plan-features {
   list-style: none;
@@ -389,6 +440,12 @@ button { font-family: inherit; cursor: pointer; }
 }
 .plan-btn { width: 100%; text-align: center; }
 
+.plan-note {
+  margin-top: 26px;
+  color: var(--gray-500);
+  font-size: 0.82rem;
+}
+
 /* =========================================================
    SOBRE MÍ
    ========================================================= */
@@ -401,16 +458,16 @@ button { font-family: inherit; cursor: pointer; }
 .about-media {
   aspect-ratio: 4 / 5;
   background: var(--bg-card);
-  border: 1px solid var(--border);
+  border: 1px solid var(--border-strong);
   border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
 }
 .about-img {
-  width: 55%;
-  filter: grayscale(1) brightness(1.1);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  filter: grayscale(1) contrast(1.06) brightness(0.95);
 }
 .about-text p { margin-bottom: 16px; color: var(--gray-300); }
 .about-text .btn { margin-top: 14px; }
@@ -649,8 +706,14 @@ button { font-family: inherit; cursor: pointer; }
    RESPONSIVE
    ========================================================= */
 @media (max-width: 900px) {
+  .hero { min-height: 0; padding: 118px 0 70px; }
+  .hero-inner { grid-template-columns: 1fr; gap: 36px; }
+  .hero-text { order: 2; }
+  .hero-media { order: 1; aspect-ratio: 16 / 11; max-height: 380px; }
+  .hero-media img { object-position: center 22%; }
   .about-inner { grid-template-columns: 1fr; gap: 36px; }
-  .about-media { aspect-ratio: 16 / 10; max-height: 340px; }
+  .about-media { aspect-ratio: 16 / 11; max-height: 360px; }
+  .plan-grid--mentoria { max-width: none; }
 }
 
 @media (max-width: 760px) {

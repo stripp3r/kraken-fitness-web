@@ -10,5 +10,8 @@ desktop.ini
 # Vercel
 .vercel/
 
+# Fotos originales (pesadas) — solo respaldo local, no se publican
+Fotos sitio web/
+
 # Node (por si en el futuro se agrega tooling)
 node_modules/

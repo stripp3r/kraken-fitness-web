@@ -1,95 +1,99 @@
-# KRAKEN — Sitio Web
+# KRAKEN FITNESS — Sitio Web
 
-Sitio web de una página para la marca personal de fitness **KRAKEN** (hipertrofia natural).
-HTML + CSS + JavaScript puro, sin dependencias ni build. Se abre directo en el navegador.
+Sitio de una página para la marca de fitness **KRAKEN FITNESS** (hipertrofia natural).
+HTML + CSS + JavaScript puro, sin build. Se abre directo en el navegador.
 
 ## Estructura
 
 ```
 NUEVO SITIO WEB/
-├── index.html        # Estructura y contenido
-├── styles.css        # Estilos (estética oscura / premium)
-├── script.js         # Navegación, animaciones y modal de video
-├── Kraken icon.png   # Logo de la marca
+├── index.html          # Estructura y contenido
+├── styles.css          # Estilos (estética oscura / premium)
+├── script.js           # Navegación, animaciones y modal de video
+├── Kraken icon.png      # Logo
+├── img/
+│   ├── hero.jpg         # Foto del Hero (byn)
+│   └── sobre-mi.jpg     # Foto de Sobre Mí (byn)
+├── Fotos sitio web/     # Fotos originales (no se publican, quedan de respaldo)
 └── README.md
 ```
 
 ## Secciones
 
-1. **Header** con navegación fija (Inicio, Planes, Sobre Mí, Ejercicios, Contacto) + menú mobile.
-2. **Hero** con logo, tagline y botón "Ver Planes".
-3. **Planes**: Básico, Intermedio, Avanzado y Mentoría 1:1.
-4. **Sobre Mí**: descripción del entrenador y método.
-5. **Biblioteca de Ejercicios**: grilla de tarjetas; cada una abre un modal con el video de Google Drive.
-6. **Contacto**: WhatsApp, Instagram, Facebook, TikTok, YouTube y email.
+1. **Header** — nav fija (Inicio, Planes, Sobre Mí, Ejercicios, Contacto) + menú mobile.
+2. **Hero** — título, tagline, botón "Ver Planes" y foto.
+3. **Planes**
+   - Autoguiados: **KRAKEN Antiflaco** (destacado), **Grasa Cero**, **Híbrido** — US$25 pago único c/u.
+   - Con acompañamiento: **Mentoría Basic** (US$39 + US$25/mes) y **Mentoría VIP** (US$149 + US$100/mes).
+4. **Ebooks** — sección oculta, lista para activar (ver abajo).
+5. **Sobre Mí** — foto + descripción.
+6. **Biblioteca de Ejercicios** — grilla; cada tarjeta abre un modal con el video de Google Drive.
+7. **Contacto** — WhatsApp, Instagram, Facebook, TikTok, YouTube, email.
 
 ---
 
-## Placeholders que tenés que reemplazar
+## Estado actual: qué funciona y qué falta
 
-Abrí `index.html` y buscá cada uno:
+| Elemento | Estado |
+|---|---|
+| Redes y WhatsApp | ✅ Cargados (WhatsApp `5493413441070`, IG/FB/TikTok/YT reales) |
+| Fotos | ✅ Cargadas (byn) |
+| Precios de planes | ✅ Cargados |
+| Botones de compra de los planes | ⏳ Van a **WhatsApp** por ahora (venta manual). Falta cambiarlos por links de pago |
+| Videos de ejercicios | ⏳ Placeholder (`data-video="#"`). Falta cargar links de Google Drive |
+| Sección Ebooks | ⏳ Oculta. Falta título/precio/link de cada ebook y activarla |
 
-| Placeholder | Dónde | Qué poner |
-|---|---|---|
-| `#MERCADOPAGO_LINK_BASICO` | Plan Básico | Link de pago de Mercado Pago |
-| `#MERCADOPAGO_LINK_INTERMEDIO` | Plan Intermedio | Link de pago de Mercado Pago |
-| `#MERCADOPAGO_LINK_AVANZADO` | Plan Avanzado | Link de pago de Mercado Pago |
-| `WHATSAPP_NUMERO` | Mentoría 1:1 y Contacto | Número con código de país sin `+` ni espacios (ej: `5493511234567`) |
-| `INSTAGRAM_USUARIO` | Contacto | Usuario de Instagram |
-| `FACEBOOK_PAGINA` | Contacto | Nombre/ID de la página de Facebook |
-| `TIKTOK_USUARIO` | Contacto | Usuario de TikTok (sin `@`) |
-| `YOUTUBE_CANAL` | Contacto | Handle del canal (sin `@`) |
-| Precios `$XX.XXX` | Sección Planes | Precio real de cada plan |
+### Cambiar los botones de compra por links de pago
 
-### Videos de la biblioteca de ejercicios
+En `index.html`, en cada tarjeta de plan autoguiado, el botón es:
 
-Cada tarjeta de ejercicio tiene un atributo `data-video="#"`. Reemplazá el `#` por el link
-de Google Drive del video. Sirve cualquiera de estos formatos:
-
-```
-https://drive.google.com/file/d/EL_ID_DEL_ARCHIVO/view?usp=sharing
-https://drive.google.com/open?id=EL_ID_DEL_ARCHIVO
+```html
+<a href="https://wa.me/5493413441070?text=..." ...>Lo quiero</a>
 ```
 
-El script lo convierte solo a la URL de reproducción embebida (`/preview`).
+Cuando tengas el link de checkout de **Payhip** o **Hotmart** de ese plan, reemplazá el `href`
+por ese link (dejá el resto igual). Ejemplo:
 
-> **Importante:** cada video de Drive debe estar compartido como
-> **"Cualquier persona con el enlace"** para que se vea en el sitio.
-> Nota: Google Drive no siempre respeta el autoplay dentro de un iframe; el video se
-> carga listo para reproducir y el usuario aprieta play si el navegador bloquea el autoplay.
+```html
+<a href="https://payhip.com/b/XXXXX" class="btn btn-primary plan-btn" target="_blank" rel="noopener">Lo quiero</a>
+```
+
+### Activar la sección Ebooks
+
+En `index.html`:
+1. Quitá el atributo `hidden` de `<section class="section ebooks" id="ebooks" hidden>`.
+2. Agregá en el `<nav>` del header: `<a href="#ebooks" class="nav-link">Ebooks</a>`.
+3. Reemplazá títulos, textos, precios (`US$XX`) y los `href="#EBOOK_LINK_..."` por los links reales.
+
+### Cargar los videos de ejercicios
+
+Cada tarjeta tiene `data-video="#"`. Reemplazá el `#` por el link de Google Drive
+(`https://drive.google.com/file/d/EL_ID/view?usp=sharing`). El script lo convierte solo
+a la URL de reproducción. Cada video debe estar compartido como **"Cualquier persona con el enlace"**.
 
 ---
 
 ## Probar en local
 
-No necesitás servidor. Doble clic en `index.html`.
-(Opcional, para evitar cualquier tema de rutas: `npx serve` dentro de la carpeta.)
+Doble clic en `index.html`. (O `npx serve` dentro de la carpeta.)
 
 ---
 
 ## Subir a GitHub
 
-Ya está inicializado el repo con el primer commit. Solo falta conectarlo con GitHub.
+El repo ya está inicializado y con commits. Para conectarlo con tu cuenta de GitHub:
 
-### Opción A — con GitHub CLI (`gh`), la más rápida
-
-```bash
-gh repo create kraken-web --public --source=. --remote=origin --push
-```
-
-### Opción B — manual
-
-1. Entrá a <https://github.com/new> y creá un repo **vacío** llamado `kraken-web`
+1. Creá un repositorio **vacío** en <https://github.com/new> llamado `kraken-fitness-web`
    (sin README, sin .gitignore, sin licencia).
 2. En la carpeta del proyecto, corré:
 
 ```bash
-git remote add origin https://github.com/TU_USUARIO/kraken-web.git
+git remote add origin https://github.com/TU_USUARIO/kraken-fitness-web.git
 git branch -M main
 git push -u origin main
 ```
 
-Para futuros cambios:
+Para cambios futuros:
 
 ```bash
 git add .
@@ -101,38 +105,12 @@ git push
 
 ## Publicar en Vercel
 
-### Opción A — Dashboard (recomendada)
-
-1. Entrá a <https://vercel.com> e iniciá sesión con tu cuenta de GitHub.
-2. **Add New… → Project**.
-3. Elegí el repo `kraken-web` → **Import**.
-4. Configuración:
-   - **Framework Preset:** `Other`
-   - **Build Command:** (vacío)
-   - **Output Directory:** (vacío / raíz)
-   - **Root Directory:** `./`
-5. **Deploy**. En ~20 segundos tenés la URL `https://kraken-web.vercel.app`.
-6. Cada `git push` a `main` genera un deploy nuevo automáticamente.
-
-### Opción B — Vercel CLI
-
-```bash
-npm i -g vercel
-vercel          # primer deploy (seguí las preguntas)
-vercel --prod   # deploy a producción
-```
+1. Entrá a <https://vercel.com> con tu cuenta de GitHub.
+2. **Add New… → Project** → importá `kraken-fitness-web`.
+3. Framework Preset: **Other**. Build Command: vacío. Output Directory: vacío. Root Directory: `./`.
+4. **Deploy**. Queda online en `https://kraken-fitness-web.vercel.app`.
+5. Cada `git push` a `main` redeploya solo.
 
 ### Dominio propio (opcional)
 
-En el proyecto de Vercel: **Settings → Domains → Add** y seguí las instrucciones de DNS.
-
----
-
-## Checklist antes de publicar
-
-- [ ] Reemplacé todos los placeholders de la tabla de arriba
-- [ ] Cargué los links de Google Drive de los 6 ejercicios
-- [ ] Verifiqué que los videos de Drive están compartidos públicamente
-- [ ] Puse los precios reales de los planes
-- [ ] Cargué los links de pago de Mercado Pago
-- [ ] Probé el sitio en el celular
+Proyecto en Vercel → **Settings → Domains → Add**.
