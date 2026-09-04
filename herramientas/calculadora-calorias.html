@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculadora gratis de calorías de mantenimiento, superávit y déficit — con sugerencia de macros. Por KRAKEN FITNESS." />
+  <title>Calculadora de Calorías — KRAKEN FITNESS</title>
+
+  <link rel="icon" type="image/png" href="../Kraken icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles.css" />
+  <noscript><style>.reveal{opacity:1;transform:none;}</style></noscript>
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="../index.html#inicio" class="brand">
+        <span class="brand-name">KRAKEN<span class="brand-sub">FITNESS</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="../index.html#planes" class="nav-link">Planes</a>
+        <a href="calculadora-calorias.html" class="nav-link">Calculadora</a>
+        <a href="../index.html#sobre-mi" class="nav-link">Sobre Mí</a>
+        <a href="../index.html#contacto" class="nav-link">Contacto</a>
+      </nav>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= INTRO ================= -->
+  <section class="section tool-intro">
+    <div class="container">
+      <div class="section-head reveal">
+        <a href="../index.html#inicio" class="breadcrumb-back">&larr; Volver al inicio</a>
+        <p class="eyebrow product-eyebrow">Herramienta gratis</p>
+        <h1 class="section-title">Calculadora de Calorías</h1>
+        <p class="section-sub">Ingresá tus datos y elegí tu objetivo. Calculamos tus calorías con la fórmula Mifflin-St Jeor (la más precisa de las estándar) y te sugerimos una distribución de proteínas, carbohidratos y grasas para llegar ahí.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CALCULADORA ================= -->
+  <section class="section tool-form">
+    <div class="container">
+      <form class="calc-card reveal" id="calc-form" novalidate>
+        <div class="calc-field">
+          <label for="sexo">Sexo</label>
+          <select id="sexo" name="sexo">
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+          </select>
+        </div>
+
+        <div class="calc-field">
+          <label for="peso">Peso (kg)</label>
+          <input type="number" id="peso" name="peso" min="30" max="250" step="0.1" placeholder="Ej: 68" required />
+        </div>
+
+        <div class="calc-field">
+          <label for="altura">Altura (cm)</label>
+          <input type="number" id="altura" name="altura" min="120" max="230" step="1" placeholder="Ej: 175" required />
+        </div>
+
+        <div class="calc-field">
+          <label for="edad">Edad (años)</label>
+          <input type="number" id="edad" name="edad" min="14" max="90" step="1" placeholder="Ej: 24" required />
+        </div>
+
+        <div class="calc-field">
+          <label for="actividad">Nivel de actividad física</label>
+          <select id="actividad" name="actividad">
+            <option value="1.2">Sedentario: no hago ejercicio</option>
+            <option value="1.375">Ligero: entreno 1-3 veces por semana</option>
+            <option value="1.55" selected>Moderado: entreno 3-5 veces por semana</option>
+            <option value="1.725">Muy activo: entreno 6-7 veces por semana</option>
+            <option value="1.9">Extremo: entreno intenso + trabajo físico demandante</option>
+          </select>
+        </div>
+
+        <div class="calc-field">
+          <label for="objetivo">Tu objetivo</label>
+          <select id="objetivo" name="objetivo">
+            <option value="mantener">Mantener mi peso</option>
+            <option value="ganar" selected>Ganar masa muscular</option>
+            <option value="bajar">Bajar grasa corporal</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary calc-submit">Calcular</button>
+
+        <div class="calc-result" id="calc-result">
+          <div class="calc-kcal">
+            <span class="num" id="resultado-kcal">0</span><span class="unit">kcal / día</span>
+            <p id="resultado-etiqueta">para mantener tu peso</p>
+          </div>
+
+          <div class="macro-grid">
+            <div class="macro-item">
+              <div class="num" id="macro-proteina">0 g</div>
+              <div class="lbl">Proteína</div>
+            </div>
+            <div class="macro-item">
+              <div class="num" id="macro-carbos">0 g</div>
+              <div class="lbl">Carbohidratos</div>
+            </div>
+            <div class="macro-item">
+              <div class="num" id="macro-grasa">0 g</div>
+              <div class="lbl">Grasas</div>
+            </div>
+          </div>
+
+          <div class="calc-cta" id="calc-cta">
+            <p id="calc-cta-text">Con estas calorías como base, el plan KRAKEN Anti-Flakardo te da la rutina y el método para convertirlas en músculo real.</p>
+            <a href="../planes/anti-flakardo.html" id="calc-cta-link" class="btn btn-primary plan-btn">Ver KRAKEN Anti-Flakardo</a>
+          </div>
+
+          <p class="calc-note">Es una estimación orientativa, no reemplaza el asesoramiento de un profesional de la salud.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="../img/kraken-mark.png" alt="KRAKEN FITNESS" class="footer-logo" />
+      <p>&copy; <span id="year"></span> KRAKEN FITNESS — Hipertrofia Natural. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a href="https://wa.me/5493413441070?text=Hola%20KRAKEN%2C%20tengo%20una%20consulta." class="wa-float" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 1.67c2.2 0 4.28.86 5.84 2.42a8.2 8.2 0 0 1 2.42 5.83c0 4.55-3.7 8.25-8.26 8.25a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.39c0-4.55 3.7-8.24 8.25-8.24Zm-3.5 4.24c-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28-.24-.12-1.43-.71-1.65-.79-.22-.08-.38-.12-.54.12-.16.24-.62.79-.76.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.93-1.19-.71-.64-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.31-.75-1.79-.2-.47-.4-.4-.54-.41-.14-.01-.3-.01-.46-.01Z"/></svg>
+  </a>
+
+  <script src="../script.js"></script>
+  <script>
+    document.getElementById('calc-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var sexo = document.getElementById('sexo').value;
+      var peso = parseFloat(document.getElementById('peso').value);
+      var altura = parseFloat(document.getElementById('altura').value);
+      var edad = parseInt(document.getElementById('edad').value, 10);
+      var actividad = parseFloat(document.getElementById('actividad').value);
+      var objetivo = document.getElementById('objetivo').value;
+
+      if (!peso || !altura || !edad) return;
+
+      // Fórmula Mifflin-St Jeor
+      var tmb = sexo === 'hombre'
+        ? (10 * peso) + (6.25 * altura) - (5 * edad) + 5
+        : (10 * peso) + (6.25 * altura) - (5 * edad) - 161;
+
+      var tdee = tmb * actividad;
+
+      var factor = 1;
+      var etiqueta = 'para mantener tu peso';
+      if (objetivo === 'ganar') { factor = 1.10; etiqueta = 'para ganar masa muscular limpia'; }
+      if (objetivo === 'bajar') { factor = 0.80; etiqueta = 'para bajar grasa de forma sostenida'; }
+
+      var metaCalorias = tdee * factor;
+
+      // Macros: proteína fija por kg, grasa como % del total, carbos con el resto
+      var proteinaG = Math.round(peso * 2);
+      var proteinaKcal = proteinaG * 4;
+      var grasaKcal = metaCalorias * 0.25;
+      var grasaG = Math.round(grasaKcal / 9);
+      var carbosKcal = Math.max(metaCalorias - proteinaKcal - grasaKcal, 0);
+      var carbosG = Math.round(carbosKcal / 4);
+
+      document.getElementById('resultado-kcal').textContent = Math.round(metaCalorias).toLocaleString('es-AR');
+      document.getElementById('resultado-etiqueta').textContent = etiqueta;
+      document.getElementById('macro-proteina').textContent = proteinaG + ' g';
+      document.getElementById('macro-carbos').textContent = carbosG + ' g';
+      document.getElementById('macro-grasa').textContent = grasaG + ' g';
+
+      var ctaText = document.getElementById('calc-cta-text');
+      var ctaLink = document.getElementById('calc-cta-link');
+      if (objetivo === 'ganar') {
+        ctaText.textContent = 'Con estas calorías como base, el plan KRAKEN Anti-Flakardo te da la rutina y el método para convertirlas en músculo real.';
+        ctaLink.href = '../planes/anti-flakardo.html';
+        ctaLink.textContent = 'Ver KRAKEN Anti-Flakardo';
+      } else {
+        ctaText.textContent = 'Un número de calorías es el primer paso. El segundo es un plan de entrenamiento real detrás.';
+        ctaLink.href = '../index.html#planes';
+        ctaLink.textContent = 'Ver los planes KRAKEN';
+      }
+
+      var resultado = document.getElementById('calc-result');
+      resultado.classList.add('visible');
+      resultado.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  </script>
+</body>
+</html>

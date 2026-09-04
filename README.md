@@ -16,7 +16,9 @@ NUEVO SITIO WEB/
 │   ├── sobre-mi.jpg      # Foto de Sobre Mí (byn)
 │   └── kraken-mark.png   # Icono KRAKEN, versión blanca con fondo transparente (footer)
 ├── planes/
-│   └── anti-flakardo.html  # Página propia del plan KRAKEN Anti-Flakardo (ver abajo)
+│   └── anti-flakardo.html          # Página propia del plan KRAKEN Anti-Flakardo (ver abajo)
+├── herramientas/
+│   └── calculadora-calorias.html   # Calculadora de calorías/macros gratis (ver abajo)
 ├── Fotos sitio web/      # Fotos originales (no se publican, quedan de respaldo)
 └── README.md
 ```
@@ -50,13 +52,26 @@ estructura con el resto del sitio.
 
 ### Botones de pago del Anti-Flakardo
 
-- **Pagar con Mercado Pago** → link de DropyFile.
-- **Pagar con PayPal** → link de Payhip, con ventana de pago embebida sobre el sitio (widget
-  oficial de Payhip, `payhip.js`, cargado al final de `planes/anti-flakardo.html`).
+- **Pagar con Mercado Pago** → link directo de DropyFile (pestaña nueva).
+- **Pagar con PayPal** → link directo de Payhip (pestaña nueva).
+
+> Se probó el widget embebido de Payhip (ventana de pago sobre el sitio) y falló — mandaba a un
+> carrito vacío. Se volvió a un link directo, simple y confiable.
 
 > Se descartó Hotmart para este plan: en el checkout, Mercado Pago le sumaba a AFIP un ~20-24%
 > de impuestos por ser una plataforma extranjera, encareciendo el precio final para el
 > comprador. Por eso se volvió al esquema dividido Payhip + DropyFile.
+
+## Calculadora de calorías (`herramientas/calculadora-calorias.html`)
+
+Herramienta gratis para atraer tráfico (pensada para compartir en redes / Linktree). Pide sexo,
+peso, altura, edad, nivel de actividad y objetivo (mantener / ganar masa / bajar grasa), calcula
+con la fórmula Mifflin-St Jeor, ajusta según el objetivo (+10% superávit / −20% déficit) y
+sugiere una distribución de macros (proteína 2 g/kg, grasa 25% de las calorías, resto en
+carbohidratos). Al final muestra un CTA que cambia según el objetivo elegido: si eligió "ganar
+masa muscular", lleva a `planes/anti-flakardo.html`; en cualquier otro caso, a `#planes` del home.
+
+Toda la lógica está en un `<script>` al final del archivo — no depende de nada externo.
 
 ---
 

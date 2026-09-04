@@ -731,6 +731,118 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* =========================================================
+   CALCULADORA DE CALORÍAS (herramientas/*.html)
+   ========================================================= */
+.tool-intro { padding-top: 150px; padding-bottom: 20px; }
+.tool-form { padding-top: 10px; }
+.calc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 40px 36px;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.calc-field { margin-bottom: 20px; }
+.calc-field label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+.calc-field input,
+.calc-field select {
+  width: 100%;
+  padding: 13px 16px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: border-color 0.2s var(--ease);
+}
+.calc-field input::placeholder { color: var(--gray-500); }
+.calc-field input:focus,
+.calc-field select:focus { outline: none; border-color: var(--white); }
+.calc-field select { cursor: pointer; }
+.calc-submit { width: 100%; margin-top: 6px; }
+
+.calc-result {
+  margin-top: 30px;
+  padding-top: 30px;
+  border-top: 1px solid var(--border);
+  display: none;
+}
+.calc-result.visible { display: block; }
+.calc-kcal { text-align: center; }
+.calc-kcal .num {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 3.2rem;
+  color: var(--white);
+  line-height: 1;
+}
+.calc-kcal .unit {
+  font-size: 1rem;
+  color: var(--gray-500);
+  margin-left: 6px;
+}
+.calc-kcal p {
+  color: var(--gray-300);
+  font-size: 0.88rem;
+  margin-top: 8px;
+}
+
+.macro-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 26px;
+}
+.macro-item {
+  text-align: center;
+  background: var(--bg-elev);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 8px;
+}
+.macro-item .num {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--white);
+}
+.macro-item .lbl {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-top: 4px;
+}
+
+.calc-cta {
+  margin-top: 28px;
+  padding: 22px 20px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: 10px;
+  text-align: center;
+}
+.calc-cta p {
+  color: var(--gray-300);
+  font-size: 0.92rem;
+  margin-bottom: 16px;
+}
+.calc-note {
+  color: var(--gray-500);
+  font-size: 0.78rem;
+  text-align: center;
+  margin-top: 18px;
+}
+
+/* =========================================================
    RESPONSIVE
    ========================================================= */
 @media (max-width: 900px) {
