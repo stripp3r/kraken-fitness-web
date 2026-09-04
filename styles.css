@@ -596,19 +596,17 @@ button { font-family: inherit; cursor: pointer; }
 }
 .breadcrumb-back:hover { color: var(--white); }
 
-.product-hero {
-  padding: 150px 0 20px;
-}
-.product-hero .eyebrow { margin-top: 22px; }
-.product-hero .plan-pain {
+.product-eyebrow { margin-top: 18px; }
+.product-title { font-size: clamp(2.6rem, 6vw, 4.2rem); }
+.hero-text .plan-pain {
   font-size: 1.1rem;
   margin-top: 16px;
 }
 .section--tight { padding-top: 0; }
 .pay-card { max-width: 520px; margin-inline: auto; }
-.product-hero .product-desc {
+.product-desc {
   color: var(--gray-300);
-  max-width: 620px;
+  max-width: 480px;
   margin-top: 16px;
   font-size: 1.02rem;
 }
@@ -616,7 +614,7 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   align-items: baseline;
   gap: 14px;
-  margin-top: 26px;
+  margin: 22px 0 30px;
 }
 .product-price-row .plan-price { margin: 0; }
 
