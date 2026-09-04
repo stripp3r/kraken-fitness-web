@@ -7,30 +7,56 @@ HTML + CSS + JavaScript puro, sin build. Se abre directo en el navegador.
 
 ```
 NUEVO SITIO WEB/
-├── index.html          # Estructura y contenido
-├── styles.css          # Estilos (estética oscura / premium)
-├── script.js           # Navegación y animaciones
-├── Kraken icon.png      # Logo / icono
+├── index.html            # Home: estructura y contenido
+├── styles.css            # Estilos (estética oscura / premium)
+├── script.js             # Navegación y animaciones
+├── Kraken icon.png       # Logo / icono original (fondo no transparente)
 ├── img/
-│   ├── hero.jpg         # Foto del Hero (byn)
-│   └── sobre-mi.jpg     # Foto de Sobre Mí (byn)
-├── Fotos sitio web/     # Fotos originales (no se publican, quedan de respaldo)
+│   ├── hero.jpg          # Foto del Hero (byn)
+│   ├── sobre-mi.jpg      # Foto de Sobre Mí (byn)
+│   └── kraken-mark.png   # Icono KRAKEN, versión blanca con fondo transparente (footer)
+├── planes/
+│   └── anti-flakardo.html  # Página propia del plan KRAKEN Anti-Flakardo (ver abajo)
+├── Fotos sitio web/      # Fotos originales (no se publican, quedan de respaldo)
 └── README.md
 ```
 
-## Secciones
+## Secciones (home)
 
 1. **Header** — nav fija (Inicio, Planes, Sobre Mí, Contacto) + menú mobile.
-2. **Hero** — icono KRAKEN, título, tagline, botón "Ver Planes" y foto.
+2. **Hero** — título, tagline, botones "Ver Planes" / "Mentoría 1:1" y foto.
 3. **Planes**
-   - Autoguiados: **KRAKEN Anti-Flakardo** (destacado), **Grasa Sub-Cero**, **Híbrido**, **En Casa**, **Minimalista** — US$29,99 pago único c/u.
+   - Autoguiados: **KRAKEN Anti-Flakardo** (destacado, con página propia — ver abajo), **Grasa Sub-Cero**, **Híbrido**, **En Casa**, **Minimalista** — US$29,99 pago único c/u.
    - Con acompañamiento: **Mentoría Basic** (US$49 + US$39/mes) y **Mentoría VIP** (US$149 + US$100/mes).
 4. **Ebooks** — sección oculta, lista para activar (ver abajo).
 5. **Sobre Mí** — foto + descripción.
-6. **Contacto** — WhatsApp, Instagram, Facebook, TikTok, YouTube, email.
+6. **Contacto** — WhatsApp, Instagram, Facebook, TikTok, YouTube, email. Además, botón flotante de WhatsApp en todas las páginas.
 
 > La biblioteca de ejercicios no va en el sitio: los videos viven en Google Drive y se
 > enlazan dentro de cada plan / asesoría.
+
+## Página de producto (`planes/anti-flakardo.html`)
+
+En vez de pagar directo desde la tarjeta del home, el botón **"Ver plan completo"** lleva a una
+página dedicada del plan: descripción larga, qué incluye, un espacio para video, a quién está
+dirigido, y ahí sí los dos botones de pago (Mercado Pago / PayPal).
+
+Para agregar el video de Ezequiel, hay instrucciones en un comentario dentro del archivo
+(sección "VIDEO (PENDIENTE)"): soporta YouTube, Vimeo o un archivo de video propio.
+
+Cuando se arme la página de otro plan (Grasa Sub-Cero, Híbrido, etc.), se puede duplicar este
+archivo dentro de `planes/` como base — ya comparte los estilos (`../styles.css`) y la
+estructura con el resto del sitio.
+
+### Botones de pago del Anti-Flakardo
+
+- **Pagar con Mercado Pago** → link de DropyFile.
+- **Pagar con PayPal** → link de Payhip, con ventana de pago embebida sobre el sitio (widget
+  oficial de Payhip, `payhip.js`, cargado al final de `planes/anti-flakardo.html`).
+
+> Se descartó Hotmart para este plan: en el checkout, Mercado Pago le sumaba a AFIP un ~20-24%
+> de impuestos por ser una plataforma extranjera, encareciendo el precio final para el
+> comprador. Por eso se volvió al esquema dividido Payhip + DropyFile.
 
 ---
 
