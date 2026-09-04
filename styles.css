@@ -176,6 +176,59 @@ button { font-family: inherit; cursor: pointer; }
 .nav-link:hover { color: var(--white); }
 .nav-link:hover::after { width: 100%; }
 
+/* ---------- Desplegable "Herramientas" ---------- */
+.nav-dropdown { position: relative; }
+.nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+.nav-caret {
+  width: 10px;
+  height: 7px;
+  flex-shrink: 0;
+  color: currentColor;
+  transition: transform 0.25s var(--ease);
+}
+.nav-dropdown.open .nav-caret { transform: rotate(180deg); }
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  min-width: 230px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s var(--ease), transform 0.22s var(--ease);
+  z-index: 200;
+}
+.nav-dropdown.open .nav-dropdown-menu {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-link {
+  display: block;
+  padding: 11px 14px;
+  border-radius: 7px;
+  color: var(--gray-300);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 0.15s var(--ease), color 0.15s var(--ease);
+}
+.nav-dropdown-link:hover { background: var(--bg-elev); color: var(--white); }
+
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -971,6 +1024,33 @@ button { font-family: inherit; cursor: pointer; }
   }
   .nav-link::after { display: none; }
   .nav-toggle { display: flex; }
+
+  /* El desplegable pasa a ser un acordeón dentro del menú mobile */
+  .nav-dropdown { width: 100%; }
+  .nav-dropdown-toggle {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .nav-dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s var(--ease);
+  }
+  .nav-dropdown.open .nav-dropdown-menu { max-height: 220px; }
+  .nav-dropdown-link {
+    padding: 14px 24px 14px 36px;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+  }
 }
 
 @media (max-width: 480px) {

@@ -26,7 +26,15 @@
 
       <nav class="nav" id="nav">
         <a href="../index.html#planes" class="nav-link">Planes</a>
-        <a href="../herramientas/calculadora-calorias.html" class="nav-link">Calculadora</a>
+        <div class="nav-dropdown">
+          <button type="button" class="nav-link nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+            Herramientas
+            <svg class="nav-caret" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1l5 5 5-5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href="../herramientas/calculadora-calorias.html" class="nav-dropdown-link">Calculadora de Calorías</a>
+          </div>
+        </div>
         <a href="../index.html#sobre-mi" class="nav-link">Sobre Mí</a>
         <a href="../index.html#contacto" class="nav-link">Contacto</a>
       </nav>

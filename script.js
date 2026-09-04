@@ -33,8 +33,33 @@ document.addEventListener("DOMContentLoaded", () => {
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  nav.querySelectorAll(".nav-link").forEach((link) => {
+  nav.querySelectorAll(".nav-link, .nav-dropdown-link").forEach((link) => {
     link.addEventListener("click", closeNav);
+  });
+
+  /* ---------- Menú desplegable "Herramientas" ---------- */
+  document.querySelectorAll(".nav-dropdown").forEach((dropdown) => {
+    const toggle = dropdown.querySelector(".nav-dropdown-toggle");
+    if (!toggle) return;
+
+    const closeDropdown = () => {
+      dropdown.classList.remove("open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
+
+    toggle.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = dropdown.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!dropdown.contains(e.target)) closeDropdown();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closeDropdown();
+    });
   });
 
   /* ---------- Animaciones al hacer scroll ---------- */
