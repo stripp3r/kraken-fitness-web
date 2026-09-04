@@ -446,6 +446,19 @@ button { font-family: inherit; cursor: pointer; }
 }
 .plan-btn { width: 100%; text-align: center; }
 
+.plan-pay-hint {
+  color: var(--gray-500);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.plan-pay-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
 .plan-note {
   margin-top: 26px;
   color: var(--gray-500);
