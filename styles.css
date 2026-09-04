@@ -537,6 +537,37 @@ button { font-family: inherit; cursor: pointer; }
 .site-footer p { color: var(--gray-500); font-size: 0.82rem; }
 
 /* =========================================================
+   BOTÓN FLOTANTE DE WHATSAPP
+   ========================================================= */
+.wa-float {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 90;
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.wa-float svg { width: 30px; height: 30px; fill: #fff; }
+.wa-float:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55);
+}
+@media (max-width: 480px) {
+  .wa-float { width: 50px; height: 50px; right: 14px; bottom: 14px; }
+  .wa-float svg { width: 27px; height: 27px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wa-float { transition: none; }
+}
+
+/* =========================================================
    ANIMACIONES DE SCROLL
    ========================================================= */
 .reveal {

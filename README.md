@@ -23,7 +23,7 @@ NUEVO SITIO WEB/
 1. **Header** — nav fija (Inicio, Planes, Sobre Mí, Contacto) + menú mobile.
 2. **Hero** — icono KRAKEN, título, tagline, botón "Ver Planes" y foto.
 3. **Planes**
-   - Autoguiados: **KRAKEN Antiflaco** (destacado), **Grasa Cero**, **Híbrido**, **En Casa**, **Minimalista** — US$25 pago único c/u.
+   - Autoguiados: **KRAKEN Anti-Flakardo** (destacado), **Grasa Sub-Cero**, **Híbrido**, **En Casa**, **Minimalista** — US$25 pago único c/u.
    - Con acompañamiento: **Mentoría Basic** (US$39 + US$25/mes) y **Mentoría VIP** (US$149 + US$100/mes).
 4. **Ebooks** — sección oculta, lista para activar (ver abajo).
 5. **Sobre Mí** — foto + descripción.
