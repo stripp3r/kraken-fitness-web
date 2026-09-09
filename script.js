@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navToggle.setAttribute("aria-expanded", String(isOpen));
   });
 
-  nav.querySelectorAll(".nav-link, .nav-dropdown-link").forEach((link) => {
+  nav.querySelectorAll(".nav-link, .nav-dropdown-link, .nav-cta").forEach((link) => {
     link.addEventListener("click", closeNav);
   });
 
