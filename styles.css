@@ -229,25 +229,6 @@ button { font-family: inherit; cursor: pointer; }
 }
 .nav-dropdown-link:hover { background: var(--bg-elev); color: var(--white); }
 
-/* ---------- Botón "Instalar app" en el nav ---------- */
-.nav-cta {
-  display: inline-block;
-  padding: 9px 20px;
-  border: 1.5px solid var(--border-strong);
-  border-radius: 999px;
-  color: var(--white);
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transition: border-color 0.25s var(--ease), background 0.25s var(--ease);
-}
-.nav-cta:hover {
-  border-color: var(--white);
-  background: rgba(255, 255, 255, 0.06);
-}
-
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -328,6 +309,31 @@ button { font-family: inherit; cursor: pointer; }
   gap: 14px;
 }
 .hero-cta { font-size: 0.95rem; padding: 16px 36px; }
+
+/* Botón "Instalar app" — debajo de los CTA del hero, acento verde apagado */
+.hero-app-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  background: #14161a;
+  border: 1.5px solid #2f7d63;
+  color: var(--white);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+.hero-app-cta svg { width: 17px; height: 17px; color: #4fb391; }
+.hero-app-cta:hover {
+  background: #191c21;
+  border-color: #46a883;
+  transform: translateY(-2px);
+}
 
 .hero-media {
   position: relative;
@@ -971,6 +977,13 @@ button { font-family: inherit; cursor: pointer; }
   .hero-tagline { margin-inline: auto; color: var(--gray-100); }
   .hero-actions { justify-content: center; flex-direction: column; align-items: center; }
   .hero-actions .btn { width: 100%; max-width: 320px; text-align: center; }
+  .hero-app-cta {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 320px;
+    margin: 16px auto 0;
+  }
   .scroll-hint { display: none; }
 
   /* --- Sobre Mí: foto de fondo completa, detrás del texto (igual que el hero) --- */
@@ -1069,12 +1082,6 @@ button { font-family: inherit; cursor: pointer; }
     padding: 14px 24px 14px 36px;
     border-bottom: 1px solid var(--border);
     border-radius: 0;
-  }
-  .nav-cta {
-    display: block;
-    text-align: center;
-    margin: 18px 24px 6px;
-    padding: 14px 20px;
   }
 }
 
