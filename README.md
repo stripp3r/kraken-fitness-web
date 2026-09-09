@@ -52,8 +52,27 @@ estructura con el resto del sitio.
 
 ### Botones de pago del Anti-Flakardo
 
-- **Pagar con Mercado Pago** → link directo de DropyFile (pestaña nueva).
-- **Pagar con PayPal** → link directo de Payhip (pestaña nueva).
+- **Mercado Pago** → endpoint propio `kraken-entrena-app.vercel.app/api/checkout/mercadopago?producto=anti-flakardo` (pestaña nueva).
+- **PayPal** → link directo de Payhip (pestaña nueva).
+
+#### Estilo de marca (reutilizable) — clases `.btn-mercadopago` / `.btn-paypal`
+
+Definidas en `styles.css`. Se usan así (ajustando la ruta a `img/` según la profundidad de la página):
+
+```html
+<a href="..." class="btn btn-mercadopago plan-btn" target="_blank" rel="noopener">
+  <img class="pay-icon" src="../img/pay-mercadopago.png" alt="" /> Mercado Pago
+</a>
+<a href="..." class="btn btn-paypal plan-btn" target="_blank" rel="noopener">
+  <img class="pay-icon" src="../img/pay-paypal.png" alt="" /> PayPal
+</a>
+```
+
+- Mercado Pago: fondo `#ffe600` (amarillo oficial), texto azul `#2d3277`, ícono `img/pay-mercadopago.png`.
+- PayPal: fondo `#003087` (azul oficial), texto blanco, ícono `img/pay-paypal.png` (monograma en blanco).
+- Los logos oficiales completos (para referencia) están en `img/brand-mercadopago.png` y `img/brand-paypal.png`; los `pay-*.png` son solo el ícono recortado.
+- El texto es solo el nombre de la marca ("Mercado Pago" / "PayPal"), sin "Pagar con".
+- Siempre **dos botones separados** — no unificar ni auto-elegir.
 
 > Se probó el widget embebido de Payhip (ventana de pago sobre el sitio) y falló — mandaba a un
 > carrito vacío. Se volvió a un link directo, simple y confiable.
