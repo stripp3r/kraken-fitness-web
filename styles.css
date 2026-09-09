@@ -108,6 +108,27 @@ button { font-family: inherit; cursor: pointer; }
   background: rgba(255, 255, 255, 0.06);
 }
 
+/* --- Botones de pago con identidad de marca (reutilizables) --- */
+.btn-mercadopago,
+.btn-paypal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-color: transparent;
+  color: #fff;
+}
+.btn-mercadopago .pay-icon,
+.btn-paypal .pay-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.btn-mercadopago { background: #00b1ea; }        /* celeste oficial Mercado Pago */
+.btn-mercadopago:hover { background: #00a0d4; }
+.btn-paypal { background: #0070ba; }             /* azul oficial PayPal */
+.btn-paypal:hover { background: #005ea0; }
+
 /* =========================================================
    HEADER
    ========================================================= */
