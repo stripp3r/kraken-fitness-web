@@ -368,6 +368,13 @@ button { font-family: inherit; cursor: pointer; }
   border-color: #46a883;
   transform: translateY(-2px);
 }
+.hero-app-hint {
+  margin-top: 10px;
+  max-width: 340px;
+  color: var(--gray-500);
+  font-size: 0.72rem;
+  line-height: 1.5;
+}
 
 .hero-media {
   position: relative;
@@ -1018,6 +1025,7 @@ button { font-family: inherit; cursor: pointer; }
     max-width: 320px;
     margin: 16px auto 0;
   }
+  .hero-app-hint { margin-inline: auto; }
   .scroll-hint { display: none; }
 
   /* --- Sobre Mí: foto de fondo completa, detrás del texto (igual que el hero) --- */
