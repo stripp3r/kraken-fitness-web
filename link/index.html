@@ -10,17 +10,34 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="../styles.css" />
 </head>
 <body class="linktree">
 
-  <main class="link-page">
-    <img src="../img/sobre-mi.jpg" alt="Ezequiel — KRAKEN" class="link-avatar" />
+  <a href="../index.html#inicio" class="link-corner-mark" aria-label="Ir al sitio de KRAKEN FITNESS">
+    <img src="../img/kraken-mark.png" alt="" />
+  </a>
 
-    <img src="../img/kraken-mark.png" alt="" class="link-mark" />
-    <h1 class="link-name">KRAKEN</h1>
+  <!--
+  Aviso para navegadores in-app (Instagram/TikTok). No hay forma 100% garantizada
+  de forzar la salida a Chrome/Safari -- eso lo controla la app que abrió el link,
+  no esta página. Esto es lo máximo que se puede hacer: en Android se intenta abrir
+  Chrome directo; en iPhone solo se puede indicar el paso manual (Apple no permite
+  más que eso desde una página web).
+  -->
+  <div id="browser-hint" class="browser-hint" hidden>
+    <p id="browser-hint-text"></p>
+    <a id="browser-hint-action" class="browser-hint-action" hidden>Abrir en Chrome</a>
+    <button type="button" class="browser-hint-close" aria-label="Cerrar aviso">&times;</button>
+  </div>
+
+  <main class="link-page">
+    <h1 class="link-name">
+      <span aria-hidden="true">KЯΛKΞN</span>
+      <span class="sr-only">KRAKEN</span>
+    </h1>
     <p class="link-tagline">Fitness &amp; DJing</p>
 
     <div class="link-socials">
@@ -56,6 +73,36 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Aviso best-effort para navegadores in-app (Instagram/TikTok/Facebook).
+    // No existe forma de forzar la apertura en Chrome/Safari desde una página
+    // web -- eso lo decide la app que abrió el link. Esto es lo máximo posible:
+    // en Android se ofrece un link que intenta abrir Chrome directo; en iPhone
+    // solo se puede indicar el paso manual (limitación de Apple, no nuestra).
+    (function () {
+      var ua = navigator.userAgent || "";
+      var isInApp = /Instagram|FBAN|FBAV|FB_IAB|TikTok|musical_ly|BytedanceWebview/i.test(ua);
+      if (!isInApp) return;
+
+      var banner = document.getElementById("browser-hint");
+      var text = document.getElementById("browser-hint-text");
+      var action = document.getElementById("browser-hint-action");
+      var isIOS = /iphone|ipad|ipod/i.test(ua);
+
+      if (isIOS) {
+        text.textContent = 'Para mejor experiencia, tocá "···" arriba y elegí "Abrir en Safari".';
+      } else {
+        text.textContent = "Para mejor experiencia, abrí esto en Chrome.";
+        var target = location.href.replace(/^https?:\/\//, "");
+        action.href = "intent://" + target + "#Intent;scheme=https;package=com.android.chrome;end;";
+        action.hidden = false;
+      }
+      banner.hidden = false;
+
+      document.querySelector(".browser-hint-close").addEventListener("click", function () {
+        banner.hidden = true;
+      });
+    })();
   </script>
 </body>
 </html>
