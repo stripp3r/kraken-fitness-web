@@ -862,7 +862,7 @@ button { font-family: inherit; cursor: pointer; }
   position: fixed;
   inset: -40px;
   background: url("../img/link-bg.jpg") center 18% / cover no-repeat;
-  filter: blur(14px) grayscale(1) brightness(0.55);
+  filter: blur(6px) grayscale(1) brightness(0.55);
   z-index: 0;
 }
 .linktree::after {
@@ -873,18 +873,15 @@ button { font-family: inherit; cursor: pointer; }
   z-index: 0;
 }
 
-.link-corner-mark {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 2;
+.link-mark {
   display: inline-flex;
+  margin-top: 14px;
   opacity: 0.95;
   transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
 }
-.link-corner-mark:hover { opacity: 1; transform: translateY(-1px); }
-.link-corner-mark img {
-  width: 46px;
+.link-mark:hover { opacity: 1; transform: translateY(-1px); }
+.link-mark img {
+  width: 34px;
   height: auto;
   filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.6));
 }
@@ -902,10 +899,10 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
 }
 .link-name {
-  font-family: "Archivo Black", var(--font-display);
+  font-family: var(--font-display);
   font-weight: 400;
-  font-size: 3.1rem;
-  letter-spacing: 0.06em;
+  font-size: 2.6rem;
+  letter-spacing: 0.1em;
   color: var(--white);
   text-shadow: 0 2px 20px rgba(0, 0, 0, 0.6);
   line-height: 1;
@@ -1037,9 +1034,8 @@ button { font-family: inherit; cursor: pointer; }
 
 @media (max-width: 480px) {
   .link-page { padding: 88px 20px 32px; }
-  .link-name { font-size: 2.4rem; }
-  .link-corner-mark { top: 16px; left: 16px; }
-  .link-corner-mark img { width: 38px; }
+  .link-name { font-size: 2.1rem; }
+  .link-mark img { width: 28px; }
 }
 
 /* =========================================================
