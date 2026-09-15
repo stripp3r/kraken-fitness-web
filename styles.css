@@ -831,6 +831,136 @@ button { font-family: inherit; cursor: pointer; }
 .pay-card .plan-pay-hint { text-align: center; }
 
 /* =========================================================
+   LINKTREE (link/index.html)
+   ========================================================= */
+.linktree {
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-page {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 64px 24px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.link-avatar {
+  width: 108px;
+  height: 108px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 2px solid var(--border-strong);
+  filter: grayscale(1) contrast(1.05);
+}
+.link-mark {
+  width: 30px;
+  height: auto;
+  margin-top: 22px;
+  opacity: 0.9;
+}
+.link-name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2.6rem;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-top: 8px;
+  line-height: 1;
+}
+.link-tagline {
+  color: var(--gray-500);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+
+.link-socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 26px;
+}
+.link-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.link-social svg { width: 20px; height: 20px; fill: var(--gray-300); transition: fill 0.2s var(--ease); }
+.link-social:hover {
+  background: #151515;
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+.link-social:hover svg { fill: var(--white); }
+
+.link-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 32px;
+}
+.link-card {
+  display: block;
+  width: 100%;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: 14px;
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.link-card:hover {
+  background: #171717;
+  border-color: var(--white);
+  transform: translateY(-2px);
+}
+.link-card--primary {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+.link-card--primary:hover { background: var(--gray-100); }
+.link-card--app {
+  background: #14161a;
+  border-color: #2f7d63;
+}
+.link-card--app:hover { background: #191c21; border-color: #46a883; }
+
+.link-footer {
+  margin-top: 40px;
+  color: var(--gray-700);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 480px) {
+  .link-page { padding: 48px 20px 32px; }
+  .link-name { font-size: 2.2rem; }
+}
+
+/* =========================================================
    ANIMACIONES DE SCROLL
    ========================================================= */
 .reveal {
