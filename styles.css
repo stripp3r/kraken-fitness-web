@@ -495,6 +495,24 @@ button { font-family: inherit; cursor: pointer; }
   padding: 5px 12px;
   border-radius: 999px;
 }
+/* Botón redondo de soporte por WhatsApp, esquina superior derecha de la
+   tarjeta -- para consultas rápidas antes de comprar, sin competir con el
+   CTA principal. Distinto del botón flotante .wa-float (ese es del sitio
+   entero, este es puntual a ese plan). */
+.plan-support-link {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  overflow: hidden;
+  opacity: 0.9;
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.plan-support-link:hover { opacity: 1; transform: scale(1.06); }
+.plan-support-link img { width: 100%; height: 100%; display: block; }
+
 .plan-name {
   font-family: var(--font-display);
   font-weight: 400;
@@ -758,6 +776,15 @@ button { font-family: inherit; cursor: pointer; }
 }
 .product-body p { color: var(--gray-300); margin-bottom: 16px; }
 .product-body p:last-child { margin-bottom: 0; }
+.product-body h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.15rem;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  margin: 24px 0 8px;
+}
+.product-body h3:first-child { margin-top: 0; }
 
 .includes-list {
   list-style: none;
