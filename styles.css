@@ -398,6 +398,16 @@ button { font-family: inherit; cursor: pointer; }
   background: linear-gradient(180deg, transparent 45%, rgba(5, 5, 5, 0.55) 100%);
 }
 
+/* Variante para ícono en vez de foto (mentorías): sin el tratamiento de
+   foto (B&N, viñeta oscura) -- el ícono ya trae su propio color/fondo. */
+.hero-media--icon { background: var(--bg-card); }
+.hero-media--icon img {
+  object-fit: contain;
+  padding: 15%;
+  filter: none;
+}
+.hero-media--icon::after { content: none; }
+
 .scroll-hint {
   position: absolute;
   bottom: 30px;
@@ -1237,6 +1247,26 @@ button { font-family: inherit; cursor: pointer; }
       rgba(5, 5, 5, 0.96) 100%
     );
   }
+  /* El ícono no va de fondo a pantalla completa como la foto -- se queda
+     como una tarjeta chica centrada, debajo del texto. */
+  .hero-media--icon {
+    position: static;
+    width: 180px;
+    max-width: 55vw;
+    aspect-ratio: 1;
+    margin: 28px auto 0;
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+  }
+  .hero-media--icon img {
+    position: static;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15%;
+    filter: none;
+  }
+  .hero-media--icon::after { content: none; display: none; }
   .hero-text {
     position: relative;
     z-index: 1;
