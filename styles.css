@@ -837,6 +837,42 @@ button { font-family: inherit; cursor: pointer; }
 }
 .includes-list strong { color: var(--white); display: block; margin-bottom: 2px; }
 
+/* Lista de pasos numerados ("Cómo funciona") -- mismo lenguaje visual que
+   .includes-list, pero con un número en vez de un cuadradito, porque acá
+   el orden importa (es un proceso, no una lista de features sueltas). */
+.steps-list {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin: 0;
+}
+.steps-list li {
+  position: relative;
+  padding-left: 42px;
+  color: var(--gray-300);
+}
+.steps-list li::before {
+  counter-increment: step;
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-elev);
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+}
+.steps-list strong { color: var(--white); display: block; margin-bottom: 2px; }
+
 .product-video {
   position: relative;
   aspect-ratio: 16 / 9;
@@ -1277,6 +1313,15 @@ button { font-family: inherit; cursor: pointer; }
     height: auto;
     object-fit: contain;
     filter: none;
+  }
+  /* Sin breadcrumb/eyebrow, el contenido del hero de mentorías es corto --
+     centrarlo en un min-height:100vh (como hace la foto de fondo de las
+     otras heroes) dejaba mucho aire arriba y abajo. Acá alcanza con
+     acomodarlo arriba, con el aire justo debajo del header fijo. */
+  .hero--icon {
+    min-height: auto;
+    align-items: flex-start;
+    padding: 100px 0 56px;
   }
   .hero-text {
     position: relative;
