@@ -398,12 +398,26 @@ button { font-family: inherit; cursor: pointer; }
   background: linear-gradient(180deg, transparent 45%, rgba(5, 5, 5, 0.55) 100%);
 }
 
-/* Variante para ícono en vez de foto (mentorías): sin el tratamiento de
-   foto (B&N, viñeta oscura) -- el ícono ya trae su propio color/fondo. */
-.hero-media--icon { background: var(--bg-card); }
+/* Variante para ícono en vez de foto (mentorías): nada de tarjeta/marco --
+   solo el ícono (ya trae su propio fondo/sombra en el arte), centrado. El
+   ícono va primero en el HTML; `order` lo manda a la derecha en el grid de
+   escritorio sin afectar el flujo normal (arriba del texto) en mobile. */
+.hero-media--icon {
+  order: 2;
+  aspect-ratio: auto;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .hero-media--icon img {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
   object-fit: contain;
-  padding: 15%;
   filter: none;
 }
 .hero-media--icon::after { content: none; }
@@ -491,7 +505,8 @@ button { font-family: inherit; cursor: pointer; }
   border-color: var(--white);
   background: #161616;
 }
-.plan-card--vip { border-color: var(--border-strong); background: #131313; }
+.plan-card--vip { border-color: rgba(198, 162, 76, 0.45); background: #131313; }
+.plan-card--vip:hover { border-color: rgba(198, 162, 76, 0.7); }
 .plan-badge {
   position: absolute;
   top: -12px;
@@ -505,8 +520,8 @@ button { font-family: inherit; cursor: pointer; }
   padding: 5px 12px;
   border-radius: 999px;
 }
-/* Mismo dorado que "Golden" en la app (amber-400), para la mentoría VIP. */
-.plan-badge--gold { background: #fbbf24; color: var(--black); }
+/* Dorado sutil (no amarillo) para la mentoría VIP. */
+.plan-badge--gold { background: #c6a24c; color: var(--black); }
 /* Botón redondo de soporte por WhatsApp, esquina superior derecha de la
    tarjeta -- para consultas rápidas antes de comprar, sin competir con el
    CTA principal. Distinto del botón flotante .wa-float (ese es del sitio
@@ -1247,26 +1262,22 @@ button { font-family: inherit; cursor: pointer; }
       rgba(5, 5, 5, 0.96) 100%
     );
   }
-  /* El ícono no va de fondo a pantalla completa como la foto -- se queda
-     como una tarjeta chica centrada, debajo del texto. */
+  /* El ícono no va de fondo a pantalla completa como la foto -- queda
+     arriba del todo, centrado, chico, sin marco (va primero en el HTML asi
+     que en este layout en bloque ya aparece antes que el texto). */
   .hero-media--icon {
     position: static;
-    width: 180px;
-    max-width: 55vw;
-    aspect-ratio: 1;
-    margin: 28px auto 0;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
+    width: 100%;
+    margin: 0 0 24px;
   }
   .hero-media--icon img {
     position: static;
-    width: 100%;
-    height: 100%;
+    width: 150px;
+    max-width: 42vw;
+    height: auto;
     object-fit: contain;
-    padding: 15%;
     filter: none;
   }
-  .hero-media--icon::after { content: none; display: none; }
   .hero-text {
     position: relative;
     z-index: 1;
