@@ -1287,6 +1287,14 @@ button { font-family: inherit; cursor: pointer; }
   }
   .hero-title span { color: var(--gray-300); }
   .hero-tagline { margin-inline: auto; color: var(--gray-100); }
+  /* El párrafo de descripción se ve mejor justificado que centrado --
+     título, precio y botones siguen centrados (heredan text-align:center
+     de .hero-text de arriba), esto solo pisa el párrafo. */
+  .product-desc { text-align: justify; }
+  /* .product-price-row es flex: text-align:center (de arriba) no lo alcanza
+     a centrar a él mismo, solo centraría texto adentro -- hay que centrar
+     el row con justify-content. */
+  .product-price-row { justify-content: center; }
   .hero-actions { justify-content: center; flex-direction: column; align-items: center; }
   .hero-actions .btn { width: 100%; max-width: 320px; text-align: center; }
   .hero-app-cta {
