@@ -107,6 +107,9 @@ button { font-family: inherit; cursor: pointer; }
   border-color: var(--white);
   background: rgba(255, 255, 255, 0.06);
 }
+/* Borde blanco siempre (no solo en hover) para el CTA "Mentoría 1:1" del
+   hero -- pedido puntual, no toca el resto de los .btn-outline del sitio. */
+.hero-cta--mentoria { border-color: var(--white); }
 
 /* =========================================================
    BOTONES DE PAGO CON IDENTIDAD DE MARCA (reutilizables)
