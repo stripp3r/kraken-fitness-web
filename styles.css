@@ -495,6 +495,8 @@ button { font-family: inherit; cursor: pointer; }
   padding: 5px 12px;
   border-radius: 999px;
 }
+/* Mismo dorado que "Golden" en la app (amber-400), para la mentoría VIP. */
+.plan-badge--gold { background: #fbbf24; color: var(--black); }
 /* Botón redondo de soporte por WhatsApp, esquina superior derecha de la
    tarjeta -- para consultas rápidas antes de comprar, sin competir con el
    CTA principal. Distinto del botón flotante .wa-float (ese es del sitio
