@@ -962,7 +962,7 @@ button { font-family: inherit; cursor: pointer; }
   position: fixed;
   inset: -40px;
   background: url("../img/link-bg.jpg") center 18% / cover no-repeat;
-  filter: blur(6px) grayscale(1) brightness(0.55);
+  filter: blur(4.2px) grayscale(1) brightness(0.55);
   z-index: 0;
 }
 .linktree::after {
