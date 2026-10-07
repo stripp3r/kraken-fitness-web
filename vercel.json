@@ -1,10 +1,31 @@
 {
   "redirects": [
-    { "source": "/l", "destination": "/link/", "permanent": false }
+    {
+      "source": "/l",
+      "destination": "/link/",
+      "permanent": false
+    }
   ],
   "rewrites": [
-    { "source": "/privacidad", "destination": "/privacidad.html" },
-    { "source": "/terminos", "destination": "/terminos.html" },
-    { "source": "/eliminar-datos", "destination": "/eliminar-datos.html" }
+    {
+      "source": "/privacidad",
+      "destination": "/privacidad.html"
+    },
+    {
+      "source": "/terminos",
+      "destination": "/terminos.html"
+    },
+    {
+      "source": "/eliminar-datos",
+      "destination": "/eliminar-datos.html"
+    },
+    {
+      "source": "/arrepentimiento",
+      "destination": "/arrepentimiento.html"
+    },
+    {
+      "source": "/baja",
+      "destination": "/baja.html"
+    }
   ]
 }

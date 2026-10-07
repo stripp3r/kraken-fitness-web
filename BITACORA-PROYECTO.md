@@ -216,8 +216,24 @@ hacer al respecto, es solo para tenerlo anotado.
 
 ## 6. Pendientes conocidos (no son bugs, son trabajo a futuro)
 
-- Completar "Cancelaciones y reembolsos" en `terminos.html` (hoy dice A DEFINIR
-  POR EL COACH).
+- Automatizar por WhatsApp el código de 24 h para arrepentimiento y baja.
+- **Botón de arrepentimiento y botón de baja (2026-10-07, hecho):** páginas
+  `arrepentimiento.html` y `baja.html` (`/arrepentimiento`, `/baja`), con una
+  **barra fija abajo en todas las páginas** (`.legal-bar`, bajo el botón
+  flotante de WhatsApp) para cumplir la Disposición 954/2025 ("a simple vista,
+  en lugar destacado, desde el primer acceso"). El pedido llega por WhatsApp
+  **+54 9 341 267-2887** (mensaje prearmado, sin registro) o por email; hay que
+  responder con un código de identificación en 24 h — **esa automatización la
+  arma el coach aparte con Claude Code, todavía no existe**. Reglas del coach
+  (ya en `terminos.html`): arrepentimiento 14 días corridos, reembolso total
+  dentro del plazo y nada fuera, igual para todos los planes; baja = se frena
+  la renovación y se mantiene el acceso hasta fin del período pagado (si se
+  cobra igual tras pedir la baja, se devuelve); pago rechazado = 48 h de
+  gracia; cambio de precio = pop-up de confirmación en la app. **Riesgo
+  abierto:** la excepción "plan autoguiado ya descargado no se puede
+  revocar" choca con el art. 34 Ley 24.240 (revocación irrenunciable) — validar
+  con un abogado. **Pendiente en la app:** pop-up de cambio de precio, 48 h de
+  gracia y las tareas del prompt del chat de la app.
 - **Cumplimiento (revisión de ChatGPT del 2026-10-07, corroborada en parte
   con búsqueda web — Disposición 954/2025, vigente desde el 4/9/2025):** el
   sitio vende a distancia (mentorías por suscripción), así que debería tener

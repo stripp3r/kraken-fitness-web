@@ -1471,3 +1471,42 @@ button { font-family: inherit; cursor: pointer; }
   .btn { padding: 14px 26px; }
   .modal-box { padding: 20px 16px; }
 }
+
+/* =========================================================
+   BARRA LEGAL: botón de arrepentimiento + botón de baja.
+   Disposición 954/2025: tienen que verse a simple vista, en lugar destacado
+   y desde el primer acceso -- por eso quedan fijos abajo en todas las páginas.
+   ========================================================= */
+:root { --legal-bar-h: 40px; }
+.legal-bar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 89;
+  height: var(--legal-bar-h);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 22px;
+  padding: 0 12px;
+  background: rgba(10, 10, 10, 0.94);
+  backdrop-filter: blur(6px);
+  border-top: 1px solid var(--border-strong);
+}
+.legal-bar a {
+  color: var(--gray-100);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s var(--ease);
+}
+.legal-bar a:hover { color: var(--white); text-decoration: underline; }
+.legal-bar ~ .wa-float { bottom: calc(var(--legal-bar-h) + 14px); }
+body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-h)); }
+@media (max-width: 480px) {
+  .legal-bar { gap: 6px 14px; padding: 0 8px; }
+  .legal-bar a { font-size: 0.6rem; letter-spacing: 0.04em; }
+}
