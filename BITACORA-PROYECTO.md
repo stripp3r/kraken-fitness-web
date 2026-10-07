@@ -208,7 +208,7 @@ hacer al respecto, es solo para tenerlo anotado.
   "Cancelaciones y reembolsos" dice **A DEFINIR POR EL COACH** (visible en la
   página — completarlo cuando lo defina); plazo de borrado (30 días) y
   conservación de registros de pago por obligación legal, a confirmar.
-  Contacto usado: email del sitio + WhatsApp del sitio (5493413441070). Si la
+  Contacto usado: email del sitio + WhatsApp **3412672887** (decidido por el usuario el 2026-10-07; es distinto del número de checkout del sitio, 5493413441070). Si la
   app cambia los datos que guarda o suma un proveedor, actualizar
   `privacidad.html` (lista de datos y de proveedores).
 
