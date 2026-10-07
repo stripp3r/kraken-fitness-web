@@ -722,6 +722,18 @@ button { font-family: inherit; cursor: pointer; }
 }
 .footer-logo { height: 34px; width: auto; opacity: 0.6; }
 .site-footer p { color: var(--gray-500); font-size: 0.82rem; }
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 20px;
+}
+.footer-links a {
+  color: var(--gray-500);
+  font-size: 0.82rem;
+  transition: color 0.2s var(--ease);
+}
+.footer-links a:hover { color: var(--white); }
 
 /* =========================================================
    BOTÓN FLOTANTE DE WHATSAPP
