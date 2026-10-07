@@ -229,10 +229,12 @@ hacer al respecto, es solo para tenerlo anotado.
   dentro del plazo y nada fuera, igual para todos los planes; baja = se frena
   la renovación y se mantiene el acceso hasta fin del período pagado (si se
   cobra igual tras pedir la baja, se devuelve); pago rechazado = 48 h de
-  gracia; cambio de precio = pop-up de confirmación en la app. **Riesgo
-  abierto:** la excepción "plan autoguiado ya descargado no se puede
-  revocar" choca con el art. 34 Ley 24.240 (revocación irrenunciable) — validar
-  con un abogado. **Pendiente en la app:** pop-up de cambio de precio, 48 h de
+  gracia; cambio de precio = pop-up de confirmación en la app. **Excepción
+  eliminada (2026-10-07):** para no chocar con el art. 34 Ley 24.240 el coach
+  decidió que el PDF de los planes autoguiados sea **solo lectura dentro de la
+  app, sin descarga**, y que el acceso se revoque si se revoca la compra (se
+  quita la excepción de los términos; falta implementarlo en la app — hasta
+  entonces el texto no es del todo cierto). Validar con un abogado que alcance. **Pendiente en la app:** pop-up de cambio de precio, 48 h de
   gracia y las tareas del prompt del chat de la app.
 - **Cumplimiento (revisión de ChatGPT del 2026-10-07, corroborada en parte
   con búsqueda web — Disposición 954/2025, vigente desde el 4/9/2025):** el
