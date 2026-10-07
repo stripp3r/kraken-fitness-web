@@ -218,6 +218,20 @@ hacer al respecto, es solo para tenerlo anotado.
 
 - Completar "Cancelaciones y reembolsos" en `terminos.html` (hoy dice A DEFINIR
   POR EL COACH).
+- **Cumplimiento (revisión de ChatGPT del 2026-10-07, corroborada en parte
+  con búsqueda web — Disposición 954/2025, vigente desde el 4/9/2025):** el
+  sitio vende a distancia (mentorías por suscripción), así que debería tener
+  visibles desde el primer acceso un **"BOTÓN DE ARREPENTIMIENTO"** y un
+  **"BOTÓN DE BAJA DE SERVICIO"**, sin exigir registro previo y con código de
+  solicitud en 24 h. Hoy no existen. Requieren que el coach defina el proceso
+  (cancelación, reembolso, arrepentimiento, cambio de precio) antes de
+  construirlos. Otros puntos: casilla "Acepto Términos y Privacidad" con
+  registro de versión/fecha en el registro de la app, revocar tokens de Google
+  al borrar cuenta (lado app), y revisar si hay que inscribir la base en el
+  Registro Nacional de Bases de Datos Personales (AAIP). Ya aplicado en
+  `privacidad.html`/`eliminar-datos.html`: reformulación de datos sensibles,
+  datos obligatorios/opcionales, transferencias internacionales y plazos
+  legales. Todo sigue siendo texto base a validar con un abogado.
 
 - Sacar `krakenbrand.com`/`www.krakenbrand.com` de este proyecto cuando se
   construya el sitio "hub" multimarca (ver sección 2.3).
