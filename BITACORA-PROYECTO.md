@@ -198,9 +198,26 @@ hacer al respecto, es solo para tenerlo anotado.
   lado. Si se reactiva, el dropdown "Herramientas" está comentado (no borrado)
   en el `<nav>` de `index.html`, `anti-flakardo.html` y la propia calculadora.
 
+- **Páginas legales** (`privacidad.html`, `terminos.html`, `eliminar-datos.html`)
+  — las exigen Meta (login con Facebook) y Google para la app KRAKEN Entrena.
+  URLs públicas: `fit.krakenbrand.com/privacidad`, `/terminos` y
+  `/eliminar-datos` (rewrites en `vercel.json`; los `.html` también andan).
+  Enlazadas desde el pie (`.footer-links`) de todas las páginas del sitio.
+  Texto base armado con los datos reales de la app (2026-10-07), **conviene
+  revisarlo con alguien con criterio legal**. Pendientes dentro del texto:
+  "Cancelaciones y reembolsos" dice **A DEFINIR POR EL COACH** (visible en la
+  página — completarlo cuando lo defina); plazo de borrado (30 días) y
+  conservación de registros de pago por obligación legal, a confirmar.
+  Contacto usado: email del sitio + WhatsApp del sitio (5493413441070). Si la
+  app cambia los datos que guarda o suma un proveedor, actualizar
+  `privacidad.html` (lista de datos y de proveedores).
+
 ---
 
 ## 6. Pendientes conocidos (no son bugs, son trabajo a futuro)
+
+- Completar "Cancelaciones y reembolsos" en `terminos.html` (hoy dice A DEFINIR
+  POR EL COACH).
 
 - Sacar `krakenbrand.com`/`www.krakenbrand.com` de este proyecto cuando se
   construya el sitio "hub" multimarca (ver sección 2.3).
