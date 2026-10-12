@@ -302,6 +302,37 @@ y la coherencia "PDF para siempre" vs 3 meses de premium.
 
 ---
 
+## 6.ter. Revisión legal ChatGPT + verificación propia (2026-10-12)
+
+ChatGPT revisó las 5 páginas legales; se contrastó con las normas (no se tomó
+como verdad absoluta). **Verificado:** plazo legal de arrepentimiento = **10 días
+corridos** (art. 34 Ley 24.240 y art. 1110 CCyC, irrenunciable; la Disp. 954/2025
+remite a eso y exige botones visibles en la primera pantalla, sin registro, con
+código en 24 h); Disp. 3/2026 permite verificación razonable de identidad.
+**Falso:** que los términos dijeran "A DEFINIR POR EL COACH" (no estaba, ni en el
+repo ni en producción).
+
+Aplicado en el sitio: 10 días legales + **14 días como garantía comercial** del
+coach; reembolso sin excepción dentro del plazo y a salvo los reclamos por
+incumplimiento fuera de él (art. 10 bis); PDF de solo lectura NO usado como
+fundamento para negar el arrepentimiento; baja sin penalidad/preaviso +
+constancia con el código; devolución proactiva si se cobra tras la baja;
+48 h de gracia con aviso; cambio de precio solo con aceptación expresa (el
+silencio no cuenta); cláusulas de responsabilidad, cambios del servicio y
+suspensión de cuentas reescritas; edad mínima 18; aviso de verificación de
+identidad; link a Defensa del Consumidor; privacidad: datos de salud voluntarios
+y transferencias sin "aceptás al crear tu cuenta".
+
+**Falta (decide/provee el coach):** CUIT y domicilio del proveedor en los
+términos; confirmar con la AAIP si hay que inscribir la base; auditar regiones y
+contratos de Supabase/Vercel/Resend/Cloudflare/MP/PayPal/Google/Meta;
+calendario de conservación por categoría; consentimiento específico para datos
+de salud (lado app); formulario público de arrepentimiento/baja con código
+automático (lado app + este sitio, y sumar el endpoint a `connect-src` de la
+CSP). Todo sigue siendo texto base a validar con un abogado.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
