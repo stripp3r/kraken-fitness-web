@@ -7,25 +7,40 @@
     }
   ],
   "rewrites": [
+    { "source": "/privacidad", "destination": "/privacidad.html" },
+    { "source": "/terminos", "destination": "/terminos.html" },
+    { "source": "/eliminar-datos", "destination": "/eliminar-datos.html" },
+    { "source": "/arrepentimiento", "destination": "/arrepentimiento.html" },
+    { "source": "/baja", "destination": "/baja.html" }
+  ],
+  "headers": [
     {
-      "source": "/privacidad",
-      "destination": "/privacidad.html"
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()" },
+        { "key": "Cross-Origin-Opener-Policy", "value": "same-origin" },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; frame-src https://www.youtube.com https://player.vimeo.com; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+        }
+      ]
     },
     {
-      "source": "/terminos",
-      "destination": "/terminos.html"
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.krakenbrand.com" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
-      "source": "/eliminar-datos",
-      "destination": "/eliminar-datos.html"
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "krakenbrand.com" }],
+      "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }]
     },
     {
-      "source": "/arrepentimiento",
-      "destination": "/arrepentimiento.html"
-    },
-    {
-      "source": "/baja",
-      "destination": "/baja.html"
+      "source": "/img/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800, stale-while-revalidate=86400" }]
     }
   ]
 }

@@ -264,6 +264,44 @@ hacer al respecto, es solo para tenerlo anotado.
 
 ---
 
+## 6.bis. Diagnóstico y endurecimiento del sitio (2026-10-12)
+
+**Hecho (commit local, falta `git push`):**
+- `vercel.json`: headers de seguridad en todo el sitio (`X-Content-Type-Options`,
+  `X-Frame-Options: DENY`, `Referrer-Policy`, `Permissions-Policy`, COOP y una
+  **CSP enforced**: solo `'self'`, Google Fonts, y frames de YouTube/Vimeo para
+  el futuro video). Si se agrega un script/iframe/imagen de otro dominio
+  (Meta Pixel, GA, Calendly, etc.) **hay que sumarlo a la CSP o se bloquea**.
+  Verificado en local: ninguna página tira violaciones.
+- Hosts `krakenbrand.com` y `www.krakenbrand.com` responden con
+  `X-Robots-Tag: noindex, nofollow` (sirven el mismo sitio que `fit.` y no
+  deben competir en Google). **Quitar esos dos bloques de `vercel.json` cuando
+  se arme el hub multimarca** (sección 2.3).
+- Cache de 7 días para `/img/*`.
+- `robots.txt` (bloquea `/herramientas/`) y `sitemap.xml` (9 URLs; no incluye
+  linktree ni la calculadora oculta).
+- Todas las páginas: `<link rel="canonical">` a `https://fit.krakenbrand.com/...`
+  y Open Graph / Twitter card (imagen `img/og-kraken.jpg`, 1200x630, isotipo
+  blanco sobre negro). La calculadora lleva `noindex`.
+- Imágenes: `Kraken icon.png` 1,27 MB → 33 KB (512 px); íconos de mentoría
+  ~440/380 KB → ~240/210 KB (500 px).
+- `.gitignore`: `.agents/`, `.claude/`, `skills-lock.json`.
+
+**Decisiones que quedan para el coach:**
+- Dos números de WhatsApp en uso: 3413441070 (botón flotante y links de
+  contacto del sitio) y 3412672887 (páginas legales/infoproductos). Unificar
+  cuando el coach elija.
+- `img/ChatGPT Image 2 oct 2026…png` (1,9 MB) sigue sin trackear; borrar o
+  usar, a decisión del coach.
+
+**Pendiente de la app (no se puede resolver desde el sitio):** emails sin
+`lower()` en el reclamo de compras, "reclamar mi compra" si el email difiere,
+página de gracias propia de mentorías, aviso al coach por compra nueva,
+formulario de ingreso de mentoría, activar los 4 planes autoguiados con PDF,
+y la coherencia "PDF para siempre" vs 3 meses de premium.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
@@ -271,7 +309,7 @@ NUEVO SITIO WEB/
 ├── index.html                         # Home
 ├── styles.css                         # Todos los estilos del sitio
 ├── script.js                          # Nav, animaciones, dropdowns
-├── vercel.json                        # Redirect /l -> /link/
+├── vercel.json                        # Redirects, rewrites, headers de seguridad/CSP
 ├── BITACORA-PROYECTO.md               # Este archivo
 ├── README.md                          # Instrucciones de dev/deploy (estructura al día, precios no)
 ├── link/index.html                    # Link-in-bio

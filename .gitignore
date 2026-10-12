@@ -15,3 +15,8 @@ Fotos sitio web/
 
 # Node (por si en el futuro se agrega tooling)
 node_modules/
+
+# Herramientas locales de Claude / agentes (no se publican)
+.agents/
+.claude/
+skills-lock.json
