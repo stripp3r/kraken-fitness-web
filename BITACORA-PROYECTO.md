@@ -333,6 +333,21 @@ CSP). Todo sigue siendo texto base a validar con un abogado.
 
 ---
 
+**Actualización 2026-10-13:** CUIT 20-37449501-2 y domicilio (Aliau 3458,
+Rosario, Santa Fe) cargados en `terminos.html` y `privacidad.html`. Sin abogado:
+se verificó en fuentes oficiales: (a) Disp. 954/2025 art. 1/4 (botones a la
+vista, lugar destacado, primer acceso, sin registro), art. 3 (excepciones:
+art. 1116 CCyC, ya usó/consumió, reventa, perecederos; el coach decidió no
+invocar "consumido"), art. 5 (código en 24 h). (b) AAIP: inscripción de bases
+obligatoria solo para públicas y privadas destinadas a dar informes (art. 21
+Ley 25.326 + Dec. 1558/2001): KRAKEN probablemente no está alcanzado. (c) Datos a
+EE.UU.: no es país adecuado según la AAIP; vías válidas = consentimiento
+expreso (casilla separada, a implementar en la app) o cláusulas modelo (Disp.
+60-E/2016, Res. 198/2023). El texto de privacidad ya promete esa casilla.
+Prompts enviados al chat "KRAKEN APP 2" el 2026-10-13.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
