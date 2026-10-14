@@ -71,14 +71,48 @@
       <div class="product-body reveal">
 
         <h3>Pedí tu arrepentimiento</h3>
-        <p>Si te arrepentiste de tu compra o suscripción, pedí la revocación desde acá. <strong>No necesitás registrarte ni crear una cuenta</strong>: solo tocá el botón y enviá el mensaje.</p>
-        <p><a href="https://wa.me/5493417211050?text=BOT%C3%93N%20DE%20ARREPENTIMIENTO%0AQuiero%20revocar%20mi%20compra.%0AProducto%3A%20%0AEmail%20de%20la%20compra%3A%20" class="btn btn-primary" target="_blank" rel="noopener">Pedir arrepentimiento por WhatsApp</a></p>
-        <p>También podés hacerlo <a href="mailto:ezequiel.arce@outlook.com?subject=Bot%C3%B3n%20de%20arrepentimiento&body=Quiero%20revocar%20mi%20compra.%0AProducto%3A%20%0AEmail%20de%20la%20compra%3A%20">por email</a>.</p>
+        <p>Si te arrepentiste de tu compra o suscripción, completá el formulario. <strong>No necesitás registrarte ni crear una cuenta</strong>, ni explicar el motivo.</p>
 
+        <form class="solicitud-form" id="solicitud-form" data-tipo="arrepentimiento" novalidate>
+          <div class="calc-field">
+            <label for="sol-email">Email de la compra</label>
+            <input type="email" id="sol-email" name="email" autocomplete="email" inputmode="email" placeholder="tu@email.com" required />
+          </div>
+          <div class="calc-field">
+            <label for="sol-producto">Producto</label>
+            <select id="sol-producto" name="producto">
+              <option value="anti-flakardo">KRAKEN Anti-Flakardo</option>
+              <option value="mentoria-online-basic">Mentoría 1:1 Basic</option>
+              <option value="mentoria-online-vip">Mentoría 1:1 VIP</option>
+              <option value="golden-mensual">Golden mensual</option>
+              <option value="golden-anual">Golden anual</option>
+              <option value="">Otro / no estoy seguro</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="sol-op">Número de operación (opcional)</label>
+            <input type="text" id="sol-op" name="numeroOperacion" maxlength="80" autocomplete="off" placeholder="Si lo tenés a mano" />
+          </div>
+          <div class="solicitud-hp" aria-hidden="true">
+            <label for="sol-web">No completar este campo</label>
+            <input type="text" id="sol-web" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+          <button type="submit" class="btn btn-primary calc-submit" id="solicitud-btn">Enviar solicitud de arrepentimiento</button>
+          <p class="solicitud-msg" id="solicitud-msg" role="status" aria-live="polite" hidden></p>
+        </form>
+
+        <div class="solicitud-ok" id="solicitud-ok" role="status" aria-live="polite" hidden>
+          <p class="solicitud-ok-title">Recibimos tu solicitud</p>
+          <p>Tu código de identificación es:</p>
+          <p class="solicitud-codigo" id="solicitud-codigo"></p>
+          <p>Guardalo: es tu comprobante. <span id="solicitud-email-note"></span> La solicitud se procesa dentro del plazo legal y te confirmamos por el mismo medio.</p>
+        </div>
+
+        <p class="solicitud-alt">También podés hacerlo <a href="https://wa.me/5493417211050?text=BOT%C3%93N%20DE%20ARREPENTIMIENTO%0AQuiero%20revocar%20mi%20compra.%0AProducto%3A%20%0AEmail%20de%20la%20compra%3A%20" target="_blank" rel="noopener">por WhatsApp</a> o <a href="mailto:ezequiel.arce@outlook.com?subject=Bot%C3%B3n%20de%20arrepentimiento&body=Quiero%20revocar%20mi%20compra.%0AProducto%3A%20%0AEmail%20de%20la%20compra%3A%20">por email</a>.</p>
         <h3>Cómo funciona</h3>
         <ul class="steps-list">
-          <li><strong>Enviás tu pedido</strong>Se abre WhatsApp con el mensaje armado. Completá el producto y el email con el que compraste, y enviá.</li>
-          <li><strong>Recibís un código</strong>Dentro de las 24 horas te respondemos con un código de identificación de tu solicitud.</li>
+          <li><strong>Enviás tu pedido</strong>Completás el formulario con el email de tu compra y el producto. Si preferís, también podés escribirnos por WhatsApp o por email.</li>
+          <li><strong>Recibís un código</strong>Lo ves en pantalla apenas enviás y te llega la constancia por email. Dentro de las 24 horas te confirmamos el trámite por el mismo medio.</li>
           <li><strong>Hacemos efectiva la revocación</strong>Te devolvemos lo que pagaste por el mismo medio de pago. El tiempo en que se acredita depende de Mercado Pago o PayPal.</li>
         </ul>
 
@@ -111,5 +145,6 @@
   </div>
 
   <script src="script.js"></script>
+  <script src="solicitud.js"></script>
 </body>
 </html>

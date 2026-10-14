@@ -348,6 +348,34 @@ Prompts enviados al chat "KRAKEN APP 2" el 2026-10-13.
 
 ---
 
+## 6.quater. Formulario público de arrepentimiento y baja (2026-10-14)
+
+`arrepentimiento.html` y `baja.html` tienen un formulario (email, producto,
+nº de operación opcional, honeypot oculto) que hace `POST` a
+`https://appfit.krakenbrand.com/api/publico/solicitud` (endpoint de la app, sin
+login). Lógica en `solicitud.js`; estilos `.solicitud-*` al final de `styles.css`;
+`vercel.json` suma `https://appfit.krakenbrand.com` a `connect-src` de la CSP.
+WhatsApp y email quedan como alternativa debajo del formulario y como respaldo
+si el envío falla.
+
+Contrato (de la app): body `{tipo: "arrepentimiento"|"baja", email, producto?,
+numeroOperacion?, website: ""}`. 200 `{ok, codigo, constanciaEnviadaPorEmail,
+verificada}` -> se muestra el código en pantalla (el honeypot devuelve 200 con
+`SIN-REGISTRO`: el sitio lo trata como fallo). 400 -> se muestra `error`;
+429 (5/IP/hora, 3/email/día), 403, 500 o red -> mensaje + WhatsApp/email.
+CORS solo `https://fit.krakenbrand.com`. La app NO corta suscripciones ni revoca
+compras sola: el coach ejecuta la solicitud; por eso el texto dice "recibimos
+tu solicitud", nunca "se canceló". Las constancias por email salen cuando el
+coach cargue `RESEND_API_KEY`, `MAIL_FROM` y `COACH_EMAIL` en Vercel de la app
+(hasta entonces quedan en cola y el código igual se muestra).
+
+Probado en local con respuestas simuladas (200, 400, 429, 500, red, honeypot) y
+sin violaciones de CSP. Pruebas reales contra producción: pendiente de hacer
+desde `fit.krakenbrand.com` una vez publicado (crea una solicitud real y avisa al
+coach: usar un email de prueba propio).
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
