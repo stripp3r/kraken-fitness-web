@@ -208,7 +208,7 @@ hacer al respecto, es solo para tenerlo anotado.
   "Cancelaciones y reembolsos" dice **A DEFINIR POR EL COACH** (visible en la
   página — completarlo cuando lo defina); plazo de borrado (30 días) y
   conservación de registros de pago por obligación legal, a confirmar.
-  Contacto usado: email del sitio + WhatsApp **3412672887** (decidido por el usuario el 2026-10-07; es distinto del número de checkout del sitio, 5493413441070). Si la
+  Contacto usado: email del sitio + WhatsApp **3417211050** (desde 2026-10-13; el 3412672887 se dio de baja). Si la
   app cambia los datos que guarda o suma un proveedor, actualizar
   `privacidad.html` (lista de datos y de proveedores).
 
@@ -288,9 +288,8 @@ hacer al respecto, es solo para tenerlo anotado.
 - `.gitignore`: `.agents/`, `.claude/`, `skills-lock.json`.
 
 **Decisiones que quedan para el coach:**
-- Dos números de WhatsApp en uso: 3413441070 (botón flotante y links de
-  contacto del sitio) y 3412672887 (páginas legales/infoproductos). Unificar
-  cuando el coach elija.
+- ~~Dos números de WhatsApp~~ RESUELTO 2026-10-15: **todo el sitio usa
+  3417211050** (donde está el chatbot). Ya no existe el 3413441070 en el sitio.
 - `img/ChatGPT Image 2 oct 2026…png` (1,9 MB) sigue sin trackear; borrar o
   usar, a decisión del coach.
 
@@ -373,6 +372,21 @@ Probado en local con respuestas simuladas (200, 400, 429, 500, red, honeypot) y
 sin violaciones de CSP. Pruebas reales contra producción: pendiente de hacer
 desde `fit.krakenbrand.com` una vez publicado (crea una solicitud real y avisa al
 coach: usar un email de prueba propio).
+
+---
+
+## 6.quinquies. Unificación de WhatsApp y dominio de la app (2026-10-15)
+
+- Todos los `wa.me` del sitio (inicio, planes, mentorías, calculadora oculta,
+  linktree, legales) apuntan a **5493417211050**. Decisión del coach: ese es el
+  número del chatbot y el único a usar.
+- Todos los links a la app (Instalar App, checkouts de Anti-Flakardo y de
+  mentorías) pasaron de `kraken-entrena-app.vercel.app` a
+  **`appfit.krakenbrand.com`** (el dominio viejo sigue funcionando en la app).
+- Links del linktree revisados: todos responden 200.
+- Meta/Google: Google en producción (nada pendiente). Facebook sigue en
+  verificación de Meta; las URLs que debe tener la app de Meta son
+  `https://fit.krakenbrand.com/privacidad`, `/terminos` y `/eliminar-datos`.
 
 ---
 

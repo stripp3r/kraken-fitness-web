@@ -52,7 +52,7 @@ estructura con el resto del sitio.
 
 ### Botones de pago del Anti-Flakardo
 
-- **Mercado Pago** → endpoint propio `kraken-entrena-app.vercel.app/api/checkout/mercadopago?producto=anti-flakardo` (pestaña nueva).
+- **Mercado Pago** → endpoint propio `appfit.krakenbrand.com/api/checkout/mercadopago?producto=anti-flakardo` (pestaña nueva).
 - **PayPal** → link directo de Payhip (pestaña nueva).
 
 #### Estilo de marca (reutilizable) — clases `.btn-mercadopago` / `.btn-paypal`
@@ -98,7 +98,7 @@ Toda la lógica está en un `<script>` al final del archivo — no depende de na
 
 | Elemento | Estado |
 |---|---|
-| Redes y WhatsApp | ✅ Cargados (WhatsApp `5493413441070`, IG/FB/TikTok/YT reales) |
+| Redes y WhatsApp | ✅ Cargados (WhatsApp `5493417211050`, IG/FB/TikTok/YT reales) |
 | Fotos | ✅ Cargadas (byn) |
 | Precios de planes | ✅ Cargados |
 | Botones de compra de los planes | ⏳ Van a **WhatsApp** por ahora (venta manual). Falta cambiarlos por links de pago |
@@ -109,7 +109,7 @@ Toda la lógica está en un `<script>` al final del archivo — no depende de na
 En `index.html`, en cada tarjeta de plan autoguiado, el botón es:
 
 ```html
-<a href="https://wa.me/5493413441070?text=..." ...>Lo quiero</a>
+<a href="https://wa.me/5493417211050?text=..." ...>Lo quiero</a>
 ```
 
 Cuando tengas el link de checkout de **Payhip** o **Hotmart** de ese plan, reemplazá el `href`
