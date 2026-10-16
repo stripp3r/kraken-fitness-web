@@ -390,6 +390,36 @@ coach: usar un email de prueba propio).
 
 ---
 
+## 6.sexies. Mejora de diseño — Ola 1 (2026-10-16)
+
+Pedido del coach: más dinamismo y aspecto profesional, **siempre responsive**
+(escritorio + celular). Ola 1 hecha (commit propio, se puede revertir con
+`git revert`). Código en `styles.css` (sección "OLA 1") y `script.js` (bloque
+"OLA 1"):
+- Hero: el título entra palabra por palabra y el resto escalonado; parallax
+  suave de la foto solo en escritorio con mouse (en celular no hay parallax).
+- Franja animada (marquee) bajo el hero con frases ya presentes en el sitio
+  (sin números inventados; en `index.html`). Se pausa con hover; con
+  `prefers-reduced-motion` queda estática.
+- Tarjetas de planes: luz que sigue al mouse (solo con mouse), entradas
+  escalonadas por fila, feedback táctil al tocar.
+- Barra de progreso de scroll arriba, botón "volver arriba" (izquierda, sobre
+  la barra legal; el de WhatsApp sigue a la derecha), sección activa marcada
+  en el menú, foco visible para teclado, selección de texto con la marca.
+- Todo el movimiento respeta `prefers-reduced-motion`.
+
+**Ideas acordadas para después:** Ola 2 (resultados antes/después, testimonios,
+preguntas frecuentes, video del método) y Ola 3 (comparador de planes,
+recomendador, barra de compra en celular, capturas de la app). **Pendiente
+anotado por el coach:** el botón "Instalar app" del hero lleva a una página de
+instalación de la app; la idea es que al tocarlo aparezca un video/animación de
+cómo es y cómo se instala (excusa: en Chrome hay que apretar más de una vez).
+La animación vieja quedó obsoleta (la app cambió estética y funciones): hay que
+rehacerla con capturas nuevas de la app. Franja de números/contadores: no se
+hizo porque faltan datos reales del coach.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```

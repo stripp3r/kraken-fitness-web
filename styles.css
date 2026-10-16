@@ -1552,3 +1552,176 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
 @media (max-width: 480px) {
   .solicitud-form, .solicitud-ok { padding: 22px 16px; }
 }
+
+/* =========================================================
+   OLA 1 — DINAMISMO Y ACABADO (2026-10-16)
+   Todo el movimiento va dentro de prefers-reduced-motion: no-preference.
+   ========================================================= */
+
+/* ---------- Pulido general ---------- */
+::selection { background: var(--white); color: var(--black); }
+:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; border-radius: 4px; }
+.btn:active, .hero-app-cta:active { transform: scale(0.97); }
+@media (hover: none) { a, button { -webkit-tap-highlight-color: transparent; } }
+
+/* ---------- Barra de progreso de scroll ---------- */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  z-index: 120;
+  background: var(--white);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* ---------- Botón "volver arriba" (izquierda, sobre la barra legal) ---------- */
+.to-top {
+  position: fixed;
+  left: 18px;
+  bottom: calc(var(--legal-bar-h, 0px) + 18px);
+  z-index: 90;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: rgba(17, 17, 17, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  visibility: hidden;
+  transition: opacity 0.3s var(--ease), transform 0.3s var(--ease),
+    visibility 0.3s, border-color 0.25s var(--ease), background 0.25s var(--ease);
+}
+.to-top.is-on { opacity: 1; transform: none; visibility: visible; }
+.to-top:hover { border-color: var(--white); background: #1a1a1a; }
+.to-top svg { width: 18px; height: 18px; }
+@media (max-width: 480px) {
+  .to-top { left: 14px; width: 42px; height: 42px; bottom: calc(var(--legal-bar-h, 0px) + 14px); }
+}
+
+/* ---------- Nav: sección activa ---------- */
+.nav-link.is-active { color: var(--white); }
+.nav-link.is-active::after { width: 100%; }
+
+/* ---------- Franja animada (marquee) ---------- */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  padding: 20px 0;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+}
+.marquee-group {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+}
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding-left: 30px;
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  white-space: nowrap;
+}
+.marquee-item::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background: var(--gray-700);
+  transform: rotate(45deg);
+}
+@media (max-width: 600px) {
+  .marquee { padding: 15px 0; }
+  .marquee-item { font-size: 1.15rem; gap: 22px; padding-left: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee { -webkit-mask-image: none; mask-image: none; }
+  .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; }
+  .marquee-group { flex-wrap: wrap; justify-content: center; row-gap: 10px; }
+  .marquee-group[aria-hidden="true"] { display: none; }
+  .marquee-item { padding: 0 16px; }
+  .marquee-item::after { display: none; }
+}
+
+/* Las palabras partidas por JS no deben heredar el gris de .hero-title span. */
+.hero-title > .w { color: var(--white); }
+
+/* ---------- Movimiento (solo si el usuario no pidió reducirlo) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Marquee infinito: dos grupos idénticos, se desplaza uno entero. */
+  .marquee-track { animation: marqueeMove 38s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  @keyframes marqueeMove { to { transform: translateX(-50%); } }
+
+  /* Hero: el título entra palabra por palabra; el resto, escalonado. */
+  .hero-anim .hero-title .w {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.5em);
+    animation: wordIn 0.85s var(--ease) forwards;
+    animation-delay: calc(var(--i) * 95ms + 120ms);
+  }
+  .hero-anim .hero-text > :not(.hero-title) {
+    opacity: 0;
+    transform: translateY(18px);
+    animation: heroFade 0.9s var(--ease) forwards;
+  }
+  .hero-anim .hero-text > .eyebrow { animation-delay: 0ms; }
+  .hero-anim .hero-text > .hero-tagline { animation-delay: 520ms; }
+  .hero-anim .hero-text > .hero-actions { animation-delay: 650ms; }
+  .hero-anim .hero-text > .hero-app-cta { animation-delay: 780ms; }
+  .hero-anim .hero-text > .hero-app-hint { animation-delay: 860ms; }
+  .hero-anim .hero-media { animation: heroMedia 1.3s var(--ease) 150ms both; }
+  @keyframes wordIn { to { opacity: 1; transform: none; } }
+  @keyframes heroFade { to { opacity: 1; transform: none; } }
+  @keyframes heroMedia {
+    from { opacity: 0; transform: translateY(26px) scale(0.97); }
+    to { opacity: 1; transform: none; }
+  }
+
+  /* Parallax de la foto (lo controla JS solo en escritorio con mouse). */
+  .hero-media--parallax img { will-change: transform; transform: scale(1.07); }
+}
+
+/* ---------- Tarjetas de planes: luz que sigue al mouse (solo con mouse) ---------- */
+@media (hover: hover) and (pointer: fine) {
+  .plan-card:hover {
+    background-image: radial-gradient(
+      320px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(255, 255, 255, 0.075),
+      transparent 62%
+    );
+    box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+  }
+  .plan-card--vip:hover {
+    background-image: radial-gradient(
+      320px circle at var(--mx, 50%) var(--my, 0%),
+      rgba(198, 162, 76, 0.11),
+      transparent 62%
+    );
+  }
+  .plan-card .plan-btn { transition: transform 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease); }
+  .plan-card:hover .plan-btn { transform: translateY(-2px); }
+}
+.plan-card:active { transform: scale(0.985); }
