@@ -1612,68 +1612,11 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
 .nav-link.is-active { color: var(--white); }
 .nav-link.is-active::after { width: 100%; }
 
-/* ---------- Franja animada (marquee) ---------- */
-.marquee {
-  position: relative;
-  overflow: hidden;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
-  padding: 20px 0;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-.marquee-track {
-  display: flex;
-  width: max-content;
-}
-.marquee-group {
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-}
-.marquee-item {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  padding-left: 30px;
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--gray-500);
-  white-space: nowrap;
-}
-.marquee-item::after {
-  content: "";
-  width: 6px;
-  height: 6px;
-  background: var(--gray-700);
-  transform: rotate(45deg);
-}
-@media (max-width: 600px) {
-  .marquee { padding: 15px 0; }
-  .marquee-item { font-size: 1.15rem; gap: 22px; padding-left: 22px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .marquee { -webkit-mask-image: none; mask-image: none; }
-  .marquee-track { width: auto; flex-wrap: wrap; justify-content: center; }
-  .marquee-group { flex-wrap: wrap; justify-content: center; row-gap: 10px; }
-  .marquee-group[aria-hidden="true"] { display: none; }
-  .marquee-item { padding: 0 16px; }
-  .marquee-item::after { display: none; }
-}
-
 /* Las palabras partidas por JS no deben heredar el gris de .hero-title span. */
 .hero-title > .w { color: var(--white); }
 
 /* ---------- Movimiento (solo si el usuario no pidió reducirlo) ---------- */
 @media (prefers-reduced-motion: no-preference) {
-  /* Marquee infinito: dos grupos idénticos, se desplaza uno entero. */
-  .marquee-track { animation: marqueeMove 38s linear infinite; }
-  .marquee:hover .marquee-track { animation-play-state: paused; }
-  @keyframes marqueeMove { to { transform: translateX(-50%); } }
-
   /* Hero: el título entra palabra por palabra; el resto, escalonado. */
   .hero-anim .hero-title .w {
     display: inline-block;
@@ -1725,3 +1668,69 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
   .plan-card:hover .plan-btn { transform: translateY(-2px); }
 }
 .plan-card:active { transform: scale(0.985); }
+
+/* =========================================================
+   SELECTOR DE IDIOMA, PÁGINA 404 Y MODO DE IMPRESIÓN (2026-10-16)
+   ========================================================= */
+.nav-link.lang-link {
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+.nav-link.lang-link::after { display: none; }
+.nav-link.lang-link:hover { border-color: var(--white); }
+@media (max-width: 900px) {
+  .nav-link.lang-link {
+    align-self: flex-start;
+    width: fit-content;
+    margin: 10px 24px 4px;
+    padding: 6px 16px;
+  }
+}
+
+/* Página 404 */
+.notfound {
+  min-height: 78vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 0 80px;
+}
+.notfound-code {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 26vw, 15rem);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
+  color: var(--gray-700);
+  margin-bottom: 8px;
+}
+.notfound h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  letter-spacing: 0.03em;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.notfound p { color: var(--gray-300); max-width: 520px; margin-bottom: 8px; }
+.notfound-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
+
+/* Impresión (sobre todo para guardar las páginas legales en PDF) */
+@media print {
+  @page { margin: 18mm; }
+  html, body { background: #fff !important; color: #000 !important; }
+  .site-header, .legal-bar, .wa-float, .to-top, .scroll-progress, .nav-toggle,
+  .scroll-hint, .hero-bg, .breadcrumb-back, .solicitud-form, .footer-logo { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .section, .tool-intro { padding: 12px 0 !important; }
+  *, *::before, *::after { color: #000 !important; background: transparent !important; box-shadow: none !important; border-color: #999 !important; }
+  .section-title, h1, h2, h3, h4 { color: #000 !important; page-break-after: avoid; }
+  .eyebrow { color: #444 !important; }
+  .product-body p, .product-body li { page-break-inside: avoid; }
+  a { text-decoration: underline; }
+  .product-body a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 0.8em; word-break: break-all; }
+  .site-footer { padding: 14px 0 0 !important; border-top: 1px solid #999; }
+  .footer-links { display: none !important; }
+}

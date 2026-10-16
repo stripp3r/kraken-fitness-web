@@ -420,6 +420,28 @@ hizo porque faltan datos reales del coach.
 
 ---
 
+## 6.septies. Franja fuera, versión en inglés, 404 e impresión (2026-10-16)
+
+- **Franja animada (marquee) ELIMINADA** del inicio por pedido del coach (no se
+  entendía qué era). Quedó el resto de la Ola 1.
+- **Versión en inglés** (`/en/`): `en/index.html`, `en/plans/anti-flakardo.html`,
+  `en/mentoring/basic.html`, `en/mentoring/vip.html`. Se generó traduciendo las
+  páginas en español con un script (los textos están en el historial de este
+  commit). Selector **ES / EN** en el menú, etiquetas `hreflang` en ambos
+  idiomas y las 4 URLs nuevas en `sitemap.xml`. Las páginas **legales siguen
+  solo en español** (son las que tienen validez en Argentina; en inglés los
+  links dicen "(Spanish)") y la barra legal conserva los nombres obligatorios
+  "Botón de arrepentimiento" / "Botón de baja de servicio". **Los checkouts y
+  la app siguen en español.** Si se cambia texto de una página en español hay
+  que repetirlo a mano en la de inglés. El video "Video coming soon" de
+  Anti-Flakardo es el mismo placeholder que en español. Las 4 páginas pendientes
+  (planes que van por WhatsApp) y los ebooks no tienen versión en inglés.
+- **404 con la marca** (`404.html`, bilingüe, `noindex`).
+- **Modo de impresión** (`@media print` en `styles.css`): al imprimir o guardar
+  en PDF queda blanco y negro, sin menú ni barras, con los links visibles.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
