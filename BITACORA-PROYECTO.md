@@ -427,7 +427,7 @@ hizo porque faltan datos reales del coach.
 - **Versión en inglés** (`/en/`): `en/index.html`, `en/plans/anti-flakardo.html`,
   `en/mentoring/basic.html`, `en/mentoring/vip.html`. Se generó traduciendo las
   páginas en español con un script (los textos están en el historial de este
-  commit). Selector **ES / EN** en el menú, etiquetas `hreflang` en ambos
+  commit). Botón de idioma **ES / EN** (globo + código) siempre visible arriba a la derecha, también en celular junto al menú, etiquetas `hreflang` en ambos
   idiomas y las 4 URLs nuevas en `sitemap.xml`. Las páginas **legales siguen
   solo en español** (son las que tienen validez en Argentina; en inglés los
   links dicen "(Spanish)") y la barra legal conserva los nombres obligatorios

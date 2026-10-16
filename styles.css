@@ -1672,22 +1672,26 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
 /* =========================================================
    SELECTOR DE IDIOMA, PÁGINA 404 Y MODO DE IMPRESIÓN (2026-10-16)
    ========================================================= */
-.nav-link.lang-link {
+/* Botón de idioma: siempre visible arriba a la derecha (también en celular) */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-left: 28px;
+  padding: 7px 13px;
   border: 1px solid var(--border-strong);
   border-radius: 999px;
-  padding: 5px 12px;
-  font-size: 0.72rem;
+  color: var(--gray-100);
+  font-size: 0.74rem;
+  font-weight: 700;
   letter-spacing: 0.14em;
+  line-height: 1;
+  transition: border-color 0.25s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease);
 }
-.nav-link.lang-link::after { display: none; }
-.nav-link.lang-link:hover { border-color: var(--white); }
+.lang-switch svg { width: 15px; height: 15px; flex-shrink: 0; }
+.lang-switch:hover { border-color: var(--white); background: rgba(255, 255, 255, 0.06); color: var(--white); }
 @media (max-width: 900px) {
-  .nav-link.lang-link {
-    align-self: flex-start;
-    width: fit-content;
-    margin: 10px 24px 4px;
-    padding: 6px 16px;
-  }
+  .lang-switch { margin-left: auto; margin-right: 6px; padding: 7px 11px; }
 }
 
 /* Página 404 */
