@@ -1809,3 +1809,8 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
 
 .plan-price-alt { margin: -6px 0 16px; font-size: 0.88rem; color: var(--gray-300); }
 .plan-price-alt strong { color: var(--white); }
+
+/* Una sola tarjeta (Golden): mismo ancho que una columna de los planes autoguiados */
+.plan-grid--single { grid-template-columns: minmax(300px, calc((100% - 48px) / 3)); }
+@media (max-width: 900px) { .plan-grid--single { grid-template-columns: minmax(0, 460px); } }
+@media (max-width: 600px) { .plan-grid--single { grid-template-columns: 1fr; } }
