@@ -523,6 +523,29 @@ Feedback del coach sobre la propuesta A:
 
 ---
 
+## 6.undecies. Planes desplegables y nombres nuevos (2026-10-17, noche)
+
+- **Autoguiados como cuadros desplegables** (`<details class="plan-acc" name="autoguiados">`)
+  en vez del carrusel: cerrado muestra nombre + frase del problema; abierto,
+  descripción, 4 puntos y botón ("Ver plan" para Anti-Flakardo; "Lo quiero" →
+  WhatsApp para los otros 4, sin cambios hasta que existan sus páginas). Un solo
+  plan abierto a la vez; Anti-Flakardo abierto por defecto. Sin precios en el
+  inicio. Se sacó la frase "Los planes autoguiados se compran por WhatsApp
+  mientras terminamos de activar el pago automático".
+- **Nombres sin el prefijo "KRAKEN"** (orden y nombres dados por el coach):
+  Anti-Flakardo, Grasa Sub-Cero, **Mínimo Letal** (antes Minimalista),
+  **Hybrid Build** (antes Híbrido), **Modo Búnker** (antes En Casa). El mapeo se
+  hizo por contenido (mínimo tiempo / otro deporte / en casa). Los mensajes
+  prearmados de WhatsApp usan los nombres nuevos. La página de Anti-Flakardo
+  todavía dice "KRAKEN Anti-Flakardo" en su título (pendiente de confirmar).
+- **La membresía Golden salió del inicio**: vive solo en `/app.html` (Instalar
+  app) y en `planes/golden.html` (link directo para campañas).
+- **Escritorio**: botones del hero apilados con el mismo ancho (280 px) y altura;
+  autoguiados, mentorías y bloques alineados al mismo ancho de contenedor.
+- **Pendiente:** rediseño de `/app.html` (al coach no le gusta cómo se ve).
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```

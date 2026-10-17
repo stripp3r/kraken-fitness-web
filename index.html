@@ -79,11 +79,11 @@
         <div class="hero-actions">
           <a href="#autoguiados" class="btn btn-primary hero-cta">Planes autoguiados</a>
           <a href="#mentorias" class="btn btn-outline hero-cta hero-cta--mentoria">Mentoría 1:1</a>
-        </div>
-        <a href="/app.html" class="hero-app-cta">
+          <a href="/app.html" class="hero-app-cta">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="2" width="12" height="20" rx="2" /><path d="M12 8v7m0 0 2.5-2.5M12 15l-2.5-2.5" /></svg>
           Instalar app
         </a>
+        </div>
       </div>
       <div class="hero-media">
         <img src="img/hero.jpg" alt="Ezequiel — entrenador KRAKEN FITNESS" />
@@ -95,60 +95,116 @@
   <!-- ================= PLANES ================= -->
   <section class="section planes" id="planes">
     <div class="container">
-
       <div class="plans-block" id="autoguiados">
-        <div class="carousel-head">
-          <h3 class="plan-group-title">Planes autoguiados</h3>
-          <div class="carousel-nav">
-            <button type="button" class="carousel-btn" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
-            <button type="button" class="carousel-btn" data-dir="1" aria-label="Siguiente"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
-          </div>
-        </div>
+        <h3 class="plan-group-title">Planes autoguiados</h3>
         <p class="plans-sub">Entrenás por tu cuenta, según tu objetivo: cada plan trae un método claro y la rutina lista para empezar. Elegí el tuyo.</p>
-        <div class="plan-carousel" tabindex="0">
-          <article class="plan-card plan-card--mini plan-card--featured">
-            <span class="plan-badge">Empezá acá</span>
-            <div class="plan-top">
-              <h4 class="plan-name">KRAKEN Anti-Flakardo</h4>
-              <p class="plan-pain">«Soy flaco y no puedo subir de peso.»</p>
-              <p class="plan-desc">Sos flaco, comés, entrenás y no crecés. Con mi método dejás de abandonar y empezás a ver resultados, sin vivir en el gym.</p>
+        <div class="plan-acc-list">
+        <details class="plan-acc plan-acc--featured" name="autoguiados" open>
+          <summary>
+            <span class="plan-acc-main"><span class="plan-badge plan-badge--inline">Empezá acá</span>
+              <span class="plan-acc-name">Anti-Flakardo</span>
+              <span class="plan-acc-pain">«Soy flaco y no puedo subir de peso.»</span>
+            </span>
+            <span class="plan-acc-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="plan-acc-body">
+            <div class="plan-acc-text">
+              <p>Sos flaco, comés, entrenás y no crecés. Con mi método dejás de abandonar y empezás a ver resultados, sin vivir en el gym.</p>
+              <a href="planes/anti-flakardo.html" class="btn btn-primary">Ver plan</a>
             </div>
-            <a href="planes/anti-flakardo.html" class="btn btn-primary plan-btn">Ver plan</a>
-          </article>
-          <article class="plan-card plan-card--mini">
-            <div class="plan-top">
-              <h4 class="plan-name">KRAKEN Grasa Sub-Cero</h4>
-              <p class="plan-pain">«No estoy ni flaco ni marcado.»</p>
-              <p class="plan-desc">Para el "flaco-gordo" que quiere ganar músculo y bajar grasa a la vez. Recomposición corporal con cabeza.</p>
+            <ul class="plan-features">
+              <li>Rutina completa lista para empezar hoy</li>
+              <li>El método KRAKEN para progresar sin estancarte</li>
+              <li>Video de técnica en cada ejercicio</li>
+              <li>Guía de alimentación para ganar peso limpio</li>
+            </ul>
+          </div>
+        </details>
+        <details class="plan-acc" name="autoguiados">
+          <summary>
+            <span class="plan-acc-main">
+              <span class="plan-acc-name">Grasa Sub-Cero</span>
+              <span class="plan-acc-pain">«No estoy ni flaco ni marcado.»</span>
+            </span>
+            <span class="plan-acc-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="plan-acc-body">
+            <div class="plan-acc-text">
+              <p>Para el "flaco-gordo" que quiere ganar músculo y bajar grasa a la vez. Recomposición corporal con cabeza.</p>
+              <a href="https://wa.me/5493417211050?text=Hola%20KRAKEN%2C%20quiero%20el%20plan%20Grasa%20Sub-Cero%20(US%2429%2C99)." class="btn btn-outline" target="_blank" rel="noopener">Lo quiero</a>
             </div>
-            <a href="https://wa.me/5493417211050?text=Hola%20KRAKEN%2C%20quiero%20el%20plan%20Grasa%20Sub-Cero%20(US%2429%2C99)." class="btn btn-outline plan-btn" target="_blank" rel="noopener">Lo quiero</a>
-          </article>
-          <article class="plan-card plan-card--mini">
-            <div class="plan-top">
-              <h4 class="plan-name">KRAKEN Híbrido</h4>
-              <p class="plan-pain">«Quiero el físico sin dejar de correr.»</p>
-              <p class="plan-desc">Para el que hace otro deporte —running, fútbol, lo que sea— y quiere músculo y fuerza sin perder su fondo físico.</p>
+            <ul class="plan-features">
+              <li>Rutina completa lista para empezar hoy</li>
+              <li>El método KRAKEN para progresar sin estancarte</li>
+              <li>Video de técnica en cada ejercicio</li>
+              <li>Guía de alimentación para recomposición</li>
+            </ul>
+          </div>
+        </details>
+        <details class="plan-acc" name="autoguiados">
+          <summary>
+            <span class="plan-acc-main">
+              <span class="plan-acc-name">Mínimo Letal</span>
+              <span class="plan-acc-pain">«No tengo tiempo para vivir en el gym.»</span>
+            </span>
+            <span class="plan-acc-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="plan-acc-body">
+            <div class="plan-acc-text">
+              <p>Alta intensidad, 2 o 3 días por semana como mucho. El mínimo de tiempo para el máximo resultado.</p>
+              <a href="https://wa.me/5493417211050?text=Hola%20KRAKEN%2C%20quiero%20el%20plan%20M%C3%ADnimo%20Letal%20(US%2429%2C99)." class="btn btn-outline" target="_blank" rel="noopener">Lo quiero</a>
             </div>
-            <a href="https://wa.me/5493417211050?text=Hola%20KRAKEN%2C%20quiero%20el%20plan%20H%C3%ADbrido%20(US%2429%2C99)." class="btn btn-outline plan-btn" target="_blank" rel="noopener">Lo quiero</a>
-          </article>
-          <article class="plan-card plan-card--mini">
-            <div class="plan-top">
-              <h4 class="plan-name">KRAKEN En Casa</h4>
-              <p class="plan-pain">«No piso un gimnasio.»</p>
-              <p class="plan-desc">Entrenamiento 100% desde tu casa con lo que tengas: mancuernas, bandas o tu propio peso. Sin excusas de logística.</p>
+            <ul class="plan-features">
+              <li>Rutina de 2 a 3 sesiones cortas por semana</li>
+              <li>Alta intensidad, con el trabajo al fallo bien pautado</li>
+              <li>Video de técnica en cada ejercicio</li>
+              <li>Cómo seguir progresando entrenando poco</li>
+            </ul>
+          </div>
+        </details>
+        <details class="plan-acc" name="autoguiados">
+          <summary>
+            <span class="plan-acc-main">
+              <span class="plan-acc-name">Hybrid Build</span>
+              <span class="plan-acc-pain">«Quiero el físico sin dejar de correr.»</span>
+            </span>
+            <span class="plan-acc-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="plan-acc-body">
+            <div class="plan-acc-text">
+              <p>Para el que hace otro deporte —running, fútbol, lo que sea— y quiere músculo y fuerza sin perder su fondo físico.</p>
+              <a href="https://wa.me/5493417211050?text=Hola%20KRAKEN%2C%20quiero%20el%20plan%20Hybrid%20Build%20(US%2429%2C99)." class="btn btn-outline" target="_blank" rel="noopener">Lo quiero</a>
             </div>
-            <a href="https://wa.me/5493417211050?text=Hola%20KRAKEN%2C%20quiero%20el%20plan%20En%20Casa%20(US%2429%2C99)." class="btn btn-outline plan-btn" target="_blank" rel="noopener">Lo quiero</a>
-          </article>
-          <article class="plan-card plan-card--mini">
-            <div class="plan-top">
-              <h4 class="plan-name">KRAKEN Minimalista</h4>
-              <p class="plan-pain">«No tengo tiempo para vivir en el gym.»</p>
-              <p class="plan-desc">Alta intensidad, 2 o 3 días por semana como mucho. El mínimo de tiempo para el máximo resultado.</p>
+            <ul class="plan-features">
+              <li>Rutina que suma sin sacarte el fondo físico</li>
+              <li>El método KRAKEN para progresar sin estancarte</li>
+              <li>Video de técnica en cada ejercicio</li>
+              <li>Cómo ordenar fuerza y resistencia en la semana</li>
+            </ul>
+          </div>
+        </details>
+        <details class="plan-acc" name="autoguiados">
+          <summary>
+            <span class="plan-acc-main">
+              <span class="plan-acc-name">Modo Búnker</span>
+              <span class="plan-acc-pain">«No piso un gimnasio.»</span>
+            </span>
+            <span class="plan-acc-icon" aria-hidden="true"></span>
+          </summary>
+          <div class="plan-acc-body">
+            <div class="plan-acc-text">
+              <p>Entrenamiento 100% desde tu casa con lo que tengas: mancuernas, bandas o tu propio peso. Sin excusas de logística.</p>
+              <a href="https://wa.me/5493417211050?text=Hola%20KRAKEN%2C%20quiero%20el%20plan%20Modo%20B%C3%BAnker%20(US%2429%2C99)." class="btn btn-outline" target="_blank" rel="noopener">Lo quiero</a>
             </div>
-            <a href="https://wa.me/5493417211050?text=Hola%20KRAKEN%2C%20quiero%20el%20plan%20Minimalista%20(US%2429%2C99)." class="btn btn-outline plan-btn" target="_blank" rel="noopener">Lo quiero</a>
-          </article>
+            <ul class="plan-features">
+              <li>Rutina para hacer en casa con equipamiento mínimo</li>
+              <li>El método KRAKEN para progresar sin estancarte</li>
+              <li>Video de técnica en cada ejercicio</li>
+              <li>Alternativas según los elementos que tengas</li>
+            </ul>
+          </div>
+        </details>
         </div>
-        <p class="plan-note">Los planes autoguiados se compran por WhatsApp mientras terminamos de activar el pago automático.</p>
       </div>
 
       <div class="plans-block" id="mentorias">
@@ -177,18 +233,6 @@
             <a href="mentorias/vip.html" class="btn btn-primary plan-btn">Ver Mentoría VIP</a>
           </article>
         </div>
-      </div>
-
-      <div class="plans-block" id="golden">
-        <h3 class="plan-group-title reveal">Membresía</h3>
-        <article class="plan-card plan-card--vip golden-banner reveal">
-          <span class="plan-badge plan-badge--gold">Toda la app</span>
-          <div class="golden-text">
-            <h4 class="plan-name">KRAKEN Golden</h4>
-            <p class="plan-desc">La KRAKEN App completa, sin límites: todas las rutinas, el análisis de tu entrenamiento y la evolución de tu cuerpo.</p>
-          </div>
-          <a href="planes/golden.html" class="btn btn-primary plan-btn">Ver Golden</a>
-        </article>
       </div>
     </div>
   </section>

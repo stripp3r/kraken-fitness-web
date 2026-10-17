@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 /* =========================================================
-   INICIO COMO VIDRIERA (2026-10-17): flechas del carrusel y "Leer más"
+   INICIO (2026-10-17): planes desplegables y "Leer más"
    ========================================================= */
 (function () {
   function ready(fn) {
@@ -255,29 +255,14 @@ document.addEventListener("DOMContentLoaded", () => {
     else fn();
   }
   ready(function () {
-    var car = document.querySelector(".plan-carousel");
-    if (car) {
-      var btns = document.querySelectorAll(".carousel-btn");
-      var step = function () {
-        var card = car.querySelector(".plan-card");
-        return card ? card.getBoundingClientRect().width + 18 : 320;
-      };
-      var update = function () {
-        var max = car.scrollWidth - car.clientWidth - 2;
-        btns.forEach(function (b) {
-          var dir = Number(b.getAttribute("data-dir"));
-          b.disabled = dir < 0 ? car.scrollLeft <= 2 : car.scrollLeft >= max;
-        });
-      };
-      btns.forEach(function (b) {
-        b.addEventListener("click", function () {
-          car.scrollBy({ left: Number(b.getAttribute("data-dir")) * step(), behavior: "smooth" });
-        });
+    // Un solo plan abierto a la vez (por si el navegador no soporta details[name]).
+    var accs = document.querySelectorAll("details.plan-acc");
+    accs.forEach(function (d) {
+      d.addEventListener("toggle", function () {
+        if (!d.open) return;
+        accs.forEach(function (o) { if (o !== d) o.open = false; });
       });
-      car.addEventListener("scroll", update, { passive: true });
-      window.addEventListener("resize", update);
-      update();
-    }
+    });
 
     // En escritorio el texto de "Sobre mí" se ve completo; en celular, con "Leer más".
     var more = document.getElementById("about-more");

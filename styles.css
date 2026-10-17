@@ -1832,42 +1832,6 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
 .plans-block + .plans-block { margin-top: 56px; }
 .plans-block .plan-group-title { margin-bottom: 18px; }
 
-/* ---------- Carrusel de autoguiados ---------- */
-.carousel-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 4px; }
-.carousel-head .plan-group-title { margin-bottom: 0; }
-.carousel-nav { display: none; gap: 8px; }
-@media (hover: hover) and (pointer: fine) and (min-width: 901px) { .carousel-nav { display: flex; } }
-.carousel-btn {
-  width: 40px; height: 40px;
-  display: flex; align-items: center; justify-content: center;
-  border: 1px solid var(--border-strong);
-  border-radius: 50%;
-  background: transparent;
-  color: var(--white);
-  cursor: pointer;
-  transition: background 0.25s var(--ease), color 0.25s var(--ease), opacity 0.25s var(--ease);
-}
-.carousel-btn svg { width: 18px; height: 18px; }
-.carousel-btn:hover { background: var(--white); color: var(--black); }
-.carousel-btn[disabled] { opacity: 0.3; pointer-events: none; }
-
-.plan-carousel {
-  display: flex;
-  gap: 18px;
-  align-items: stretch;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 20px 24px 18px;
-  margin: 0 -24px;
-  scroll-padding-inline: 24px;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  overscroll-behavior-x: contain;
-}
-.plan-carousel::-webkit-scrollbar { display: none; }
-.plan-carousel:focus-visible { outline-offset: -2px; }
-.plan-carousel .plan-card--mini { flex: 0 0 min(80%, 340px); scroll-snap-align: start; }
-
 .plan-card--mini { padding: 28px 24px 24px; }
 .plan-card--mini .plan-top { flex: 1; }
 .plan-card--mini .plan-top + .btn { margin-top: 22px; }
@@ -1880,21 +1844,6 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
 
 /* ---------- Mentorías y Golden compactas ---------- */
 .plan-grid--mentoria .plan-card--mini .plan-top { padding-right: 34px; }
-.golden-banner {
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  padding: 30px 34px;
-}
-.golden-banner .golden-text { flex: 1; }
-.golden-banner .plan-desc { max-width: 560px; margin-top: 6px; }
-.golden-banner .plan-btn { flex-shrink: 0; width: auto; padding-left: 36px; padding-right: 36px; }
-@media (max-width: 700px) {
-  .golden-banner { flex-direction: column; align-items: stretch; gap: 18px; padding: 28px 22px 24px; }
-  .golden-banner .plan-btn { width: 100%; }
-}
-
 /* ---------- Sobre mí: "Leer más" ---------- */
 .about-more summary {
   display: inline-block;
@@ -1923,3 +1872,108 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
 /* Página de la app (instalación) */
 .install-actions { margin: 22px 0 8px; }
 .hero-text .product-desc + .hero-actions { margin-top: 24px; }
+
+/* =========================================================
+   PLANES DESPLEGABLES + BOTONES DEL HERO (2026-10-17)
+   ========================================================= */
+.hero-actions { flex-direction: column; align-items: flex-start; gap: 12px; }
+.hero-actions .btn,
+.hero-actions .hero-app-cta {
+  width: 280px;
+  max-width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  margin: 0;
+  padding: 14px 30px;
+  font-size: 0.9rem;
+  line-height: 1.2;
+}
+@media (max-width: 900px) {
+  .hero-actions .btn,
+  .hero-actions .hero-app-cta { min-height: 46px; padding: 12px 22px; font-size: 0.8rem; width: 100%; max-width: 280px; }
+}
+
+.plan-acc-list { display: flex; flex-direction: column; gap: 12px; }
+.plan-acc {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.3s var(--ease), background 0.3s var(--ease);
+}
+.plan-acc:hover { border-color: var(--border-strong); }
+.plan-acc[open] { background: #141414; border-color: var(--border-strong); }
+.plan-acc--featured { border-color: rgba(255, 255, 255, 0.35); }
+.plan-acc--featured[open] { border-color: var(--white); }
+.plan-acc > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 22px 26px;
+}
+.plan-acc > summary::-webkit-details-marker { display: none; }
+.plan-acc-main { flex: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 7px; min-width: 0; }
+.plan-acc-name {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1;
+}
+.plan-acc-pain { font-style: italic; color: var(--gray-300); font-size: 0.93rem; }
+.plan-badge--inline { position: static; display: inline-block; margin-bottom: 2px; }
+.plan-acc-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  transition: background 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+.plan-acc-icon::before,
+.plan-acc-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 12px; height: 1.6px;
+  background: var(--white);
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s var(--ease), background 0.25s var(--ease);
+}
+.plan-acc-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+.plan-acc[open] .plan-acc-icon::after { transform: translate(-50%, -50%) rotate(0deg); }
+.plan-acc > summary:hover .plan-acc-icon { background: var(--white); border-color: var(--white); }
+.plan-acc > summary:hover .plan-acc-icon::before,
+.plan-acc > summary:hover .plan-acc-icon::after { background: var(--black); }
+.plan-acc-body {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 32px;
+  align-items: start;
+  padding: 2px 26px 28px;
+  animation: accIn 0.4s var(--ease);
+}
+@keyframes accIn { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.plan-acc-text p { color: var(--gray-300); font-size: 1rem; margin-bottom: 22px; max-width: 520px; }
+.plan-acc-body .plan-features { margin: 0; flex-grow: 0; }
+.plan-acc-body .btn { min-height: 0; }
+@media (max-width: 700px) {
+  .plan-acc > summary { padding: 18px 18px; gap: 12px; }
+  .plan-acc-name { font-size: 1.5rem; }
+  .plan-acc-pain { font-size: 0.88rem; }
+  .plan-acc-icon { width: 34px; height: 34px; }
+  .plan-acc-body { grid-template-columns: 1fr; gap: 20px; padding: 0 18px 22px; }
+  .plan-acc-text p { margin-bottom: 18px; font-size: 0.95rem; }
+  .plan-acc-text .btn { width: 100%; text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { .plan-acc-body { animation: none; } }
+
+/* Mentorías al ancho del contenedor, igual que el resto de los bloques */
+.plans-block .plan-grid--mentoria { max-width: none; grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 700px) { .plans-block .plan-grid--mentoria { grid-template-columns: 1fr; } }
