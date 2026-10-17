@@ -546,6 +546,20 @@ Feedback del coach sobre la propuesta A:
 
 ---
 
+## 6.duodecies. Rediseño de /app.html (2026-10-17)
+
+`app.html` y `en/app.html` rehechas (orden aprobado por el coach): hero con el
+isotipo (sin maqueta de celular hasta que haya capturas de la app) →
+**Golden** (2 tarjetas Mensual / Anual con precio en USD, equivalente en ARS por
+Mercado Pago y botones de pago; el anual con cinta "Ahorrás ~35%"; aviso de
+cuenta y texto legal debajo) → "Qué incluye" en 6 recuadros con ícono → "Cómo
+instalarla" en 3 pasos + botón "Abrir la app" → preguntas frecuentes. Ya no usa
+el selector de `golden.js` (ese sigue solo en `planes/golden.html`). Si cambian
+los precios: tabla `productos` de la app, `planes/golden.html` (+ EN) y
+`app.html` (+ EN). Cuando haya capturas/video de la app, van en el hero.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```

@@ -1977,3 +1977,98 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(40px + var(--legal-bar-
 /* Mentorías al ancho del contenedor, igual que el resto de los bloques */
 .plans-block .plan-grid--mentoria { max-width: none; grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 700px) { .plans-block .plan-grid--mentoria { grid-template-columns: 1fr; } }
+
+/* =========================================================
+   PÁGINA DE LA APP v2 (2026-10-17)
+   ========================================================= */
+.app-section { padding-top: 56px; padding-bottom: 56px; }
+.app-section + .app-section { border-top: 1px solid var(--border); }
+.app-section .section-head { margin-bottom: 34px; }
+.gold-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+.gold-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 30px 30px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+}
+.gold-card--best { border-color: rgba(198, 162, 76, 0.6); background: #141311; }
+.gold-card-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-500);
+  margin-bottom: 8px;
+}
+.gold-card-sub { color: var(--gray-300); font-size: 0.9rem; margin: 6px 0 24px; min-height: 2.7em; }
+.gold-card .plan-pay-options { margin-top: auto; }
+.gold-card .plan-btn { width: 100%; }
+.app-section .pay-note { margin: 26px 0 0; max-width: 560px; }
+.app-section .pay-legal { margin: 20px 0 6px; max-width: 760px; }
+
+.tiles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.tile {
+  padding: 26px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.tile:hover { border-color: var(--border-strong); transform: translateY(-3px); }
+.tile-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: 12px;
+  color: #c6a24c;
+}
+.tile-icon svg { width: 22px; height: 22px; }
+.tile h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 6px; }
+.tile p { color: var(--gray-300); font-size: 0.92rem; }
+
+.steps-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.step-card {
+  padding: 26px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 14px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--black);
+  font-weight: 800;
+}
+.step-card h3 { font-family: var(--font-display); font-weight: 400; font-size: 1.35rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--white); margin-bottom: 6px; }
+.step-card p { color: var(--gray-300); font-size: 0.92rem; }
+.app-section .install-actions { margin: 28px 0 0; text-align: center; }
+
+@media (max-width: 900px) {
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .steps-row { grid-template-columns: 1fr; }
+}
+@media (max-width: 700px) {
+  .app-section { padding-top: 40px; padding-bottom: 40px; }
+  .gold-grid { grid-template-columns: 1fr; }
+  .gold-card { padding: 28px 22px 24px; }
+  .gold-card-sub { min-height: 0; }
+  .tiles { gap: 12px; }
+  .tile { padding: 20px 16px; }
+  .tile h3 { font-size: 1.15rem; }
+  .tile p { font-size: 0.85rem; }
+}
+@media (max-width: 340px) { .tiles { grid-template-columns: 1fr; } }
+@media (max-width: 700px) { .tile-icon { width: 40px; height: 40px; margin-bottom: 12px; } .tile h3 { line-height: 1.1; } }
