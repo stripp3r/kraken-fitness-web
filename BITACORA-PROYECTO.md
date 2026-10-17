@@ -493,7 +493,7 @@ Estructura nueva del inicio (ES `index.html` y EN `en/index.html`):
 6. "Sobre mí": primer párrafo + "Leer más" (`<details>`); abierto por defecto
    en escritorio.
 Los textos de las tarjetas son los que ya existían (sin cambios de copy);
-quedó **pendiente de aprobación del coach** el nuevo texto de Anti-Flakardo
+el nuevo texto de Anti-Flakardo fue **aprobado por el coach el 2026-10-17** (frase «Soy flaco y no puedo subir de peso.» + "Sos flaco, comés, entrenás y no crecés. Con mi método dejás de abandonar y empezás a ver resultados, sin vivir en el gym."; ya aplicado)
 (frase en tono más terrenal). Los textos de los 3 caminos y el subtítulo de la
 sección son nuevos y cortos; el coach los revisa.
 Ideas anotadas para después: selector por objetivo (opción C), sacar el
