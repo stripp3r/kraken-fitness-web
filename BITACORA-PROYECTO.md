@@ -501,6 +501,28 @@ recuadro "Video próximamente" de Anti-Flakardo hasta que haya video.
 
 ---
 
+## 6.decies. Ajustes al inicio y página de la app (2026-10-17, tarde)
+
+Feedback del coach sobre la propuesta A:
+- **Se sacaron los 3 caminos** del inicio (redundantes con los botones del hero).
+  Ahora "Planes autoguiados" lleva directo al carrusel (`#autoguiados`),
+  "Mentoría 1:1" a las mentorías (`#mentorias`). Cada bloque tiene un subtítulo
+  nuevo: autoguiados "Entrenás por tu cuenta, según tu objetivo: cada plan trae
+  un método claro y la rutina lista para empezar. Elegí el tuyo." / mentorías
+  "Te acompaño yo, paso a paso: un plan hecho para vos y seguimiento real por
+  WhatsApp y la app. Elegí tu nivel." Inicio: ~5 pantallas en celular.
+- **"Instalar app" ya no abre el login de la app** (era una página externa, otra
+  pestaña, con email/contraseña). Ahora abre **`/app.html`** (`/en/app.html`) dentro
+  del sitio, misma pestaña: "La KRAKEN App" con pasos de instalación
+  (Android/iPhone), botón "Abrir la app" (→ `appfit.krakenbrand.com/login`, ahí sí
+  es la app) y la **membresía Golden** (qué incluye + selector mensual/anual +
+  pago). Se sacó el cartel de pasos del hero. El linktree también apunta a
+  `/app.html`. **No se prometió "pronto en Play Store / App Store"** (por la
+  situación de comisiones). Cuando haya video de la app, va en esta página.
+- Texto de Anti-Flakardo aprobado (ver arriba) ya aplicado.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
