@@ -442,6 +442,35 @@ hizo porque faltan datos reales del coach.
 
 ---
 
+## 6.octies. KRAKEN Golden en el sitio (2026-10-17)
+
+**Decisión del coach:** todo el cobro pasa por el sitio (la app deja de cobrar y de
+mostrar precios) por las reglas/comisiones de Apple y Google al publicarla en
+App Store / Play Store. Ecosistema: sitio = vitrina y cobro; app = producto.
+
+- Página `planes/golden.html` (+ `en/plans/golden.html`), tarjeta "Membresía"
+  en el inicio (ES y EN) y 2 URLs nuevas en el sitemap. Lógica del selector
+  mensual/anual en `golden.js` (los precios están en un bloque JSON dentro de
+  cada página: **si se cambian precios hay que editarlos ahí, en el HTML de la
+  tarjeta del inicio y en la tabla `productos` de la app**). Acepta
+  `?frecuencia=mensual|anual` en la URL (para campañas).
+- Precios actuales (confirmados por el coach el 2026-10-17; "quizá los
+  modifiquemos para campañas"): mensual **US$12,99 / ARS 19.500**; anual
+  **US$99 / ARS 150.000** (equivale a US$8,25/mes; "ahorrás ~35%" real = ~36%).
+  Mercado Pago cobra en ARS y PayPal en USD (verificado en el código de la app).
+- Botones (pestaña nueva): `https://appfit.krakenbrand.com/api/checkout/golden/{mercadopago|paypal}?frecuencia={mensual|anual}`.
+  Requieren cuenta e inicio de sesión en la app (la app manda a /login y vuelve):
+  la página lo avisa y enlaza a `https://appfit.krakenbrand.com/registro`.
+- Texto legal junto al botón, copiado tal cual lo pidió el chat de la app
+  (renovación automática, baja sin penalidad, 10 días legales + 14 de KRAKEN),
+  con links a /baja, /arrepentimiento y /terminos.
+- El hero usa el isotipo `kraken-mark.png` (no hay arte propio de Golden): si el
+  coach quiere un ícono dorado como el de las mentorías, hay que crearlo.
+- Contenido ("qué incluye", cómo empezar, FAQ) redactado a partir de la lista que
+  mostraba la app; revisar con el coach.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
