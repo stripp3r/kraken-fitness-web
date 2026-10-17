@@ -560,6 +560,20 @@ los precios: tabla `productos` de la app, `planes/golden.html` (+ EN) y
 
 ---
 
+## 6.terdecies. Pendiente: animación de la app en /app.html (2026-10-17)
+
+El coach está rehaciendo la animación/video que muestra la KRAKEN App (la vieja
+quedó obsoleta: la app cambió estética y funciones) y avisará cuando esté. Va en
+el hero de `app.html` y `en/app.html` (hoy el pulpo `kraken-mark.png` ocupa ese
+lugar). Hay que pedirle: archivo (MP4 liviano; si pesa se comprime), formato
+(vertical u horizontal), si tiene sonido y duración. Reproducción sugerida: en
+silencio, bucle, `autoplay muted playsinline`, con imagen de portada (`poster`)
+y sin descargar el video completo en celular hasta que se vea. Agregar los
+dominios de hosting del video a la CSP (`media-src` en `vercel.json`) si no se
+sirve desde el propio sitio.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
