@@ -471,6 +471,36 @@ App Store / Play Store. Ecosistema: sitio = vitrina y cobro; app = producto.
 
 ---
 
+## 6.nonies. Inicio como vidriera — propuesta A (2026-10-17)
+
+Auditoría de UX del coach (celular): el inicio medía **10 pantallas** (7,3 en
+escritorio); 6,4 eran ofertas (8 tarjetas de ~590 px con precio y puntos
+repetidos). Decisión del coach: propuesta **A** y **sin precios en el inicio**
+(celular y escritorio; los precios viven en la página de cada producto).
+Resultado: ~5,7 pantallas en celular y ~5,5 en escritorio.
+
+Estructura nueva del inicio (ES `index.html` y EN `en/index.html`):
+1. Hero con botones más chicos: "Planes autoguiados" (antes "Ver Planes"),
+   "Mentoría 1:1" e "Instalar app". El menú suma "Mentorías".
+2. "Elegí cómo querés entrenar": 3 caminos (autoguiados / mentoría / Golden).
+3. `#autoguiados`: carrusel horizontal (scroll-snap; flechas solo en escritorio
+   con mouse) con 5 tarjetas sin precio ni lista de puntos. Anti-Flakardo →
+   su página; los otros 4 siguen yendo a WhatsApp ("Lo quiero") **sin cambios**,
+   el coach los trabaja esta semana. Se mantuvo la nota "se compran por
+   WhatsApp mientras terminamos de activar el pago automático".
+4. `#mentorias`: 2 tarjetas compactas sin precio → sus páginas.
+5. `#golden`: banner compacto → `planes/golden.html`.
+6. "Sobre mí": primer párrafo + "Leer más" (`<details>`); abierto por defecto
+   en escritorio.
+Los textos de las tarjetas son los que ya existían (sin cambios de copy);
+quedó **pendiente de aprobación del coach** el nuevo texto de Anti-Flakardo
+(frase en tono más terrenal). Los textos de los 3 caminos y el subtítulo de la
+sección son nuevos y cortos; el coach los revisa.
+Ideas anotadas para después: selector por objetivo (opción C), sacar el
+recuadro "Video próximamente" de Anti-Flakardo hasta que haya video.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```

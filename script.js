@@ -245,3 +245,42 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 })();
+
+/* =========================================================
+   INICIO COMO VIDRIERA (2026-10-17): flechas del carrusel y "Leer más"
+   ========================================================= */
+(function () {
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  ready(function () {
+    var car = document.querySelector(".plan-carousel");
+    if (car) {
+      var btns = document.querySelectorAll(".carousel-btn");
+      var step = function () {
+        var card = car.querySelector(".plan-card");
+        return card ? card.getBoundingClientRect().width + 18 : 320;
+      };
+      var update = function () {
+        var max = car.scrollWidth - car.clientWidth - 2;
+        btns.forEach(function (b) {
+          var dir = Number(b.getAttribute("data-dir"));
+          b.disabled = dir < 0 ? car.scrollLeft <= 2 : car.scrollLeft >= max;
+        });
+      };
+      btns.forEach(function (b) {
+        b.addEventListener("click", function () {
+          car.scrollBy({ left: Number(b.getAttribute("data-dir")) * step(), behavior: "smooth" });
+        });
+      });
+      car.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", update);
+      update();
+    }
+
+    // En escritorio el texto de "Sobre mí" se ve completo; en celular, con "Leer más".
+    var more = document.getElementById("about-more");
+    if (more && window.matchMedia("(min-width: 901px)").matches) more.open = true;
+  });
+})();
