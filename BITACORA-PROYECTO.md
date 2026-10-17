@@ -574,6 +574,27 @@ sirve desde el propio sitio.
 
 ---
 
+## 6.quaterdecies. Video de la app en /app (2026-10-17, noche)
+
+El coach entregó `D:\PROYECTO FITNESS\VIDEOS\MP4 EXPORTADOS\kraken_entrena_app_demo.mp4`
+(1080x1920, 30 s, 24,7 MB). Se comprimió a `video/kraken-app-demo.mp4`
+(720x1280, H.264, ~2,1 MB) + portada `video/kraken-app-demo-poster.jpg`. Está en el
+hero de `app.html` y `en/app.html` (reproductor vertical con bordes redondeados,
+debajo del texto en celular). `appvideo.js`: arranca en silencio y en bucle, se
+pausa cuando sale de pantalla, botón para activar el sonido, y con
+`prefers-reduced-motion` no se reproduce solo (muestra controles). El original
+queda en la carpeta del coach; si se rehace el video, repetir la compresión
+(ffmpeg: `scale=720:1280`, `libx264 -crf 28 -preset slow -movflags +faststart`,
+`aac 80k`) y reemplazar los dos archivos de `video/`.
+Mismo día: botones del hero centrados en celular (se había roto al apilarlos),
+primer plan autoguiado ya NO viene desplegado por defecto. Se mantiene el título
+"KRAKEN Anti-Flakardo" en la página del plan (decisión del coach).
+Barra legal inferior (Botón de arrepentimiento / baja): se mantiene visible por
+la Disp. 954/2025 (arts. 1 y 4: "a la vista, en lugar destacado y desde el primer
+acceso"); ver 6.ter.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```

@@ -57,9 +57,6 @@
   <section class="hero hero--icon">
     <div class="hero-bg"></div>
     <div class="container hero-inner">
-      <div class="hero-media hero-media--icon">
-        <img src="/img/kraken-mark.png" alt="KRAKEN App" />
-      </div>
       <div class="hero-text">
         <h1 class="section-title product-title">La KRAKEN App</h1>
         <p class="product-desc">Tu rutina, tus series y tu progreso, siempre en el celular. Se instala en segundos desde el navegador.</p>
@@ -67,6 +64,12 @@
           <a href="#golden" class="btn btn-primary hero-cta">Membresía Golden</a>
           <a href="#instalar" class="btn btn-outline hero-cta">Cómo instalarla</a>
         </div>
+      </div>
+      <div class="app-video">
+        <video id="app-video" autoplay muted loop playsinline preload="metadata" poster="/video/kraken-app-demo-poster.jpg" aria-label="Video: cómo funciona la KRAKEN App">
+          <source src="/video/kraken-app-demo.mp4" type="video/mp4" />
+        </video>
+        <button type="button" class="app-video-sound" id="app-video-sound" aria-label="Activar sonido" data-on="Activar sonido" data-off="Silenciar" aria-pressed="false"><svg class="ico-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11"/></svg><svg class="ico-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9l5 6M22 9l-5 6"/></svg></button>
       </div>
     </div>
   </section>
@@ -194,5 +197,6 @@
   </a>
 
   <script src="script.js"></script>
+  <script src="/appvideo.js"></script>
 </body>
 </html>
