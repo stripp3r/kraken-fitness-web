@@ -2088,7 +2088,7 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
 .app-video {
   position: relative;
   justify-self: center;
-  width: min(100%, 340px);
+  width: min(100%, 390px);
   aspect-ratio: 9 / 16;
   border-radius: 22px;
   overflow: hidden;
@@ -2100,7 +2100,7 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
 .app-video-sound {
   position: absolute;
   right: 12px;
-  bottom: 12px;
+  top: 12px;
   width: 42px;
   height: 42px;
   display: flex;
@@ -2122,5 +2122,19 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
 .app-video-sound[aria-pressed="true"] .ico-off { display: none; }
 @media (max-width: 900px) {
   .hero-actions { align-items: center; }
-  .app-video { margin: 34px auto 0; width: min(78%, 300px); }
+  /* Tablet: centrado, ancho cómodo */
+  .app-video { width: min(100%, 480px); margin: 34px auto 0; transform: none; }
+  .hero--icon .hero-inner { padding-bottom: 8px; }
+}
+@media (min-width: 481px) and (max-width: 900px) { .app-video { border-radius: 22px; border: 1px solid var(--border-strong); } }
+/* Celular: el video ocupa todo el ancho de la pantalla */
+@media (max-width: 480px) {
+  .app-video {
+    width: auto;
+    max-width: none;
+    margin: 30px calc(50% - 50vw) 0;
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+  }
 }

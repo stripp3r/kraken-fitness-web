@@ -606,6 +606,17 @@ cuelgan el botón de WhatsApp, "volver arriba" y el padding del pie).
 
 ---
 
+## 6.sexdecies. Video de la app más grande (2026-10-18)
+
+Pedido del coach: el video se veía chico en celular. Ahora en celular (<= 480 px)
+ocupa **todo el ancho de la pantalla** (sin bordes laterales, ~390x693) con el
+truco de ancho completo `margin: calc(50% - 50vw)`; en tablet queda centrado
+(máx. 480 px) y en escritorio mide 390 px de ancho (antes 340). El botón de
+sonido pasó arriba a la derecha del video para no chocar con el botón flotante
+de WhatsApp.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
