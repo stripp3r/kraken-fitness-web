@@ -595,6 +595,17 @@ acceso"); ver 6.ter.
 
 ---
 
+## 6.quindecies. Barra legal más discreta (2026-10-17)
+
+A pedido del coach la barra fija de "Botón de arrepentimiento" / "Botón de baja de
+servicio" pasó de 40 a **30 px** de alto, letra 0,64 rem (0,6 en celular) en peso
+normal, color gris claro y un punto separador. **Sigue visible en todas las
+páginas, en el primer acceso y sin registro** (Disp. 954/2025 arts. 1 y 4); no
+reducirla más ni esconderla en el pie. La altura vive en `--legal-bar-h` (de ahí
+cuelgan el botón de WhatsApp, "volver arriba" y el padding del pie).
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
