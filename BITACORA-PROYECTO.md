@@ -617,6 +617,20 @@ de WhatsApp.
 
 ---
 
+## 6.septendecies. Revisión de seguridad (2026-10-19)
+
+Hallazgo: `BITACORA-PROYECTO.md` se estaba sirviendo públicamente
+(`fit.krakenbrand.com/BITACORA-PROYECTO.md`) con notas internas. Corregido con
+`.vercelignore` (excluye bitácora, README, fotos originales y carpetas de
+herramientas del deploy; **no borrar ese archivo**). Se agregó
+`.well-known/security.txt` (contacto; renovar el `Expires` antes de 2027-10-19).
+Verificado OK: HTTPS forzado, HSTS, CSP, X-Frame-Options, nosniff,
+Referrer/Permissions-Policy, COOP; sin secretos en el repo; `.git`, `.env`,
+`vercel.json` y carpetas internas dan 404; el endpoint de la app rechaza
+orígenes ajenos (403).
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
