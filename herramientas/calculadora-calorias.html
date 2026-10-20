@@ -200,11 +200,12 @@
       var tdee = tmb * actividad;
 
       var factor = 1;
+      var ajusteKcal = 0;
       var etiqueta = 'para mantener tu peso';
       if (objetivo === 'ganar') { factor = 1.10; etiqueta = 'para ganar masa muscular limpia'; }
-      if (objetivo === 'bajar') { factor = 0.80; etiqueta = 'para bajar grasa de forma sostenida'; }
+      if (objetivo === 'bajar') { ajusteKcal = -300; etiqueta = 'para bajar grasa de forma sostenida'; }
 
-      var metaCalorias = tdee * factor;
+      var metaCalorias = tdee * factor + ajusteKcal;
 
       // Macros: proteína fija por kg, grasa como % del total, carbos con el resto
       var proteinaG = Math.round(peso * 2);
