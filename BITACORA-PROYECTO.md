@@ -631,6 +631,26 @@ orígenes ajenos (403).
 
 ---
 
+## 6.octodecies. Plan Grasa Sub-0 en el sitio (2026-10-20)
+
+Plan autoguiado nuevo, ya NO va por WhatsApp: ficha propia `planes/grasa-sub-0.html`
+(+ `en/plans/grasa-sub-0.html`), portada `img/grasa-sub-0-hero.jpg` (de
+`D:\PROYECTO FITNESS\PDFS\PLAN GRASA SUB-0\imagenes\`), tarjeta del inicio
+actualizada (nombre "Grasa Sub-0", antes "Grasa Sub-Cero"; texto: bajar grasa sin
+perder músculo, no "recomposición"). Nombre aprobado por el coach: **Grasa Sub-0**.
+Slug del producto en la app: `grasa-sub-cero` (id 4); checkout
+`/api/checkout/{mercadopago|paypal}?producto=grasa-sub-cero`. Precio US$29,99 (ARS
+45.000 en la base). Entrega: rutina (id 8, privada, 32 ejercicios) habilitada 90
+días + PDF `Plan_Grasa_Sub-0.pdf` (versión FINAL) en "Mis PDFs", solo lectura.
+La ficha incluye el aviso: IMC >= 30 o cintura >= 102 cm (H) / 88 cm (M) -> se
+recomienda mentoría 1 a 1 (así lo pide el libro). Textos de venta aprobados.
+**Pendiente al publicar:** el producto estaba `activo=false` en la base (los
+botones de pago dan 404 hasta activarlo; lo activa el chat de la app o el coach), y
+a 21 de los 32 ejercicios de la rutina les falta `video_url` (las imágenes sí
+están): completar antes de vender a escala.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```

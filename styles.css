@@ -2138,3 +2138,16 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
     border-right: 0;
   }
 }
+
+/* Aviso dentro de la ficha de un plan (p. ej. quién no debería hacer Grasa Sub-0) */
+.product-alert {
+  margin-top: 26px;
+  padding: 20px 22px;
+  background: var(--bg-elev);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+}
+.product-alert-title { font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.product-alert p { font-size: 0.93rem; }
+.product-alert a { text-decoration: underline; color: var(--white); }
+.pay-note-inline { margin-top: 18px; color: var(--gray-500); font-size: 0.85rem; }
