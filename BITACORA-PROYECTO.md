@@ -651,6 +651,18 @@ están): completar antes de vender a escala.
 
 ---
 
+## 6.novodecies. Planes ocultos (2026-10-26)
+
+**Hybrid Build** y **Modo Búnker** quedaron OCULTOS del inicio (ES y EN) hasta
+tenerlos completos; son pendientes. Sus bloques siguen en `index.html` y
+`en/index.html` dentro de un comentario HTML marcado "OCULTO" (para restaurar,
+quitar el comentario). Visibles hoy: Anti-Flakardo, Grasa Sub-0 (con ficha y
+pago) y Mínimo Letal (sigue yendo a WhatsApp). Precios de mentorías en pesos
+cambiados el 2026-10-22 por campaña (basic 40000, vip 120000): al terminar,
+volver a 58500 y 150000.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
