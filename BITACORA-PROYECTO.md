@@ -663,6 +663,16 @@ volver a 58500 y 150000.
 
 ---
 
+## 6.vicies. Promo de mentorías revertida (2026-10-27)
+
+El coach canceló la promo: `productos.precio_ars` volvió a **58500** (mentoria-online-basic)
+y **150000** (mentoria-online-vip), los valores originales de la migración 088. Dólares
+sin cambios (39 y 99). El sitio no mostraba pesos de las mentorías, así que no hubo que
+tocarlo. Se avisó al chat del bot. Las suscripciones de MP creadas durante la promo
+(40000/120000) no se modifican solas.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
