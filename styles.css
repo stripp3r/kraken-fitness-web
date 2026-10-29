@@ -2209,3 +2209,21 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
 
 .app-video-sound { width: var(--tap); height: var(--tap); }
 @media (max-width: 480px) { .to-top { width: var(--tap); height: var(--tap); } }
+
+/* ---------- Sobre mí: "Leer más" con el mismo tamaño que "Ver los planes" ---------- */
+.about-more summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 14px 26px;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  line-height: 1.2;
+}
+.about-text .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; line-height: 1.2; }
+@media (max-width: 900px) {
+  .about-more summary,
+  .about-text .btn { min-width: 220px; }
+}
+.about-more:not([open]) + .btn { margin-top: 0; }
