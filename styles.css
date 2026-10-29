@@ -2151,3 +2151,61 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
 .product-alert p { font-size: 0.93rem; }
 .product-alert a { text-decoration: underline; color: var(--white); }
 .pay-note-inline { margin-top: 18px; color: var(--gray-500); font-size: 0.85rem; }
+
+/* =========================================================
+   REDISEÑO — P1: ÁREAS TÁCTILES (2026-10-29)
+   Mínimo 44 px para tocar con el dedo, sin cambiar el aspecto:
+   el área extra es un pseudo-elemento transparente.
+   ========================================================= */
+:root {
+  --tap: 44px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+}
+.brand,
+.lang-switch,
+.breadcrumb-back,
+.footer-links a,
+.legal-bar a { position: relative; }
+.brand::after,
+.lang-switch::after,
+.breadcrumb-back::after,
+.footer-links a::after,
+.legal-bar a::after {
+  content: "";
+  position: absolute;
+}
+.brand::after { inset: -9px -4px; }
+.lang-switch::after { inset: -8px -3px; }
+.breadcrumb-back::after,
+.footer-links a::after { inset: -11px -8px; }
+/* La barra mide 30 px: el área cubre su alto completo, sin salirse de ella. */
+.legal-bar a::after { top: calc((var(--legal-bar-h) - 100%) / -2); bottom: calc((var(--legal-bar-h) - 100%) / -2); left: -9px; right: -9px; }
+@media (max-width: 480px) { .legal-bar a::after { left: -6px; right: -6px; } }
+
+.nav-toggle {
+  min-width: var(--tap);
+  min-height: var(--tap);
+  align-items: center;
+  justify-content: center;
+}
+
+/* Burbuja de WhatsApp en las tarjetas de mentoría: se ve igual (34 px), se toca en 44. */
+.plan-support-link {
+  width: var(--tap);
+  height: var(--tap);
+  top: 11px;
+  right: 11px;
+  padding: 5px;
+  overflow: visible;
+}
+.plan-support-link img { border-radius: 50%; }
+
+.app-video-sound { width: var(--tap); height: var(--tap); }
+@media (max-width: 480px) { .to-top { width: var(--tap); height: var(--tap); } }
