@@ -2227,3 +2227,13 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
   .about-text .btn { min-width: 220px; }
 }
 .about-more:not([open]) + .btn { margin-top: 0; }
+
+/* ---------- Foco de teclado que sigue la forma de cada componente ---------- */
+.plan-acc > summary:focus-visible { outline-offset: -3px; border-radius: var(--radius); }
+.about-more summary:focus-visible,
+.btn:focus-visible,
+.hero-app-cta:focus-visible,
+.lang-switch:focus-visible { border-radius: 999px; }
+
+/* El indicador de scroll del hero quedaba tapado por la barra legal en pantallas de ~800 px de alto. */
+.scroll-hint { top: min(calc(100vh - var(--legal-bar-h) - 66px), calc(100% - 72px)); bottom: auto; }
