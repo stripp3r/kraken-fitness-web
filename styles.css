@@ -24,7 +24,7 @@
   --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 
   --container: 1180px;
-  --radius: 14px;
+  --radius: 22px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -2757,3 +2757,106 @@ body { line-height: 1.6; }
   color: var(--gray-500);
 }
 .freq-btn.is-on { background: var(--white); color: var(--black); }
+
+/* ---------- 5. Tarjetas (estilo .tier de digital), desplegables y preguntas frecuentes ---------- */
+.plan-card,
+.gold-card,
+.tile,
+.step-card,
+.pay-card,
+.product-alert,
+.contact-item { background-color: var(--bg-card); }
+.plan-card { padding: 32px 28px; }
+.plan-card:hover,
+.tile:hover,
+.step-card:hover { transform: translateY(-4px); border-color: var(--border-strong); }
+.plan-card,
+.tile,
+.step-card,
+.gold-card { transition: transform 0.6s var(--ease), border-color 0.4s var(--ease), background-color 0.4s var(--ease), box-shadow 0.4s var(--ease); }
+.step-card { border-color: var(--border); }
+.plan-badge { padding: 6px 11px; }
+
+/* Listas con tilde (como los niveles de digital) */
+.plan-features li,
+.includes-list li { padding-left: 26px; }
+.plan-features li::before,
+.includes-list li::before {
+  left: 2px;
+  top: 6px;
+  width: 6px;
+  height: 11px;
+  background: none;
+  border: solid var(--white);
+  border-width: 0 1.6px 1.6px 0;
+  border-radius: 0;
+  transform: rotate(45deg);
+}
+.includes-list li::before { top: 5px; }
+.plan-acc-body .plan-features {
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+/* Planes autoguiados desplegables */
+.plan-acc { transition: border-color 0.4s var(--ease), background-color 0.4s var(--ease); }
+.plan-acc > summary { padding: 24px 26px; }
+.plan-acc-pain { color: var(--gray-300); }
+.plan-acc-icon { border-color: var(--border-strong); }
+.plan-acc-icon::before,
+.plan-acc-icon::after { width: 13px; height: 1.6px; }
+@media (max-width: 700px) {
+  .plan-acc > summary { padding: 20px 18px; }
+  .plan-acc-body .plan-features { padding-top: 18px; }
+}
+
+/* Contacto: se invierte al pasar el mouse (como las tarjetas chicas de digital) */
+.contact-item:hover { background: var(--white); color: var(--black); border-color: var(--white); transform: translateY(-4px); }
+.contact-item:hover svg { fill: var(--black); }
+
+/* Preguntas frecuentes como acordeón (las arma script.js; sin JS se ven como antes) */
+.faq-list { margin-top: 4px; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:first-child { border-top: 1px solid var(--border); }
+.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 22px 0;
+}
+.faq-item > summary::-webkit-details-marker { display: none; }
+.faq-item > summary::after {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 14px;
+  margin-top: 6px;
+  background: linear-gradient(var(--white), var(--white)) center / 100% 1.6px no-repeat,
+    linear-gradient(var(--white), var(--white)) center / 1.6px 100% no-repeat;
+  transition: transform 0.5s var(--ease);
+}
+.faq-item[open] > summary::after { transform: rotate(45deg); }
+.product-body .faq-item > summary h3 {
+  margin: 0;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-stretch: 100%;
+  font-size: 1.08rem;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  transition: color 0.3s var(--ease);
+}
+.faq-item > summary:hover h3 { color: var(--gray-300); }
+.faq-item > summary:focus-visible { outline-offset: 4px; border-radius: 6px; }
+.faq-a { padding: 0 0 22px; max-width: 62ch; }
+.faq-a p:last-child { margin-bottom: 0; }
+.faq-item[open] .faq-a { animation: accIn 0.4s var(--ease); }
+@media (prefers-reduced-motion: reduce) {
+  .faq-item > summary::after,
+  .faq-item[open] .faq-a { transition: none; animation: none; }
+}
+@media print { .faq-item > summary::after { display: none; } }

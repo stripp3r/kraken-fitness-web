@@ -371,3 +371,51 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 })();
+
+/* =========================================================
+   REDISEÑO ESTILO DIGITAL (2026-10-30): preguntas frecuentes en acordeón
+   Cada pregunta (h3) y su respuesta pasan a un <details>; el texto no cambia.
+   ========================================================= */
+(function () {
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  ready(function () {
+    document.querySelectorAll("h2").forEach(function (h2) {
+      if (!/^(preguntas frecuentes|frequently asked questions)$/i.test(h2.textContent.trim())) return;
+      var box = h2.parentElement.querySelector(":scope > h3") ? h2.parentElement : null;
+      if (!box) {
+        var sec = h2.closest("section");
+        box = sec && sec.querySelector(".product-body");
+      }
+      if (!box || box.querySelector(".faq-item")) return;
+      var qs = Array.prototype.slice.call(box.querySelectorAll(":scope > h3"));
+      if (!qs.length) return;
+      var list = document.createElement("div");
+      list.className = "faq-list";
+      box.insertBefore(list, qs[0]);
+      qs.forEach(function (q) {
+        var item = document.createElement("details");
+        item.className = "faq-item";
+        var sum = document.createElement("summary");
+        var ans = document.createElement("div");
+        ans.className = "faq-a";
+        var n = q.nextSibling;
+        while (n && !(n.nodeType === 1 && /^H[23]$/.test(n.nodeName))) {
+          var next = n.nextSibling;
+          ans.appendChild(n);
+          n = next;
+        }
+        sum.appendChild(q);
+        item.appendChild(sum);
+        item.appendChild(ans);
+        list.appendChild(item);
+      });
+    });
+    // Al imprimir, todas las respuestas a la vista.
+    window.addEventListener("beforeprint", function () {
+      document.querySelectorAll(".faq-item").forEach(function (d) { d.open = true; });
+    });
+  });
+})();
