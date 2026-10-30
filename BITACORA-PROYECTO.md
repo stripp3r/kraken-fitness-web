@@ -673,6 +673,51 @@ tocarlo. Se avisó al chat del bot. Las suscripciones de MP creadas durante la p
 
 ---
 
+## 6.unvicies. Rediseño estilo digital, en rama de prueba (2026-10-30)
+
+Pedido del coach (prompt del chat DESARROLLO WEB: `D:\PROYECTO WEBS\PROMPT-rediseno-fitness-estilo-digital.md`):
+que fit tenga el lenguaje visual de digital.krakenbrand.com, **solo estética**. Vive en la rama
+`rediseno-opus` (worktree `D:\PROYECTO FITNESS\WEB SITE\REDISENO-OPUS`), **no en main**. Link de prueba:
+`https://kraken-fitness-web-git-rediseno-opus-k-r-a-k-e-n.vercel.app` (pide iniciar sesión en Vercel).
+El coach decide si pasa a producción; el chat del rediseño nunca hace push ni merge a main.
+
+Antes, en la misma rama (2026-10-29): áreas táctiles de 44 px, "Leer más" del mismo tamaño que "Ver los
+planes", foco de teclado e indicador de scroll del hero (sin cambio visual grande).
+
+Seis commits ("Rediseño estilo digital 1/6 … 6/6"), cada uno se puede revertir solo:
+1. **Paleta grafito** (tokens en `:root`). "Instalar app" deja el verde. `--gray-500` queda en #7c7c85
+   (digital usa #63636b) para mantener contraste AA en etiquetas y textos legales chicos.
+2. **Tipografías**: Archivo (ancho 62–125 %), Instrument Sans (con itálica) y JetBrains Mono, en el link de
+   Google Fonts de las 22 páginas (la CSP no cambió). Salen Bebas Neue e Inter. Títulos con la última
+   palabra extendida y liviana (`.x`) y entrada palabra por palabra (`.split` → `.in`): los arma `script.js`,
+   el HTML no cambia. El hero estira la segunda línea al cargar (`.go`). Kicker con cuadradito en `.eyebrow`.
+3. **Botones píldora**: relleno que sube al pasar el mouse, flecha en los principales, magnéticos en
+   escritorio. Mercado Pago y PayPal excluidos en cada regla (siguen #ffe600 y #003087).
+4. **Encabezado**: vidrio esmerilado al bajar, subrayado animado, botón de menú circular, menú del celular
+   con letra grande, ES/EN en píldora (el idioma actual lo dibuja CSS con `::before/::after`; el enlace es el
+   mismo). El selector mensual/anual de Golden usa la misma píldora.
+5. **Tarjetas** estilo `.tier` (radio 22 px), listas con tilde, contacto que se invierte al pasar el mouse y
+   **preguntas frecuentes como acordeón**: `script.js` las arma desde el h2 "Preguntas frecuentes" /
+   "Frequently asked questions" y sus h3/p (sin JS se ven como antes; al imprimir se abren).
+6. **Grano** de película al 4,5 % (`body::after`), **haz de luz** en `.hero-bg::before`, **cursor con
+   etiqueta** ("KRAKEN" sobre fotos; "Sonido"/"Sound" sobre el video de /app, donde un clic alterna el
+   sonido) y **KRAKEN gigante** con contorno en el pie (`.site-footer::after`). Nada de esto corre con
+   movimiento reducido ni al imprimir.
+
+Código: final de `styles.css` (bloque "REDISEÑO ESTILO DIGITAL", secciones 1 a 6) y bloques "REDISEÑO" al
+final de `script.js`.
+
+Verificado: enlaces, recursos, `<head>` y texto visible de las 22 páginas idénticos a antes (salvo el link de
+fuentes), los 28 checkouts intactos, sin desbordes ni errores de consola a 390, 1440 y 1920 px, menú, idioma,
+desplegables, "Leer más", preguntas frecuentes, selector de Golden y video funcionando.
+
+Dudas que quedan para el coach (no se resolvieron): el linktree (`/link`) no tiene la barra legal (ya faltaba
+antes del rediseño); la tarjeta VIP del inicio dice "contacto diario conmigo" (ver 3.4); en la ficha del plan el
+título corta en el guion ("KRAKEN / ANTI- / FLAKARDO"); no se hizo conteo animado porque los únicos números
+son precios.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```

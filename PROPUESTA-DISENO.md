@@ -1,6 +1,6 @@
 # Propuesta de diseño — KRAKEN FITNESS
 
-Rama: `rediseno-opus` · Estado: **borrador, esperando aprobación del dueño**. Todavía no se cambió ningún archivo del sitio.
+Rama: `rediseno-opus` · **Actualización 2026-10-30:** P1 aplicada. P2 y P3 quedaron reemplazadas por el rediseño estilo digital que pidió el dueño (ver `BITACORA-PROYECTO.md`, sección 6.unvicies).
 
 Se mantiene el carácter actual (negro, blanco, tipografía condensada, sobrio). No se toca copy, precios, enlaces de pago/WhatsApp/app, la barra legal, el formulario de arrepentimiento/baja, `vercel.json`, ni la estructura aprobada del inicio. No se agregan colores nuevos ni recursos externos.
 
