@@ -341,3 +341,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000);
   });
 })();
+
+/* =========================================================
+   REDISEÑO ESTILO DIGITAL (2026-10-30): botones "magnéticos"
+   Los botones principales siguen un poco al mouse (solo escritorio con mouse).
+   ========================================================= */
+(function () {
+  var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!fine || reduce) return;
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  ready(function () {
+    document
+      .querySelectorAll(".hero-actions .btn, .hero-actions .hero-app-cta, .about-text > .btn, .install-actions .btn, .notfound-actions .btn")
+      .forEach(function (b) {
+        if (b.matches(".btn-mercadopago, .btn-paypal")) return;
+        b.addEventListener("pointermove", function (e) {
+          var r = b.getBoundingClientRect();
+          b.style.translate =
+            ((e.clientX - r.left - r.width / 2) * 0.18).toFixed(1) + "px " +
+            ((e.clientY - r.top - r.height / 2) * 0.3).toFixed(1) + "px";
+        });
+        b.addEventListener("pointerleave", function () {
+          b.style.translate = "";
+        });
+      });
+  });
+})();
