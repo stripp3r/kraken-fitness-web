@@ -2340,3 +2340,41 @@ body::after {
   .hero-bg::before,
   .cursor { display: none !important; }
 }
+
+/* ---------- Botones: relleno que sube al pasar el mouse (efecto de digital) ----------
+   El aspecto de los botones es el de siempre; solo cambia la animación del hover.
+   Mercado Pago y PayPal quedan exactamente como estaban. */
+.btn:not(.btn-mercadopago):not(.btn-paypal),
+.hero-app-cta,
+.about-more summary {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease), color 0.4s var(--ease), border-color 0.4s var(--ease),
+    background-color 0.4s var(--ease), translate 0.35s var(--ease);
+}
+.btn:not(.btn-mercadopago):not(.btn-paypal)::before,
+.hero-app-cta::before,
+.about-more summary::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: var(--white);
+  transform: translateY(101%);
+  transition: transform 0.55s var(--ease);
+}
+.btn-primary:not(.btn-mercadopago):not(.btn-paypal)::before { background: #d4d4d4; }
+.btn:not(.btn-mercadopago):not(.btn-paypal):hover::before,
+.hero-app-cta:hover::before,
+.about-more summary:hover::before { transform: none; }
+.btn-primary:hover { background: var(--white); }
+.btn-outline:hover,
+.hero-app-cta:hover,
+.about-more summary:hover { color: var(--black); border-color: var(--white); background: transparent; }
+@media (prefers-reduced-motion: reduce) {
+  .btn::before,
+  .hero-app-cta::before,
+  .about-more summary::before { transition: none; }
+}
