@@ -2378,3 +2378,25 @@ body::after {
   .hero-app-cta::before,
   .about-more summary::before { transition: none; }
 }
+
+/* ---------- Títulos que entran palabra por palabra (efecto de digital) ----------
+   Las palabras las separa script.js; sin JS los títulos se ven normales.
+   El título principal del inicio conserva su propia animación de siempre. */
+.split .sw {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0.2em 0.04em 0.1em;
+  margin: -0.2em -0.04em -0.1em;
+}
+.split .swi {
+  display: inline-block;
+  transform: translateY(112%);
+  transition: transform 1.1s var(--ease);
+  transition-delay: calc(var(--i, 0) * 45ms);
+}
+.split.in .swi { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .split .swi { transform: none; transition: none; }
+}
+@media print { .split .swi { transform: none !important; } }

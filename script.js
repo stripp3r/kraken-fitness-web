@@ -374,3 +374,68 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 })();
+
+/* =========================================================
+   EFECTOS TRAÍDOS DE DIGITAL (2026-10-30): títulos palabra por palabra
+   Cada palabra de los títulos de sección entra desde abajo al aparecer en
+   pantalla. El texto no cambia: solo se envuelve cada palabra en un span.
+   ========================================================= */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) return;
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  ready(function () {
+    var heads = document.querySelectorAll(".section-title, .plan-group-title, .product-body > h2");
+    heads.forEach(function (h) {
+      var i = 0;
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            c.nodeValue.split(/(\s+)/).forEach(function (t) {
+              if (!t) return;
+              if (/^\s+$/.test(t)) {
+                frag.appendChild(document.createTextNode(t));
+                return;
+              }
+              var w = document.createElement("span");
+              w.className = "sw";
+              var wi = document.createElement("span");
+              wi.className = "swi";
+              wi.textContent = t;
+              wi.style.setProperty("--i", i++);
+              w.appendChild(wi);
+              frag.appendChild(w);
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.nodeName !== "BR") {
+            walk(c);
+          }
+        });
+      })(h);
+      h.classList.add("split");
+    });
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" }
+    );
+    heads.forEach(function (h) { io.observe(h); });
+    // Red de seguridad: lo que ya está en pantalla y no entró, se muestra igual.
+    setTimeout(function () {
+      heads.forEach(function (h) {
+        var r = h.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) h.classList.add("in");
+      });
+    }, 3000);
+  });
+})();
