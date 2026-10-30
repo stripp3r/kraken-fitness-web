@@ -120,36 +120,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     document.body.appendChild(toTop);
 
-    /* ---------- Hero: título palabra por palabra ---------- */
+    /* ---------- Hero: entrada escalonada (el título lo anima el bloque "REDISEÑO") ---------- */
     var hero = document.querySelector(".hero");
     var title = document.querySelector(".hero-title");
-    if (hero && title && !reduce) {
-      var idx = 0;
-      var split = function (node) {
-        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
-          if (n.nodeType === 3) {
-            var frag = document.createDocumentFragment();
-            n.textContent.split(/(\s+)/).forEach(function (part) {
-              if (!part) return;
-              if (/^\s+$/.test(part)) {
-                frag.appendChild(document.createTextNode(part));
-              } else {
-                var s = document.createElement("span");
-                s.className = "w";
-                s.style.setProperty("--i", idx++);
-                s.textContent = part;
-                frag.appendChild(s);
-              }
-            });
-            node.replaceChild(frag, n);
-          } else if (n.nodeType === 1 && n.nodeName !== "BR") {
-            split(n);
-          }
-        });
-      };
-      split(title);
-      hero.classList.add("hero-anim");
-    }
+    if (hero && title && !reduce) hero.classList.add("hero-anim");
 
     /* ---------- Parallax suave de la foto del hero (escritorio con mouse) ---------- */
     var heroMedia = document.querySelector(".hero-media:not(.hero-media--icon)");
@@ -267,5 +241,103 @@ document.addEventListener("DOMContentLoaded", () => {
     // En escritorio el texto de "Sobre mí" se ve completo; en celular, con "Leer más".
     var more = document.getElementById("about-more");
     if (more && window.matchMedia("(min-width: 901px)").matches) more.open = true;
+  });
+})();
+
+/* =========================================================
+   REDISEÑO ESTILO DIGITAL (2026-10-30): titulares
+   La última palabra de cada título de sección va extendida y liviana (.x),
+   las palabras entran desde abajo al aparecer en pantalla y el título del
+   hero estira su segunda línea al cargar. Sin JS los títulos se ven normales.
+   ========================================================= */
+(function () {
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  ready(function () {
+    // 1) Última palabra extendida y liviana
+    document.querySelectorAll(".section-title, .plan-group-title, .product-body > h2").forEach(function (h) {
+      if (h.querySelector(".x") || h.textContent.trim().split(/\s+/).length < 2) return;
+      var walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
+      var n, last = null;
+      while ((n = walker.nextNode())) if (/\S/.test(n.nodeValue)) last = n;
+      var m = last && last.nodeValue.match(/^([\s\S]*?)(\S+)(\s*)$/);
+      if (!m) return;
+      var x = document.createElement("span");
+      x.className = "x";
+      x.textContent = m[2];
+      var frag = document.createDocumentFragment();
+      if (m[1]) frag.appendChild(document.createTextNode(m[1]));
+      frag.appendChild(x);
+      if (m[3]) frag.appendChild(document.createTextNode(m[3]));
+      last.parentNode.replaceChild(frag, last);
+    });
+
+    var heads = document.querySelectorAll(".hero-title, .section-title, .plan-group-title, .product-body > h2");
+    var stretch = function (h) {
+      if (h.matches(".hero-title, .product-title")) setTimeout(function () { h.classList.add("go"); }, 120);
+    };
+    if (reduce || !("IntersectionObserver" in window)) {
+      heads.forEach(function (h) { h.classList.add("go"); });
+      return;
+    }
+
+    // 2) Cada palabra en su propia "ventana" para que entre desde abajo
+    heads.forEach(function (h) {
+      var i = 0;
+      (function walk(node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
+          if (c.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            c.nodeValue.split(/(\s+)/).forEach(function (t) {
+              if (!t) return;
+              if (/^\s+$/.test(t)) {
+                frag.appendChild(document.createTextNode(t));
+                return;
+              }
+              var w = document.createElement("span");
+              w.className = "sw";
+              var wi = document.createElement("span");
+              wi.className = "swi";
+              wi.textContent = t;
+              wi.style.setProperty("--i", i++);
+              w.appendChild(wi);
+              frag.appendChild(w);
+            });
+            c.parentNode.replaceChild(frag, c);
+          } else if (c.nodeType === 1 && c.nodeName !== "BR") {
+            walk(c);
+          }
+        });
+      })(h);
+      h.classList.add("split");
+    });
+
+    // 3) Entrada al aparecer en pantalla
+    var show = function (h) {
+      if (h.classList.contains("in")) return;
+      h.classList.add("in");
+      stretch(h);
+    };
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          show(e.target);
+          io.unobserve(e.target);
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" }
+    );
+    heads.forEach(function (h) { io.observe(h); });
+    // Red de seguridad: lo que ya está en pantalla y no entró, se muestra igual.
+    setTimeout(function () {
+      heads.forEach(function (h) {
+        var r = h.getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) show(h);
+      });
+    }, 3000);
   });
 })();
