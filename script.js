@@ -419,3 +419,78 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 })();
+
+/* =========================================================
+   REDISEÑO ESTILO DIGITAL (2026-10-30): cursor con etiqueta
+   Sobre las fotos aparece un círculo con "KRAKEN"; sobre el video de la app,
+   "Sonido" (un clic en el video activa o silencia el sonido, igual que su
+   botón). Solo escritorio con mouse y sin movimiento reducido.
+   ========================================================= */
+(function () {
+  var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!fine || reduce) return;
+  function ready(fn) {
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
+    else fn();
+  }
+  ready(function () {
+    var en = (document.documentElement.lang || "").toLowerCase().indexOf("en") === 0;
+    document.querySelectorAll(".hero-media:not(.hero-media--icon), .about-media").forEach(function (z) {
+      z.setAttribute("data-cursor", "KRAKEN");
+    });
+    var vid = document.querySelector(".app-video");
+    var snd = document.getElementById("app-video-sound");
+    if (vid && snd && !snd.hidden) {
+      vid.setAttribute("data-cursor", en ? "Sound" : "Sonido");
+      vid.addEventListener("click", function (e) {
+        if (!e.target.closest("#app-video-sound")) snd.click();
+      });
+    }
+    if (!document.querySelector("[data-cursor]")) return;
+
+    var c = document.createElement("div");
+    c.className = "cursor";
+    c.setAttribute("aria-hidden", "true");
+    var lab = document.createElement("span");
+    c.appendChild(lab);
+    document.body.appendChild(c);
+
+    var x = -200, y = -200, tx = -200, ty = -200, s = 0, ts = 0, running = false;
+    var loop = function () {
+      x += (tx - x) * 0.2;
+      y += (ty - y) * 0.2;
+      s += (ts - s) * 0.2;
+      c.style.transform = "translate3d(" + x.toFixed(1) + "px," + y.toFixed(1) + "px,0) scale(" + s.toFixed(3) + ")";
+      if (Math.abs(tx - x) < 0.2 && Math.abs(ty - y) < 0.2 && Math.abs(ts - s) < 0.002) {
+        running = false;
+        return;
+      }
+      window.requestAnimationFrame(loop);
+    };
+    var kick = function () {
+      if (!running) {
+        running = true;
+        window.requestAnimationFrame(loop);
+      }
+    };
+    window.addEventListener(
+      "pointermove",
+      function (e) {
+        tx = e.clientX;
+        ty = e.clientY;
+        var z = e.target.closest && e.target.closest("[data-cursor]");
+        var onCtl = e.target.closest && e.target.closest("a, button");
+        var label = z && !onCtl ? z.getAttribute("data-cursor") : "";
+        ts = label ? 1 : 0;
+        if (label) lab.textContent = label;
+        kick();
+      },
+      { passive: true }
+    );
+    document.addEventListener("pointerleave", function () {
+      ts = 0;
+      kick();
+    });
+  });
+})();
