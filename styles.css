@@ -2623,3 +2623,137 @@ body { line-height: 1.6; }
   .about-more summary::before,
   .link-card::before { transition: none; }
 }
+
+/* ---------- 4. Encabezado: vidrio esmerilado, subrayado animado, menú y selector ES/EN en píldora ---------- */
+.site-header.scrolled {
+  background: rgba(8, 8, 10, 0.78);
+  -webkit-backdrop-filter: blur(16px) saturate(1.3);
+  backdrop-filter: blur(16px) saturate(1.3);
+  border-bottom-color: var(--border);
+}
+.nav { gap: 30px; }
+.nav-link {
+  font-size: 0.94rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  color: var(--gray-300);
+}
+.nav-link::after,
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  left: 0;
+  right: 0;
+  width: auto;
+  height: 1px;
+  background: currentColor;
+  transition: transform 0.5s var(--ease);
+}
+.nav-link::after { transform: scaleX(0); transform-origin: right; }
+.nav-link:hover::after,
+.nav-link.is-active::after { transform: scaleX(1); transform-origin: left; }
+
+/* ES/EN: el idioma actual va relleno; el otro es el enlace. El borde transparente
+   agranda la zona táctil a 44 px sin agrandar la píldora. */
+.lang-switch {
+  gap: 2px;
+  margin-left: 20px;
+  padding: 3px;
+  border: 8px solid transparent;
+  background-clip: padding-box;
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  color: var(--gray-500);
+}
+.lang-switch:hover { background: transparent; border-color: transparent; color: var(--white); }
+.lang-switch svg { display: none; }
+.lang-switch::after { content: none; }
+.lang-switch > span,
+.lang-switch[hreflang="en"]::before,
+.lang-switch[hreflang="es"]::after {
+  padding: 6px 10px;
+  border-radius: 999px;
+  transition: color 0.3s var(--ease), background-color 0.3s var(--ease);
+}
+.lang-switch[hreflang="en"]::before,
+.lang-switch[hreflang="es"]::after {
+  position: static;
+  inset: auto;
+  background: var(--white);
+  color: var(--black);
+}
+.lang-switch[hreflang="en"]::before { content: "ES"; }
+.lang-switch[hreflang="es"]::after { content: "EN"; }
+.lang-switch:hover > span { background: rgba(255, 255, 255, 0.08); }
+@media (max-width: 900px) {
+  .lang-switch { margin-left: auto; margin-right: -2px; padding: 3px; }
+}
+
+/* Botón de menú: círculo con dos líneas que se cruzan */
+.nav-toggle {
+  position: relative;
+  width: var(--tap);
+  height: var(--tap);
+  padding: 0;
+  gap: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+.nav-toggle span {
+  position: absolute;
+  left: 14px;
+  right: 14px;
+  width: auto;
+  height: 1.6px;
+  border-radius: 2px;
+  transition: transform 0.45s var(--ease), top 0.45s var(--ease), opacity 0.3s var(--ease);
+}
+.nav-toggle span:nth-child(1) { top: 18px; }
+.nav-toggle span:nth-child(2) { top: 21px; opacity: 0; }
+.nav-toggle span:nth-child(3) { top: 25px; }
+.nav-toggle.open span:nth-child(1) { top: 21.5px; transform: rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; transform: none; }
+.nav-toggle.open span:nth-child(3) { top: 21.5px; transform: rotate(-45deg); }
+
+@media (max-width: 760px) {
+  .nav {
+    background: var(--bg);
+    padding: 8px 0 28px;
+    visibility: hidden;
+    transition: transform 0.55s var(--ease), visibility 0s linear 0.55s;
+  }
+  .nav.open { visibility: visible; transition: transform 0.55s var(--ease); }
+  .nav-link {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-stretch: 92%;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+    color: var(--white);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav,
+  .nav.open { transition: none; }
+}
+
+/* Selector mensual/anual de Golden: misma píldora que ES/EN */
+.freq-toggle {
+  gap: 2px;
+  padding: 3px;
+  border: 0;
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--border-strong);
+}
+.freq-btn {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  color: var(--gray-500);
+}
+.freq-btn.is-on { background: var(--white); color: var(--black); }
