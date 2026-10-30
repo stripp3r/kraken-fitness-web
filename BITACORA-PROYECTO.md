@@ -675,6 +675,8 @@ tocarlo. Se avisó al chat del bot. Las suscripciones de MP creadas durante la p
 
 ## 6.unvicies. Rediseño estilo digital, en rama de prueba (2026-10-30)
 
+**Superado el mismo día (ver 6.duovicies): el coach prefirió el aspecto original y se quedó solo con algunos agregados.**
+
 Pedido del coach (prompt del chat DESARROLLO WEB: `D:\PROYECTO WEBS\PROMPT-rediseno-fitness-estilo-digital.md`):
 que fit tenga el lenguaje visual de digital.krakenbrand.com, **solo estética**. Vive en la rama
 `rediseno-opus` (worktree `D:\PROYECTO FITNESS\WEB SITE\REDISENO-OPUS`), **no en main**. Link de prueba:
@@ -715,6 +717,35 @@ Dudas que quedan para el coach (no se resolvieron): el linktree (`/link`) no tie
 antes del rediseño); la tarjeta VIP del inicio dice "contacto diario conmigo" (ver 3.4); en la ficha del plan el
 título corta en el guion ("KRAKEN / ANTI- / FLAKARDO"); no se hizo conteo animado porque los únicos números
 son precios.
+
+---
+
+## 6.duovicies. Vuelta al aspecto original + efectos de digital (2026-10-30)
+
+El coach vio el rediseño en el link de prueba y decidió: **colores, letras, botones, tarjetas, menú y todo
+lo demás como el sitio original**. "Es un sitio para vender, una carta de presentación: tiene que quedar
+profesional, sin llenarlo mucho." Del rediseño quedan solo estos agregados (rama `rediseno-opus`):
+
+- **KRAKEN gigante con contorno en el pie** (`.site-footer::after`), en Archivo extendida 800. Se carga solo
+  ese subconjunto de 5 letras con un segundo link de Google Fonts (`...family=Archivo:wdth,wght@125,800&text=KRAKEN`)
+  en las 21 páginas que tienen pie. Es lo único del aspecto nuevo que le gustó.
+- **Grano de película** al 4,5 % (`body::after`) y **luz** detrás del hero (`.hero-bg::before`).
+- **Cursor con etiqueta** en escritorio: "KRAKEN" sobre las fotos y "Sonido"/"Sound" sobre el video de /app
+  (un clic en el video activa o silencia el sonido, como su botón).
+- **Botones**: relleno que sube al pasar el mouse y efecto magnético en los CTA (mismo aspecto de siempre;
+  Mercado Pago y PayPal excluidos).
+- **Títulos de sección** que entran palabra por palabra (el título principal del inicio conserva su animación).
+
+Descartado (se puede recuperar de los commits "Rediseño estilo digital 1/6 … 5/6" si el coach lo pide):
+paleta grafito, Archivo/Instrument Sans/JetBrains Mono como letras del sitio, botones píldora con flecha,
+ES/EN en píldora, menú circular, tarjetas estilo digital, listas con tilde y preguntas frecuentes en acordeón.
+El "estiramiento" de POTENCIA no se puede con Bebas Neue (no tiene eje de ancho).
+
+Código: bloques "EFECTOS TRAÍDOS DE DIGITAL" al final de `styles.css` y `script.js`. Verificado: enlaces,
+recursos, `<head>` y textos de las 22 páginas idénticos al original salvo el link de Archivo; 28 checkouts;
+sin desbordes ni errores de consola a 390, 1440 y 1920 px; con movimiento reducido no hay animaciones.
+
+Dudas que siguen abiertas: barra legal en `/link` (no la tiene) y "contacto diario conmigo" en la tarjeta VIP.
 
 ---
 
