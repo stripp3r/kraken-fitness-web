@@ -3,18 +3,22 @@
    Estética oscura, potente y premium.
    ========================================================= */
 
+/* Paleta "grafito" (la de digital.krakenbrand.com, 2026-10-30). El gris de
+   etiquetas (--gray-500) es un poco más claro que el de digital (#63636b) para
+   mantener contraste AA sobre el fondo. */
 :root {
-  --black: #000000;
-  --bg: #050505;
-  --bg-elev: #0d0d0d;
-  --bg-card: #111111;
-  --border: #1f1f1f;
-  --border-strong: #2e2e2e;
-  --white: #ffffff;
-  --gray-100: #e7e7e7;
-  --gray-300: #b5b5b5;
-  --gray-500: #7a7a7a;
-  --gray-700: #3d3d3d;
+  --black: #08080a;
+  --bg: #08080a;
+  --bg-elev: #0e0e11;
+  --bg-card: #121215;
+  --bg-card-2: #19191d;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.17);
+  --white: #f4f4f5;
+  --gray-100: #e4e4e7;
+  --gray-300: #a1a1aa;
+  --gray-500: #7c7c85;
+  --gray-700: #3f3f46;
 
   --font-display: "Bebas Neue", "Inter", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
@@ -2237,3 +2241,43 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
 
 /* El indicador de scroll del hero quedaba tapado por la barra legal en pantallas de ~800 px de alto. */
 .scroll-hint { top: min(calc(100vh - var(--legal-bar-h) - 66px), calc(100% - 72px)); bottom: auto; }
+
+/* =========================================================
+   REDISEÑO ESTILO DIGITAL (2026-10-30)
+   Mismo lenguaje visual que digital.krakenbrand.com: grafito, Archivo de
+   ancho variable, Instrument Sans y JetBrains Mono. Solo estética: textos,
+   enlaces, imágenes y pagos no cambian. Cada bloque es un commit propio.
+   ========================================================= */
+
+/* ---------- 1. Colores grafito: los negros fijos que no usaban tokens ---------- */
+.site-header.scrolled { background: rgba(8, 8, 10, 0.8); }
+.hero-media::after { background: linear-gradient(180deg, transparent 45%, rgba(8, 8, 10, 0.55) 100%); }
+.plan-card:hover,
+.contact-item:hover,
+.link-social:hover,
+.link-card:hover,
+.to-top:hover { background: var(--bg-card-2); }
+.plan-card--featured,
+.plan-acc[open] { background: var(--bg-card-2); }
+.plan-card--vip { background: var(--bg-card); }
+.to-top { background: rgba(18, 18, 21, 0.88); }
+.legal-bar { background: rgba(8, 8, 10, 0.88); }
+.linktree::after { background: linear-gradient(180deg, rgba(8, 8, 10, 0.55) 0%, rgba(8, 8, 10, 0.78) 100%); }
+@media (max-width: 900px) {
+  .hero-media::after {
+    background: linear-gradient(180deg, rgba(8, 8, 10, 0.72) 0%, rgba(8, 8, 10, 0.48) 40%, rgba(8, 8, 10, 0.96) 100%);
+  }
+  .about-media::after {
+    background: linear-gradient(180deg, rgba(8, 8, 10, 0.55) 0%, rgba(8, 8, 10, 0.35) 35%, rgba(8, 8, 10, 0.95) 100%);
+  }
+}
+@media (max-width: 760px) { .nav { background: rgba(8, 8, 10, 0.97); } }
+/* "Instalar app" (hero y linktree): del verde a la paleta grafito. */
+.hero-app-cta,
+.link-card--app {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+.hero-app-cta svg { color: var(--white); }
+.hero-app-cta:hover,
+.link-card--app:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--white); }
