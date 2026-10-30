@@ -120,10 +120,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     document.body.appendChild(toTop);
 
-    /* ---------- Hero: entrada escalonada (el título lo anima el bloque "REDISEÑO") ---------- */
+    /* ---------- Hero: título palabra por palabra ---------- */
     var hero = document.querySelector(".hero");
     var title = document.querySelector(".hero-title");
-    if (hero && title && !reduce) hero.classList.add("hero-anim");
+    if (hero && title && !reduce) {
+      var idx = 0;
+      var split = function (node) {
+        Array.prototype.slice.call(node.childNodes).forEach(function (n) {
+          if (n.nodeType === 3) {
+            var frag = document.createDocumentFragment();
+            n.textContent.split(/(\s+)/).forEach(function (part) {
+              if (!part) return;
+              if (/^\s+$/.test(part)) {
+                frag.appendChild(document.createTextNode(part));
+              } else {
+                var s = document.createElement("span");
+                s.className = "w";
+                s.style.setProperty("--i", idx++);
+                s.textContent = part;
+                frag.appendChild(s);
+              }
+            });
+            node.replaceChild(frag, n);
+          } else if (n.nodeType === 1 && n.nodeName !== "BR") {
+            split(n);
+          }
+        });
+      };
+      split(title);
+      hero.classList.add("hero-anim");
+    }
 
     /* ---------- Parallax suave de la foto del hero (escritorio con mouse) ---------- */
     var heroMedia = document.querySelector(".hero-media:not(.hero-media--icon)");
@@ -245,183 +271,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })();
 
 /* =========================================================
-   REDISEÑO ESTILO DIGITAL (2026-10-30): titulares
-   La última palabra de cada título de sección va extendida y liviana (.x),
-   las palabras entran desde abajo al aparecer en pantalla y el título del
-   hero estira su segunda línea al cargar. Sin JS los títulos se ven normales.
-   ========================================================= */
-(function () {
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  function ready(fn) {
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
-    else fn();
-  }
-  ready(function () {
-    // 1) Última palabra extendida y liviana
-    document.querySelectorAll(".section-title, .plan-group-title, .product-body > h2").forEach(function (h) {
-      if (h.querySelector(".x") || h.textContent.trim().split(/\s+/).length < 2) return;
-      var walker = document.createTreeWalker(h, NodeFilter.SHOW_TEXT);
-      var n, last = null;
-      while ((n = walker.nextNode())) if (/\S/.test(n.nodeValue)) last = n;
-      var m = last && last.nodeValue.match(/^([\s\S]*?)(\S+)(\s*)$/);
-      if (!m) return;
-      var x = document.createElement("span");
-      x.className = "x";
-      x.textContent = m[2];
-      var frag = document.createDocumentFragment();
-      if (m[1]) frag.appendChild(document.createTextNode(m[1]));
-      frag.appendChild(x);
-      if (m[3]) frag.appendChild(document.createTextNode(m[3]));
-      last.parentNode.replaceChild(frag, last);
-    });
-
-    var heads = document.querySelectorAll(".hero-title, .section-title, .plan-group-title, .product-body > h2");
-    var stretch = function (h) {
-      if (h.matches(".hero-title, .product-title")) setTimeout(function () { h.classList.add("go"); }, 120);
-    };
-    if (reduce || !("IntersectionObserver" in window)) {
-      heads.forEach(function (h) { h.classList.add("go"); });
-      return;
-    }
-
-    // 2) Cada palabra en su propia "ventana" para que entre desde abajo
-    heads.forEach(function (h) {
-      var i = 0;
-      (function walk(node) {
-        Array.prototype.slice.call(node.childNodes).forEach(function (c) {
-          if (c.nodeType === 3) {
-            var frag = document.createDocumentFragment();
-            c.nodeValue.split(/(\s+)/).forEach(function (t) {
-              if (!t) return;
-              if (/^\s+$/.test(t)) {
-                frag.appendChild(document.createTextNode(t));
-                return;
-              }
-              var w = document.createElement("span");
-              w.className = "sw";
-              var wi = document.createElement("span");
-              wi.className = "swi";
-              wi.textContent = t;
-              wi.style.setProperty("--i", i++);
-              w.appendChild(wi);
-              frag.appendChild(w);
-            });
-            c.parentNode.replaceChild(frag, c);
-          } else if (c.nodeType === 1 && c.nodeName !== "BR") {
-            walk(c);
-          }
-        });
-      })(h);
-      h.classList.add("split");
-    });
-
-    // 3) Entrada al aparecer en pantalla
-    var show = function (h) {
-      if (h.classList.contains("in")) return;
-      h.classList.add("in");
-      stretch(h);
-    };
-    var io = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (e) {
-          if (!e.isIntersecting) return;
-          show(e.target);
-          io.unobserve(e.target);
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -6% 0px" }
-    );
-    heads.forEach(function (h) { io.observe(h); });
-    // Red de seguridad: lo que ya está en pantalla y no entró, se muestra igual.
-    setTimeout(function () {
-      heads.forEach(function (h) {
-        var r = h.getBoundingClientRect();
-        if (r.top < window.innerHeight && r.bottom > 0) show(h);
-      });
-    }, 3000);
-  });
-})();
-
-/* =========================================================
-   REDISEÑO ESTILO DIGITAL (2026-10-30): botones "magnéticos"
-   Los botones principales siguen un poco al mouse (solo escritorio con mouse).
-   ========================================================= */
-(function () {
-  var fine = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!fine || reduce) return;
-  function ready(fn) {
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
-    else fn();
-  }
-  ready(function () {
-    document
-      .querySelectorAll(".hero-actions .btn, .hero-actions .hero-app-cta, .about-text > .btn, .install-actions .btn, .notfound-actions .btn")
-      .forEach(function (b) {
-        if (b.matches(".btn-mercadopago, .btn-paypal")) return;
-        b.addEventListener("pointermove", function (e) {
-          var r = b.getBoundingClientRect();
-          b.style.translate =
-            ((e.clientX - r.left - r.width / 2) * 0.18).toFixed(1) + "px " +
-            ((e.clientY - r.top - r.height / 2) * 0.3).toFixed(1) + "px";
-        });
-        b.addEventListener("pointerleave", function () {
-          b.style.translate = "";
-        });
-      });
-  });
-})();
-
-/* =========================================================
-   REDISEÑO ESTILO DIGITAL (2026-10-30): preguntas frecuentes en acordeón
-   Cada pregunta (h3) y su respuesta pasan a un <details>; el texto no cambia.
-   ========================================================= */
-(function () {
-  function ready(fn) {
-    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", fn);
-    else fn();
-  }
-  ready(function () {
-    document.querySelectorAll("h2").forEach(function (h2) {
-      if (!/^(preguntas frecuentes|frequently asked questions)$/i.test(h2.textContent.trim())) return;
-      var box = h2.parentElement.querySelector(":scope > h3") ? h2.parentElement : null;
-      if (!box) {
-        var sec = h2.closest("section");
-        box = sec && sec.querySelector(".product-body");
-      }
-      if (!box || box.querySelector(".faq-item")) return;
-      var qs = Array.prototype.slice.call(box.querySelectorAll(":scope > h3"));
-      if (!qs.length) return;
-      var list = document.createElement("div");
-      list.className = "faq-list";
-      box.insertBefore(list, qs[0]);
-      qs.forEach(function (q) {
-        var item = document.createElement("details");
-        item.className = "faq-item";
-        var sum = document.createElement("summary");
-        var ans = document.createElement("div");
-        ans.className = "faq-a";
-        var n = q.nextSibling;
-        while (n && !(n.nodeType === 1 && /^H[23]$/.test(n.nodeName))) {
-          var next = n.nextSibling;
-          ans.appendChild(n);
-          n = next;
-        }
-        sum.appendChild(q);
-        item.appendChild(sum);
-        item.appendChild(ans);
-        list.appendChild(item);
-      });
-    });
-    // Al imprimir, todas las respuestas a la vista.
-    window.addEventListener("beforeprint", function () {
-      document.querySelectorAll(".faq-item").forEach(function (d) { d.open = true; });
-    });
-  });
-})();
-
-/* =========================================================
-   REDISEÑO ESTILO DIGITAL (2026-10-30): cursor con etiqueta
+   EFECTOS TRAÍDOS DE DIGITAL (2026-10-30): cursor con etiqueta
    Sobre las fotos aparece un círculo con "KRAKEN"; sobre el video de la app,
    "Sonido" (un clic en el video activa o silencia el sonido, igual que su
    botón). Solo escritorio con mouse y sin movimiento reducido.
