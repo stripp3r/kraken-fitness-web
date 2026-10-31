@@ -747,6 +747,14 @@ sin desbordes ni errores de consola a 390, 1440 y 1920 px; con movimiento reduci
 
 Dudas que siguen abiertas: barra legal en `/link` (no la tiene) y "contacto diario conmigo" en la tarjeta VIP.
 
+**Publicado en producción el 2026-10-31** con el OK del coach: `main` avanzó directo (sin merge ni force) hasta
+`0fa3f40`, el mismo contenido que `rediseno-opus`. También se agregó `PROPUESTA-DISENO.md` a `.vercelignore`
+(es una nota interna). Verificado en vivo en fit.krakenbrand.com: las páginas responden, las notas internas
+dan 404, la CSP sigue igual y no reporta violaciones, la fuente del KRAKEN del pie carga, los botones de pago
+mantienen sus colores, y el menú, el idioma, los desplegables y el video funcionan.
+**Ojo:** la carpeta `NUEVO SITIO WEB` (copia de `main`) quedó atrasada: hay que hacer `git pull` ahí antes del
+próximo cambio.
+
 ---
 
 ## 7. Dónde está todo (resumen rápido)
