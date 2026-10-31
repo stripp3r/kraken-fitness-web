@@ -2242,8 +2242,7 @@ body:has(.legal-bar) .site-footer { padding-bottom: calc(32px + var(--legal-bar-
    EFECTOS TRAÍDOS DE DIGITAL (2026-10-30)
    Sobre el aspecto original del sitio (colores, Bebas Neue/Inter, botones y
    tarjetas de siempre) quedan solo estos agregados: grano de película, luz
-   detrás del hero, cursor con etiqueta sobre fotos/video y la palabra KRAKEN
-   gigante con contorno en el pie. Ver BITACORA-PROYECTO.md.
+   detrás del hero y la palabra KRAKEN gigante con contorno en el pie. Ver BITACORA-PROYECTO.md.
    ========================================================= */
 /* Grano: capa fija casi invisible (4,5 %) que le da textura de cine a todo el sitio. */
 body::after {
@@ -2282,33 +2281,6 @@ body::after {
   .hero--icon .hero-bg::after { display: none; }
 }
 
-/* Cursor con etiqueta sobre fotos y video (solo escritorio con mouse; lo crea script.js) */
-.cursor {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 250;
-  width: 86px;
-  height: 86px;
-  margin: -43px 0 0 -43px;
-  border-radius: 50%;
-  background: var(--white);
-  color: var(--black);
-  display: grid;
-  place-items: center;
-  pointer-events: none;
-  transform: translate3d(-200px, -200px, 0) scale(0);
-  will-change: transform;
-  font: 700 0.6rem/1 var(--font-body);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-@media (hover: hover) and (pointer: fine) {
-  [data-cursor] { cursor: none; }
-  [data-cursor] a,
-  [data-cursor] button { cursor: pointer; }
-}
-
 /* Pie: la palabra KRAKEN gigante, solo con contorno (decorativa: sin texto para lectores de pantalla) */
 .site-footer { position: relative; overflow: hidden; }
 .site-footer::after {
@@ -2337,8 +2309,7 @@ body::after {
 @media print {
   body::after,
   .site-footer::after,
-  .hero-bg::before,
-  .cursor { display: none !important; }
+  .hero-bg::before { display: none !important; }
 }
 
 /* ---------- Botones: relleno que sube al pasar el mouse (efecto de digital) ----------
