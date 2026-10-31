@@ -730,8 +730,8 @@ profesional, sin llenarlo mucho." Del rediseño quedan solo estos agregados (ram
   ese subconjunto de 5 letras con un segundo link de Google Fonts (`...family=Archivo:wdth,wght@125,800&text=KRAKEN`)
   en las 21 páginas que tienen pie. Es lo único del aspecto nuevo que le gustó.
 - **Grano de película** al 4,5 % (`body::after`) y **luz** detrás del hero (`.hero-bg::before`).
-- **Cursor con etiqueta** en escritorio: "KRAKEN" sobre las fotos y "Sonido"/"Sound" sobre el video de /app
-  (un clic en el video activa o silencia el sonido, como su botón).
+- ~~Cursor con etiqueta~~ (círculo "KRAKEN"/"Sonido" sobre fotos y video): **sacado el 2026-10-31** a pedido
+  del coach ("dejá el mouse normal como en el original"). No volver a ponerlo.
 - **Botones**: relleno que sube al pasar el mouse y efecto magnético en los CTA (mismo aspecto de siempre;
   Mercado Pago y PayPal excluidos).
 - **Títulos de sección** que entran palabra por palabra (el título principal del inicio conserva su animación).
