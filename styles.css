@@ -140,10 +140,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 .btn-mercadopago:hover { background: #f2da00; }
 .btn-paypal {
-  background: #003087;            /* azul oficial PayPal */
+  background: #0088cc;            /* celeste (pedido puntual, no el azul oficial de PayPal) */
   color: #ffffff;
 }
-.btn-paypal:hover { background: #00256b; }
+.btn-paypal:hover { background: #0066aa; }
 
 /* =========================================================
    HEADER
