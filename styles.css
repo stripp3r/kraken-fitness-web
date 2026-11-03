@@ -2371,3 +2371,15 @@ body::after {
   .split .swi { transform: none; transition: none; }
 }
 @media print { .split .swi { transform: none !important; } }
+
+/* Video vertical (reel) en la ficha de un plan */
+.product-video.product-video--vertical {
+  aspect-ratio: 9 / 16;
+  width: min(100%, 380px);
+  margin: 0 auto;
+  background: #000;
+}
+.product-video--vertical video { object-fit: cover; background: #000; }
+@media (max-width: 480px) {
+  .product-video.product-video--vertical { width: 100%; }
+}

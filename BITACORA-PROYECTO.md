@@ -757,6 +757,21 @@ próximo cambio.
 
 ---
 
+## 6.unvicies. Video en Anti-Flakardo (2026-11-03)
+
+El coach pidió subir `D:\PROYECTO FITNESS\VIDEOS\SHORT VIDEOS QUE PROBLEMA RESUELVO\FINAL.mp4`
+(1080x1920, 59,7 s, 67,5 MB, con voz) a la ficha de Anti-Flakardo. Se comprimió a
+`video/anti-flakardo-mensaje.mp4` (720x1280, H.264 crf 27, AAC 96k, **7,2 MB**) +
+portada `video/anti-flakardo-mensaje-poster.jpg`. Reemplaza el recuadro "Video
+próximamente" en `planes/anti-flakardo.html` y `en/plans/anti-flakardo.html`
+(sección `#video`, botón "Ver el video" del hero). Reproductor vertical
+(`.product-video--vertical`, 9:16, máx. 380 px), **con controles y sonido, sin
+autoplay** (`preload="none"` para no gastar datos hasta que lo toquen). Si se
+rehace el video: mismo ffmpeg (`scale=720:1280`, `libx264 -crf 27 -preset slow
+-movflags +faststart`, `aac 96k`) y reemplazar los dos archivos.
+
+---
+
 ## 7. Dónde está todo (resumen rápido)
 
 ```
